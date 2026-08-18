@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "version": "0.7.0",
+  "protocol": 1,
+  "bootstrap": true,
+  "files": [],
+  "remove": [],
+  "notes": "v0.7 ist die einmalig manuell installierte Bootstrap-Version. Ab v0.8 enthält dieses Manifest die durch SHA-256 geprüften Update-Dateien."
+}
