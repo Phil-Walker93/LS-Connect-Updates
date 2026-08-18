@@ -5,30 +5,27 @@
   "bootstrap": false,
   "files": [
     {
-      "path": "index.html",
-      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.3/files/index.html",
-      "sha256": "b0f51662e9ffeca77f6836f787ac26a52e061ce148ef598659778e93d05d9d39",
-      "size": 8765
-    },
-    {
-      "path": "v073.js",
-      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.3/files/v073.js",
-      "sha256": "6dcd48dd7cd6290a12090535ec1753ce25039e602c57521012f62673ad8d99e3",
-      "size": 4674
+      "path": "v072.js",
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.3/files/v072.exact.b64",
+      "encoding": "base64",
+      "sha256": "f70f2da34c6959939ba39807c9fa035b076e37b1dff6096f7a5e231489956068",
+      "size": 11590
     },
     {
       "path": "sw.js",
-      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.3/files/sw.js",
-      "sha256": "99bda864b51e718c37e346d200f6e07b9840676bf00963929f5d94b98da815ca",
-      "size": 2419
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.3/files/sw.exact.b64",
+      "encoding": "base64",
+      "sha256": "de487d628d8898f2868ecdafa36d5be506ae99af30d13d3dcfe73de21b720a75",
+      "size": 2406
     },
     {
       "path": "version.json",
-      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.3/files/version.json",
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.3/files/version.exact.b64",
+      "encoding": "base64",
       "sha256": "0b0d7137c08dfcebfc10d89699eac7a8bc00c8233b7ca77e306c6cf784a36bdf",
       "size": 73
     }
   ],
-  "remove": [],
-  "notes": "v0.7.3 behebt die Sichtbarkeit des eingeblendeten Schnellmenüs in der mobilen/kleinen Ansicht."
+  "remove": ["v073.js"],
+  "notes": "v0.7.3 konsolidiert den mobilen Schnellmenü-Fix in v072.js und verwendet bytegenaue Base64-Payloads für zuverlässige Updates."
 }
