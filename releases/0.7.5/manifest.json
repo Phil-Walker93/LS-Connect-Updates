@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "version": "0.7.5",
+  "protocol": 1,
+  "bootstrap": false,
+  "files": [
+    {
+      "path": "index.html",
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.5/files/index.b64",
+      "encoding": "base64",
+      "sha256": "c67e1d66ea796da5e9dffe697147677ddc72ee65faf77ef9c3269f7b59e470c9",
+      "size": 8867
+    },
+    {
+      "path": "v075.js",
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.5/files/v075.b64",
+      "encoding": "base64",
+      "sha256": "a3e0e7e2134a6ae692988cbae717b3f6e5e123313f40946bf1f037e0136e55a8",
+      "size": 4190
+    },
+    {
+      "path": "sw.js",
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.5/files/sw.b64",
+      "encoding": "base64",
+      "sha256": "be959c48581dbd64d7fd993488ef6fbe74fdb0971b9d6cd54c814bc0c3bce570",
+      "size": 2432
+    },
+    {
+      "path": "version.json",
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.5/files/version.b64",
+      "encoding": "base64",
+      "sha256": "bde10c05d7615a128f3fb8537bce58f6fe5aa3f22fb183ab3b76c01e91988196",
+      "size": 73
+    }
+  ],
+  "remove": ["v073.js"],
+  "notes": "v0.7.5 verwendet version.json als einzige Versionsquelle und behebt sowohl die falsche Installiert-Anzeige als auch den fälschlich eingeblendeten Update-Banner."
+}
