@@ -6,24 +6,21 @@
   "files": [
     {
       "path": "index.html",
-      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.4/files/index.exact.b64",
-      "encoding": "base64",
-      "sha256": "edcbce08f43324d0422fd0ec57bbab32f645217ffde562794a7ffa8e40d07744",
-      "size": 8799
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.4/files/index.fixed.html",
+      "sha256": "c0df0bfa91b3c943916ee5b078705fc6eb0f760e453bfa910855224bf9ca6971",
+      "size": 8833
     },
     {
-      "path": "v072.js",
-      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.4/files/v072.exact.b64",
-      "encoding": "base64",
-      "sha256": "d4e37dfca9b6251a0ecbdc6652dd0e441ea066fa831e31549a298a46308f48c8",
-      "size": 11992
+      "path": "v074.js",
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.4/files/v074.js",
+      "sha256": "1968c91c6ca6bd92cd0273f1e3b18242d12f8f925f126df830fc4a65ae703c64",
+      "size": 267
     },
     {
       "path": "sw.js",
-      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.4/files/sw.exact.b64",
-      "encoding": "base64",
-      "sha256": "3fcb074641b3595831573f1a150996b8052c7b42b60343ede2388654ed73552a",
-      "size": 2406
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.4/files/sw.fixed.js",
+      "sha256": "e69217812d15e8f995fd397967105233461e967dd7610d9e41825ac2e43be0dc",
+      "size": 2419
     },
     {
       "path": "version.json",
@@ -34,5 +31,5 @@
     }
   ],
   "remove": ["v073.js"],
-  "notes": "v0.7.4 behebt die auseinanderlaufenden Server-/Client-Versionen und lädt v072.js wieder zuverlässig über index.html."
+  "notes": "v0.7.4 repariert die Client-Ladekette ohne v072.js zu ersetzen: index.html lädt die bereits vorhandene v072.js wieder und v074.js synchronisiert die sichtbare Client-Version."
 }
