@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "releases": [
+    {
+      "version": "0.7.0",
+      "title": "Kanäle, Personalisierung & echter Updater",
+      "released_at": "2026-08-18T22:15:00+02:00",
+      "items": [
+        "Unternehmenskanäle zum Beitreten und Folgen",
+        "Kanalbeiträge mit Text und Bildern",
+        "Direktchats und Gruppen optisch getrennt",
+        "Chats pro Charakter mit eigenem Namen, Marker und Farbe personalisierbar",
+        "Eigene Charakterliste frei sortierbar",
+        "Profilfarben mit HEX-Eingabe und Farbwähler",
+        "Was-ist-neu-Verlauf im Drei-Punkte-Menü",
+        "Zentrale Updatequelle mit lokalem Selbst-Updater für kommende Versionen"
+      ]
+    },
+    {
+      "version": "0.6.0",
+      "title": "Lange Chatverläufe",
+      "items": [
+        "Chatbereich bleibt im sichtbaren Fenster",
+        "Ältere Nachrichten werden beim Hochscrollen nachgeladen",
+        "Stabilere Scrollposition und Realtime-Aktualisierung"
+      ]
+    },
+    {
+      "version": "0.5.0",
+      "title": "Profile, Kontakte & Handymodus",
+      "items": [
+        "Charaktere nachträglich bearbeiten, deaktivieren und löschen",
+        "Eigene Kontaktnamen",
+        "Verbesserter Smartphone-/PWA-Modus",
+        "Robuster Doppelklick-Start per BAT"
+      ]
+    }
+  ]
+}
