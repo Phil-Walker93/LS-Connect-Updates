@@ -27,6 +27,12 @@
       "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.1/files/version.json",
       "sha256": "a88529fecc089cc22375392d099f32a4ec95bdec7efd2c4bc3c03bb4ded1f42d",
       "size": 73
+    },
+    {
+      "path": "LS-Connect-Server.ps1",
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.1/files/LS-Connect-Server.ps1",
+      "sha256": "90ef0d23dbf27e7fa0a7a40e8e28cc0f7b5e1b80fce2e5f135297d27f98a51e0",
+      "size": 17630
     }
   ],
   "remove": [],
