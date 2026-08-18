@@ -1,7 +1,7 @@
 const VERSION = '0.7.3';
 const CACHE = `ls-connect-v${VERSION}`;
 const SHELL = ['./', './index.html', './styles.css', './app.js', './v04.js', './v05.js', './v06.js',
-  './v07.js', './v071.js', './v072.js', './v073.js', './config.js', './manifest.webmanifest',
+  './v07.js', './v071.js', './v072.js', './config.js', './manifest.webmanifest',
   './version.json', './icon.svg', './icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', event => {
