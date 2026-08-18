@@ -1,16 +1,16 @@
 {
   "schema": 2,
   "channel": "stable",
-  "version": "0.7.1",
-  "released_at": "2026-08-18T23:20:00+02:00",
+  "version": "0.7.2",
+  "released_at": "2026-08-18T23:58:00+02:00",
   "minimum_updater_version": "0.7.0",
   "updater_protocol": 1,
-  "manifest_url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.1/manifest.json",
+  "manifest_url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.2/manifest.json",
   "mandatory": false,
   "notes": [
-    "Info-/Profilansicht lässt sich auf mobilen und kompakten Ansichten wieder zuverlässig schließen.",
-    "Gelöschte Charaktere sind im Admin-Paneel in einem eigenen Papierkorb getrennt.",
-    "Admins können gelöschte Charaktere wiederherstellen.",
-    "Admins können gelöschte Charaktere endgültig anonymisieren und aus dem Papierkorb entfernen."
+    "Schnellzugriffe können über × ausgeblendet und über ein Zahnrad unten links wieder geöffnet werden.",
+    "Der ausgeblendete Zustand bleibt lokal gespeichert.",
+    "Unternehmenskanäle erscheinen in der Seitenleiste nur noch bei Charakteren, die ihnen tatsächlich folgen.",
+    "Beitreten und Verlassen sind strikt an den aktuell aktiven Charakter gebunden."
   ]
 }
