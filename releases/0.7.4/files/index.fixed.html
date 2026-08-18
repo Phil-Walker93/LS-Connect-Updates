@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b1220" />
+  <meta name="description" content="LS Connect v0.7.4 – RP Messenger mit Unternehmenskanälen, Chat-Personalisierung, sortierbaren Charakteren und automatischem Updater" />
+  <title>LS Connect</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+  <div id="updateBanner" class="update-banner hidden" role="status" aria-live="polite">
+    <div><strong id="updateVersionText">Neue LS-Connect-Version verfügbar</strong><span>Deine Daten bleiben erhalten.</span></div>
+    <div class="update-actions"><button id="dismissUpdateButton" type="button">Später</button><button id="applyUpdateButton" type="button">Jetzt aktualisieren</button></div>
+  </div>
+
+  <section id="authScreen" class="auth-screen hidden">
+    <div class="auth-card">
+      <div class="auth-brand">
+        <div class="brand-mark large">LS</div>
+        <div>
+          <h1>LS Connect</h1>
+          <p>Dein Roleplay-Messenger</p>
+        </div>
+      </div>
+
+      <div class="auth-tabs">
+        <button id="loginTab" class="auth-tab active" type="button">Anmelden</button>
+        <button id="registerTab" class="auth-tab" type="button">Registrieren</button>
+      </div>
+
+      <form id="authForm" class="auth-form">
+        <label>
+          E-Mail
+          <input id="authEmail" type="email" autocomplete="email" required placeholder="name@beispiel.de" />
+        </label>
+        <label>
+          Passwort
+          <input id="authPassword" type="password" minlength="6" autocomplete="current-password" required placeholder="Mindestens 6 Zeichen" />
+        </label>
+        <button id="authSubmit" class="primary-button" type="submit">Anmelden</button>
+      </form>
+
+      <p id="authHint" class="auth-hint">Dein echter Login ist für andere RP-Spieler nicht sichtbar.</p>
+      <div class="auth-separator"><span>oder</span></div>
+      <button id="demoButton" class="ghost-button wide" type="button">Demo-Modus starten</button>
+    </div>
+  </section>
+
+  <div id="app" class="app-shell hidden">
+    <aside class="sidebar">
+      <div class="brand-row">
+        <div class="brand-mark">LS</div>
+        <div class="brand-copy">
+          <h1>LS Connect</h1>
+          <span id="connectionLabel">Roleplay Messenger</span>
+        </div>
+        <button id="accountButton" class="round-button" type="button" title="Konto">⋯</button>
+      </div>
+
+      <div class="character-switch-wrap">
+        <button id="characterSwitcher" class="character-switcher" type="button">
+          <img id="activeCharacterAvatar" alt="Aktiver Charakter" />
+          <div>
+            <strong id="activeCharacterName">Charakter auswählen</strong>
+            <span id="activeCharacterHandle">—</span>
+          </div>
+          <span class="switch-icon">⌄</span>
+        </button>
+        <div id="characterMenu" class="character-menu hidden"></div>
+      </div>
+
+      <div class="search-wrap">
+        <input id="searchInput" type="search" placeholder="Chats durchsuchen..." />
+      </div>
+
+      <div class="section-row">
+        <span class="section-label">Chats</span>
+        <button id="newChatIcon" class="mini-button" type="button" title="Neuer Chat">＋</button>
+      </div>
+      <div id="chatList" class="chat-list"></div>
+
+      <div class="section-row channel-section-row">
+        <span class="section-label">Unternehmenskanäle</span>
+        <button id="browseChannelsButton" class="mini-button" type="button" title="Kanäle entdecken">＋</button>
+      </div>
+      <div id="channelList" class="channel-list"></div>
+
+      <div class="sidebar-actions">
+        <button id="storiesButton" class="ghost-button">◉ Status / Stories</button>
+        <button id="channelsButton" class="ghost-button">▣ Unternehmenskanäle</button>
+        <button id="contactsButton" class="ghost-button">Kontakte & Anfragen</button>
+        <button id="newGroupButton" class="ghost-button">＋ Gruppe erstellen</button>
+        <button id="joinGroupButton" class="ghost-button">↪ Gruppenlink beitreten</button>
+        <button id="newCharacterButton" class="ghost-button">＋ Charakter erstellen</button>
+        <button id="manageCharactersButton" class="ghost-button">⚙ Charaktere verwalten</button>
+        <button id="themeButton" class="ghost-button">Darstellung wechseln</button>
+      </div>
+    </aside>
+
+    <main id="conversationPanel" class="conversation-panel">
+      <header class="conversation-header">
+        <button id="mobileBackButton" class="mobile-back-button" type="button" aria-label="Zurück">‹</button>
+        <div class="contact-title">
+          <img id="contactAvatar" alt="Kontakt" />
+          <div>
+            <strong id="contactName">Chat auswählen</strong>
+            <span id="contactStatus">Nicht verbunden</span>
+          </div>
+        </div>
+        <div class="header-actions">
+          <button id="callButton" title="RP-Anruf">☎</button>
+          <button id="profileToggleButton" title="Info">ⓘ</button>
+        </div>
+      </header>
+
+      <section id="messages" class="messages"></section>
+
+      <div class="composer-stack">
+        <div id="replyBar" class="reply-bar hidden">
+          <div><strong id="replyAuthor">Antwort</strong><span id="replyText">—</span></div>
+          <button id="cancelReplyButton" type="button" aria-label="Antwort abbrechen">×</button>
+        </div>
+        <form id="messageForm" class="composer">
+          <button id="chatToolsButton" type="button" class="icon-button" title="Chat-Aktionen">⋯</button>
+          <button id="attachButton" type="button" class="icon-button" title="Bild oder Datei senden">＋</button>
+          <button id="voiceButton" type="button" class="icon-button" title="Sprachnachricht aufnehmen">🎙</button>
+          <input id="messageInput" type="text" maxlength="4000" placeholder="Nachricht schreiben..." autocomplete="off" />
+          <button class="send-button" type="submit" aria-label="Senden">➤</button>
+          <input id="attachmentInput" class="hidden" type="file" accept="image/jpeg,image/png,image/webp,image/gif,application/pdf,text/plain,text/csv,.docx,.xlsx" />
+        </form>
+      </div>
+    </main>
+
+    <aside id="profilePanel" class="profile-panel">
+      <button id="closeProfilePanelButton" class="profile-panel-close" type="button" aria-label="Info schließen">×</button>
+      <div class="profile-card">
+        <img id="profileAvatar" alt="Profil" />
+        <h2 id="profileName">Kein Chat</h2>
+        <div id="profileHandle" class="profile-handle">—</div>
+        <p id="profileBio">Wähle links einen Chat aus.</p>
+      </div>
+
+      <div class="info-card">
+        <div><span>Telefon</span><strong id="profilePhone">—</strong></div>
+        <div><span>Typ</span><strong id="profileType">—</strong></div>
+        <div id="profileSavedAsRow" class="hidden"><span>Gespeichert als</span><strong id="profileSavedAs">—</strong></div>
+        <div><span>Status</span><strong id="profileStatus">—</strong></div>
+      </div>
+    </aside>
+
+    <nav class="mobile-nav" aria-label="Mobile Navigation">
+      <button type="button" class="active" data-mobile-action="chats"><span>☰</span><small>Chats</small></button>
+      <button type="button" data-mobile-action="contacts"><span>♙</span><small>Kontakte</small></button>
+      <button type="button" class="mobile-nav-new" data-mobile-action="new"><span>＋</span><small>Neu</small></button>
+      <button type="button" data-mobile-action="stories"><span>◉</span><small>Status</small></button>
+      <button type="button" data-mobile-action="channels"><span>▣</span><small>Kanäle</small></button>
+      <button type="button" data-mobile-action="profile"><span>◎</span><small>Profile</small></button>
+    </nav>
+  </div>
+
+  <div id="modalBackdrop" class="modal-backdrop hidden">
+    <div id="modal" class="modal" role="dialog" aria-modal="true">
+      <div class="modal-header">
+        <h2 id="modalTitle">LS Connect</h2>
+        <button id="closeModalButton" type="button">×</button>
+      </div>
+      <div id="modalContent" class="modal-content"></div>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.111.0"></script>
+  <script src="app.js"></script>
+  <script src="v04.js"></script>
+  <script src="v05.js"></script>
+  <script src="v06.js"></script>
+  <script src="v07.js"></script>
+  <script src="v071.js"></script>
+  <script src="v072.js"></script>
+  <script src="v074.js"></script>
+</body>
+</html>
