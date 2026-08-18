@@ -2,6 +2,18 @@
   "schema": 1,
   "releases": [
     {
+      "version": "0.7.2",
+      "title": "Schnellmenü & charaktergebundene Kanäle",
+      "released_at": "2026-08-18T23:58:00+02:00",
+      "items": [
+        "Schnellzugriffe in der Seitenleiste lassen sich über × ausblenden",
+        "Ein kleines Zahnrad unten links blendet die Schnellzugriffe wieder ein",
+        "Der ausgeblendete Zustand bleibt nach einem Neustart erhalten",
+        "Unternehmenskanäle erscheinen links nur noch bei dem Charakter, der ihnen tatsächlich folgt",
+        "Beitreten und Verlassen wirken strikt auf den aktuell aktiven Charakter"
+      ]
+    },
+    {
       "version": "0.7.1",
       "title": "Admin-Papierkorb & Info-Fix",
       "released_at": "2026-08-18T23:20:00+02:00",
