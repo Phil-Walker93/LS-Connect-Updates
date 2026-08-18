@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "version": "0.7.1",
+  "protocol": 1,
+  "bootstrap": false,
+  "files": [
+    {
+      "path": "index.html",
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.1/files/index.html",
+      "sha256": "27f0ba0df3bffdb81f9f726279df3facf0f6741a223797ed211d13c2918a1302",
+      "size": 8765
+    },
+    {
+      "path": "v071.js",
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.1/files/v071.js",
+      "sha256": "2e5035fab19b2ebd2cc9f54b2afc136fa5b79943f0de3c2306aec8edab8e4bc4",
+      "size": 15309
+    },
+    {
+      "path": "sw.js",
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.1/files/sw.js",
+      "sha256": "2c3fc613f655efbe89a9adaca077db428cd4eefecd9b1615a8ea3db17d700571",
+      "size": 2522
+    },
+    {
+      "path": "version.json",
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.1/files/version.json",
+      "sha256": "a88529fecc089cc22375392d099f32a4ec95bdec7efd2c4bc3c03bb4ded1f42d",
+      "size": 73
+    }
+  ],
+  "remove": [],
+  "notes": "v0.7.1 behebt das nicht schließbare Info-/Profiloverlay und ergänzt den getrennten Admin-Papierkorb mit Wiederherstellung und endgültiger Anonymisierung."
+}
