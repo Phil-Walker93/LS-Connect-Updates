@@ -1,15 +1,15 @@
 {
   "schema": 2,
   "channel": "stable",
-  "version": "0.7.3",
-  "released_at": "2026-08-19T00:15:00+02:00",
+  "version": "0.7.4",
+  "released_at": "2026-08-19T00:42:00+02:00",
   "minimum_updater_version": "0.7.0",
   "updater_protocol": 1,
-  "manifest_url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.3/manifest.json",
+  "manifest_url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.4/manifest.json",
   "mandatory": false,
   "notes": [
-    "Das eingeblendete Schnellmenü wird jetzt auch in der mobilen/kleinen Ansicht sichtbar.",
-    "Die mobile Seitenleiste kann bei eingeblendeten Schnellzugriffen vertikal scrollen.",
-    "Das Zahnrad bleibt oberhalb der mobilen Navigation erreichbar."
+    "Behebt die auseinanderlaufenden Server-/Client-Versionen nach dem Update.",
+    "index.html lädt v072.js wieder zuverlässig.",
+    "Der Update-Hinweis verschwindet nach erfolgreicher Installation wieder korrekt."
   ]
 }
