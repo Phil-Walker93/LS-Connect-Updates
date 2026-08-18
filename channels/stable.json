@@ -3,14 +3,15 @@
   "channel": "stable",
   "version": "0.6.0",
   "released_at": "2026-08-18T21:45:00+02:00",
-  "minimum_updater_version": "0.7.0",
-  "download_url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.6.0/LS-Connect-v0.6-Online.zip",
-  "sha256": "228af505e9caf4294a95c0db77c44771f1834e68ab880eb83d27e9173d64d168",
-  "size_bytes": 120024,
+  "updater_bootstrap_version": "0.7.0",
+  "package_available": false,
+  "download_url": null,
+  "sha256": null,
+  "size_bytes": null,
   "mandatory": false,
   "notes": [
-    "Chatbereich bleibt innerhalb des sichtbaren Fensters.",
-    "Ältere Nachrichten werden beim Hochscrollen schrittweise nachgeladen.",
-    "Doppelklick-Start über LS-Connect-Start.bat bleibt erhalten."
+    "Die zentrale Updatequelle ist eingerichtet.",
+    "v0.7 wird die erste Version mit echtem Selbst-Updater.",
+    "Bis v0.7 bleibt der Paketdownload bewusst deaktiviert, damit kein unvollständiges Update ausgeliefert wird."
   ]
 }
