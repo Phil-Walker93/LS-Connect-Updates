@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "channel": "stable",
+  "version": "0.6.0",
+  "released_at": "2026-08-18T21:45:00+02:00",
+  "minimum_updater_version": "0.7.0",
+  "download_url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.6.0/LS-Connect-v0.6-Online.zip",
+  "sha256": "228af505e9caf4294a95c0db77c44771f1834e68ab880eb83d27e9173d64d168",
+  "size_bytes": 120024,
+  "mandatory": false,
+  "notes": [
+    "Chatbereich bleibt innerhalb des sichtbaren Fensters.",
+    "Ältere Nachrichten werden beim Hochscrollen schrittweise nachgeladen.",
+    "Doppelklick-Start über LS-Connect-Start.bat bleibt erhalten."
+  ]
+}
