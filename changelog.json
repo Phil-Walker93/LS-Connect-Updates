@@ -2,6 +2,17 @@
   "schema": 1,
   "releases": [
     {
+      "version": "0.7.1",
+      "title": "Admin-Papierkorb & Info-Fix",
+      "released_at": "2026-08-18T23:20:00+02:00",
+      "items": [
+        "Info-/Profilansicht kann auf Handy und kompakten Fenstern zuverlässig geschlossen werden",
+        "Gelöschte Charaktere sind im Admin-Paneel in einem eigenen Papierkorb getrennt",
+        "Admins können gelöschte Charaktere wiederherstellen",
+        "Admins können gelöschte Charaktere irreversibel anonymisieren und endgültig aus dem Papierkorb entfernen"
+      ]
+    },
+    {
       "version": "0.7.0",
       "title": "Kanäle, Personalisierung & echter Updater",
       "released_at": "2026-08-18T22:15:00+02:00",
