@@ -6,25 +6,25 @@
   "files": [
     {
       "path": "index.html",
-      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.3/files/index.html",
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/5810e5a95181d08b3b6b9878e124218b2e795c66/releases/0.7.3/files/index.html",
       "sha256": "b0f51662e9ffeca77f6836f787ac26a52e061ce148ef598659778e93d05d9d39",
       "size": 8765
     },
     {
       "path": "v073.js",
-      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.3/files/v073.js",
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/5810e5a95181d08b3b6b9878e124218b2e795c66/releases/0.7.3/files/v073.js",
       "sha256": "6dcd48dd7cd6290a12090535ec1753ce25039e602c57521012f62673ad8d99e3",
       "size": 4674
     },
     {
       "path": "sw.js",
-      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.3/files/sw.js",
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/5810e5a95181d08b3b6b9878e124218b2e795c66/releases/0.7.3/files/sw.js",
       "sha256": "99bda864b51e718c37e346d200f6e07b9840676bf00963929f5d94b98da815ca",
       "size": 2419
     },
     {
       "path": "version.json",
-      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.3/files/version.json",
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/5810e5a95181d08b3b6b9878e124218b2e795c66/releases/0.7.3/files/version.json",
       "sha256": "0b0d7137c08dfcebfc10d89699eac7a8bc00c8233b7ca77e306c6cf784a36bdf",
       "size": 73
     }
