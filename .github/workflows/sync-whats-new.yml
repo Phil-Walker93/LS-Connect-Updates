@@ -1,0 +1,129 @@
+name: Sync Was ist neu
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'latest.json'
+      - 'channels/stable.json'
+      - 'releases/**/manifest.json'
+      - '.github/workflows/sync-whats-new.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync-changelog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Sync changelog
+        shell: python
+        run: |
+          import json
+          from pathlib import Path
+
+          changelog_path = Path('changelog.json')
+          latest_path = Path('latest.json')
+
+          changelog = json.loads(changelog_path.read_text(encoding='utf-8'))
+          releases = changelog.setdefault('releases', [])
+          existing = {str(item.get('version')) for item in releases}
+
+          # Einmalige Nachpflege der Hotfixes, die vor Einführung dieser Automatik
+          # bereits Stable waren, aber im zentralen Changelog fehlten.
+          bootstrap = [
+              {
+                  'version': '0.7.10.1',
+                  'title': 'Kompatibilitäts- & Layout-Hotfix',
+                  'released_at': '2026-08-19T19:04:00+02:00',
+                  'items': [
+                      'Backend-Prüfung verwendet die tatsächlich installierte App-Version aus version.json',
+                      'Die falsche Meldung, v0.7.10 sei neuer als der bereits laufende Client, ist behoben',
+                      'Kompatibilitätswarnungen werden nicht mehr als Grid-Element in das Hauptlayout eingefügt',
+                      'Die auseinandergerissene Desktop-Chatansicht wird dadurch wiederhergestellt',
+                      'Online und Desktop/BAT verwenden denselben v0.7.10.1-Hotfix'
+                  ]
+              },
+              {
+                  'version': '0.7.10.2',
+                  'title': 'Mobile Navigation aufgeräumt',
+                  'released_at': '2026-08-19T19:13:00+02:00',
+                  'items': [
+                      'Der obere Status-/Stories-Eintrag wird auf Mobilgeräten ausgeblendet, da Status bereits unten vorhanden ist',
+                      'Das schwebende Zahnrad wird auf Mobilgeräten entfernt',
+                      'Der bisherige Einstellungen-Eintrag heißt auf Mobilgeräten jetzt Mehr und öffnet die Schnellzugriffe',
+                      'Konto & Verbindung bleibt getrennt über das Drei-Punkte-Menü erreichbar',
+                      'Desktop/BAT behält das bisherige Zahnrad-Verhalten unverändert'
+                  ]
+              },
+              {
+                  'version': '0.7.10.3',
+                  'title': 'Rufnummernweiterleitung sichtbar gemacht',
+                  'released_at': '2026-08-19T19:39:00+02:00',
+                  'items': [
+                      'Rufnummernweiterleitung ist als eigener Punkt unter Mehr erreichbar',
+                      'Eigener Dialog zum Aktivieren, Deaktivieren und Ändern der Zielnummer',
+                      'Konto & Verbindung erhält zusätzlich einen direkten Telefon-Shortcut',
+                      'Die bestehenden abgesicherten v0.7.10-Backendfunktionen werden weiterverwendet',
+                      'Online-Version erhält einen cache-unabhängigen Latest-Proxy für schnellere Stable-Aktualisierungen'
+                  ]
+              }
+          ]
+
+          for entry in bootstrap:
+              if entry['version'] not in existing:
+                  releases.append(entry)
+                  existing.add(entry['version'])
+
+          # Ab jetzt wird jede neue Stable-Version automatisch aus latest.json
+          # in "Was ist neu?" übernommen.
+          latest = json.loads(latest_path.read_text(encoding='utf-8'))
+          version = str(latest.get('version') or '').strip()
+          if version and version not in existing:
+              notes = latest.get('notes') or []
+              if isinstance(notes, str):
+                  notes = [notes]
+              notes = [str(x).strip() for x in notes if str(x).strip()]
+              title = str(latest.get('title') or '').strip()
+              if not title:
+                  title = (notes[0].rstrip('.')) if notes else f'LS Connect v{version}'
+              releases.append({
+                  'version': version,
+                  'title': title,
+                  'released_at': latest.get('released_at'),
+                  'items': notes or [f'LS Connect v{version} veröffentlicht']
+              })
+
+          def semver_key(item):
+              raw = str(item.get('version') or '0')
+              parts = []
+              for part in raw.split('.'):
+                  try:
+                      parts.append(int(part))
+                  except ValueError:
+                      parts.append(0)
+              return tuple(parts + [0] * (6 - len(parts)))
+
+          releases.sort(key=semver_key, reverse=True)
+          changelog_path.write_text(
+              json.dumps(changelog, ensure_ascii=False, indent=2) + '\n',
+              encoding='utf-8'
+          )
+
+      - name: Commit changelog when changed
+        run: |
+          if git diff --quiet -- changelog.json; then
+            echo "Was ist neu ist bereits aktuell."
+            exit 0
+          fi
+          git config user.name "LS Connect Release Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add changelog.json
+          git commit -m "Sync Was ist neu with stable release"
+          git push
