@@ -2,6 +2,35 @@
   "schema": 1,
   "releases": [
     {
+      "version": "0.7.10",
+      "title": "Kommunikation & Moderation",
+      "released_at": "2026-08-19T18:52:00+02:00",
+      "items": [
+        "Ticket-Unterhaltungen zwischen Administration und Ticket-Ersteller können nach dem Start durch einen Admin direkt im Ticket geführt werden",
+        "Abgeschlossene Tickets behalten ihren Gesprächsverlauf, werden aber schreibgeschützt",
+        "Admin-Hinweise können global gelöscht oder von einem einzelnen Charakter aus der eigenen Ansicht ausgeblendet werden",
+        "Neuer Charaktertyp Kriminelle Organisation: in der normalen Kontaktsuche verborgen und nur selbst initiierte Kontaktanfragen möglich",
+        "Eigene RP-Charaktere desselben Master-Accounts können gegenseitig Kontakte werden und normal miteinander kommunizieren",
+        "Neue Rufnummernweiterleitung für eingehende LS-Connect-Anrufe mit Erhalt des ursprünglichen Anrufziels",
+        "Story-Neu-Anzeigen bleiben pro Charakter an den vorhandenen Gesehen-Status gekoppelt",
+        "Online und Desktop/BAT verwenden denselben v0.7.10-Clientpatch und denselben Backendstand"
+      ]
+    },
+    {
+      "version": "0.7.9.5",
+      "title": "Hybrid UI & Komfort",
+      "released_at": "2026-08-19T18:30:00+02:00",
+      "items": [
+        "App-Version in der Hybrid-Statuskarte wird dynamisch aus version.json gelesen",
+        "Admin-Panel skaliert responsiv bis zur vollflächigen Mobilansicht",
+        "Ticket-Prioritätsfilter und Charaktertyp-Filter ergänzt",
+        "Admin-Hinweise folgen Dark- und Light-Mode",
+        "Mobile Schnellzugriffe neu gruppiert und übersichtlicher gestaltet",
+        "Stories bleiben unabhängig vom Zahnrad dauerhaft erreichbar",
+        "Neue Stories erhalten einen einfachen Neu-Indikator ohne Zähler"
+      ]
+    },
+    {
       "version": "0.7.9.1",
       "title": "Admin-Panel segmentiert",
       "released_at": "2026-08-19T17:48:00+02:00",
