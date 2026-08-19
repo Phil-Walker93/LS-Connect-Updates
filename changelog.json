@@ -2,6 +2,18 @@
   "schema": 1,
   "releases": [
     {
+      "version": "0.7.8.1",
+      "title": "Chat-Eingabefeld Hotfix",
+      "released_at": "2026-08-19T16:02:00+02:00",
+      "items": [
+        "Schreibfeld im Chat wieder dauerhaft sichtbar",
+        "Werkzeugbuttons, Texteingabe und Senden wieder kompakt ausgerichtet",
+        "Fehlerhaftes Umbrechen des Chat-Composers auf breiten Ansichten behoben",
+        "Mehrzeilige Nachrichten wachsen kontrolliert bis zu einer sinnvollen Maximalhöhe",
+        "Mobile Composer-Darstellung zusätzlich stabilisiert"
+      ]
+    },
+    {
       "version": "0.7.8",
       "title": "Ungelesen, Favoriten & Admin-Hinweise",
       "released_at": "2026-08-19T07:10:00+02:00",
