@@ -5,81 +5,79 @@
   "bootstrap": false,
   "files": [
     {
-      "path": "v075.js",
-      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.6/final/v075_js.b64",
-      "encoding": "base64",
-      "sha256": "edacae36e61ed0cd409afd8970858bdd66a5f02bb232ecb91a593926bb2b3af3",
-      "size": 5405
+      "path": "index.html",
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.6/files/index_html.b64",
+      "sha256": "d6a6826ad0301390d322beab9e20bcf0ee975b9c850589f051572ee2f0346454",
+      "size": 9140,
+      "encoding": "base64"
     },
     {
       "path": "v076a.js",
       "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.6/files/v076a_js.b64",
-      "encoding": "base64",
       "sha256": "914eb187f52cd8457cffbb12fbc1019b79efa97a74326ed284e8f7765c1537ae",
-      "size": 6709
+      "size": 6709,
+      "encoding": "base64"
     },
     {
       "path": "v076b.js",
       "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.6/files/v076b_js.b64",
-      "encoding": "base64",
       "sha256": "42d7a6cb5ff384223b22ea7b7b3327eda585c077b91a3498307398e8edccef9b",
-      "size": 11460
+      "size": 11460,
+      "encoding": "base64"
     },
     {
       "path": "v076call.js",
-      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.6/final/v076call_js.b64",
-      "encoding": "base64",
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.6/files/v076call_js.b64",
       "sha256": "11836c8a3c0e85aeb3b7b07a0a0078787fa8e926e51ed74cb8b9a1accc91e258",
-      "size": 1097
+      "size": 1097,
+      "encoding": "base64"
     },
     {
       "path": "v076ticket-user.js",
-      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.6/final/v076ticket_user_js.b64",
-      "encoding": "base64",
-      "sha256": "b5d2cb1f74963829259ac967678ad341ba11636df0a8cf2247278d78c167fb66",
-      "size": 3138
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.6/files/v076ticket-user.js",
+      "sha256": "63b09bb1329990880762bbddbe058e49152be0b800261789417a384ce38486b6",
+      "size": 3077
     },
     {
       "path": "v076ticket-admin.js",
-      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.6/final/v076ticket_admin_js.b64",
-      "encoding": "base64",
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.6/files/v076ticket-admin_js.b64",
       "sha256": "61900f040a54fe9881e385fbe3ae627597adaab59d432b1aa3ad506a6ccd8ba7",
-      "size": 4388
+      "size": 4388,
+      "encoding": "base64"
     },
     {
       "path": "v076order.js",
-      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.6/files/v076c2_js.b64",
-      "encoding": "base64",
-      "sha256": "969dfb7316de8379d06d7d92f4e77dba878976d1a9555a132d0fca42f9d36e6b",
-      "size": 3262
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.6/files/v076order.js",
+      "sha256": "f7fe1204b4c7f7647e2b96fdf538ff41d08804c54e6a5afb8e460ad315b89339",
+      "size": 3337
     },
     {
       "path": "v076d.js",
       "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.6/files/v076d_js.b64",
-      "encoding": "base64",
       "sha256": "261b6faa0a78b59844f7e0411b9fe269d3f36c44fd43076eef6eb067dc909bcb",
-      "size": 3970
+      "size": 3970,
+      "encoding": "base64"
     },
     {
       "path": "sw.js",
-      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.6/final/sw_js.b64",
-      "encoding": "base64",
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.6/files/sw_js.b64",
       "sha256": "494eb73b885112a59fc3707ca9a98a0b4d12772a2048091a08ea33db879741a8",
-      "size": 2558
-    },
-    {
-      "path": "version.json",
-      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.6/files/version_json.b64",
-      "encoding": "base64",
-      "sha256": "2b6fbe2ae810cc811a2783f350fe77bfb185fac30306b2b05ad7531bc998bda5",
-      "size": 73
+      "size": 2558,
+      "encoding": "base64"
     },
     {
       "path": "manifest.webmanifest",
       "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.6/files/manifest_webmanifest.b64",
-      "encoding": "base64",
       "sha256": "1dd09a991a33099a7d54b8266e54d06350560f12303df13c8f53dfb990a4d012",
-      "size": 827
+      "size": 827,
+      "encoding": "base64"
+    },
+    {
+      "path": "version.json",
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.6/files/version_json.b64",
+      "sha256": "2b6fbe2ae810cc811a2783f350fe77bfb185fac30306b2b05ad7531bc998bda5",
+      "size": 73,
+      "encoding": "base64"
     }
   ],
   "remove": [
@@ -89,5 +87,5 @@
     "v076c1.js",
     "v076c2.js"
   ],
-  "notes": "v0.7.6 bündelt 5 Bugfixes, 4 größere Funktionen und 2 UI-/Usability-Verbesserungen inklusive Ticket-System, Chat-Archiv und zuverlässiger Unread-/Call-Anzeige."
+  "notes": "v0.7.6 behebt die gemeldeten Chat-, Anruf-, Kanal-, Reihenfolge- und Changelogfehler und erweitert LS Connect um Unread-Anzeigen, Archivierung, Emojis und ein Ticket-System."
 }
