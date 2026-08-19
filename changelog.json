@@ -2,6 +2,17 @@
   "schema": 1,
   "releases": [
     {
+      "version": "0.7.7.3",
+      "title": "Unternehmenskanäle löschen",
+      "released_at": "2026-08-19T05:16:00+02:00",
+      "items": [
+        "Eigentümer bzw. Gründer eines Unternehmensprofils können den eigenen Unternehmenskanal endgültig löschen",
+        "App-Admins erhalten im Admin-Panel einen eigenen Kanäle-Tab und können dort jeden Unternehmenskanal löschen",
+        "Kanalbilder werden vor dem endgültigen Löschen aus dem privaten Storage entfernt",
+        "Follower und Kanalbeiträge werden durch die bestehenden Cascade-Beziehungen zusammen mit dem Kanal entfernt"
+      ]
+    },
+    {
       "version": "0.7.7.2",
       "title": "Robuster Start-Hotfix",
       "released_at": "2026-08-19T04:30:00+02:00",
