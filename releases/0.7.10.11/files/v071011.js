@@ -36,11 +36,11 @@ function v071011MeasureAndApply(bodyEl,source,{force=false}={}){
   const width=Math.max(1,Math.round(bodyEl.getBoundingClientRect().width||bodyEl.clientWidth||0));
   const mobile=matchMedia('(max-width:700px)').matches;
   const limit=mobile?176:220;
-  const sameMeasurement=!force
-    && bodyEl.dataset.v071011Measured==='1'
-    && bodyEl.dataset.v071011SourceKey===key
+  const sameTarget=bodyEl.dataset.v071011SourceKey===key
     && bodyEl.dataset.v071011Width===String(width);
-  if(sameMeasurement)return;
+  const sameMeasurement=!force&&sameTarget&&bodyEl.dataset.v071011Measured==='1';
+  const samePending=sameTarget&&bodyEl.dataset.v071011MeasurePending==='1';
+  if(sameMeasurement||samePending)return;
 
   const sourceChanged=bodyEl.dataset.v071011SourceKey!==key;
   if(sourceChanged)bodyEl.dataset.v071011Expanded='0';
@@ -48,11 +48,15 @@ function v071011MeasureAndApply(bodyEl,source,{force=false}={}){
 
   v071011RemoveMore(bodyEl);
   bodyEl.dataset.v071011Measured='0';
+  bodyEl.dataset.v071011MeasurePending='1';
   bodyEl.dataset.v071011SourceKey=key;
   bodyEl.dataset.v071011Width=String(width);
+  const token=String((Number(bodyEl.dataset.v071011MeasureToken||0)+1));
+  bodyEl.dataset.v071011MeasureToken=token;
 
   requestAnimationFrame(()=>{
-    if(!bodyEl.isConnected)return;
+    if(!bodyEl.isConnected||bodyEl.dataset.v071011MeasureToken!==token)return;
+    bodyEl.dataset.v071011MeasurePending='0';
     const fullHeight=Math.ceil(bodyEl.scrollHeight);
     const shouldCollapse=fullHeight>limit+12;
     bodyEl.dataset.v071011Measured='1';
