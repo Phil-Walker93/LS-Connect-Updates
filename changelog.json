@@ -2,6 +2,52 @@
   "schema": 1,
   "releases": [
     {
+      "version": "0.7.6",
+      "title": "Großer Stabilitäts- & Komfortpatch",
+      "released_at": "2026-08-19T02:03:00+02:00",
+      "items": [
+        "Antwortvorschauen bleiben vollständig innerhalb der Nachrichtenbox",
+        "Eingehende Anrufe werden über Realtime plus Polling-Fallback zuverlässig angezeigt",
+        "Unternehmenskanal-Posts lassen sich wieder ohne Content-Constraint-Fehler löschen",
+        "Deutlich größere Emoji-Auswahl für Reaktionen und Kontaktnamen",
+        "Chats können pro Charakter archiviert und später wiederhergestellt werden",
+        "Chats mit endgültig gelöschten Charakteren können aus der eigenen Chatliste entfernt werden, ohne den historischen Verlauf serverseitig zu zerstören",
+        "Gelesene Nachrichten zeigen einen deutlich blauen Doppelhaken",
+        "Die Charakterreihenfolge wird nach dem Speichern serverseitig verifiziert und zuverlässig übernommen",
+        "Neue Nachrichten erhalten sichtbare Unread-Badges und Hervorhebungen",
+        "Der grüne Online-Punkt steht direkt neben dem Kontaktnamen",
+        "Neues Ticket-System für Bugs, Änderungsvorschläge und Verbesserungsideen mit Admin-Status Offen, In Bearbeitung und Abgeschlossen",
+        "Was ist neu? lädt wieder den aktuellen zentralen Changelog"
+      ]
+    },
+    {
+      "version": "0.7.5",
+      "title": "Einheitliche Versionsquelle",
+      "released_at": "2026-08-19T01:10:00+02:00",
+      "items": [
+        "Versionsanzeige und Update-Prüfung verwenden version.json als gemeinsame Quelle",
+        "Update-Banner verschwindet nach erfolgreicher Installation wieder korrekt"
+      ]
+    },
+    {
+      "version": "0.7.4",
+      "title": "Client-Ladefix",
+      "released_at": "2026-08-19T00:42:00+02:00",
+      "items": [
+        "Server- und Client-Versionen wurden wieder synchronisiert",
+        "Die v0.7.2-Funktionsschicht wird wieder zuverlässig geladen"
+      ]
+    },
+    {
+      "version": "0.7.3",
+      "title": "Mobiles Schnellmenü",
+      "released_at": "2026-08-19T00:15:00+02:00",
+      "items": [
+        "Das eingeblendete Schnellmenü wird auch auf kleinen und mobilen Ansichten angezeigt",
+        "Die mobile Seitenleiste bleibt bei eingeblendeten Schnellzugriffen scrollbar"
+      ]
+    },
+    {
       "version": "0.7.2",
       "title": "Schnellmenü & charaktergebundene Kanäle",
       "released_at": "2026-08-18T23:58:00+02:00",
