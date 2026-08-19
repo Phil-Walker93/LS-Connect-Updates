@@ -2,6 +2,16 @@
   "schema": 1,
   "releases": [
     {
+      "version": "0.7.6.5",
+      "title": "Früher v0.7.7-Zwischenpatch",
+      "released_at": "2026-08-19T03:13:00+02:00",
+      "items": [
+        "Admin-Ticketfelder passen sich im Dark- und Light-Mode zuverlässig an und bleiben lesbar",
+        "Abgeschlossene Tickets können im Admin-Panel nach Bestätigung endgültig gelöscht werden",
+        "Die Anrufansicht ist kompakter: kleineres Profilbild, Kontaktname im Vordergrund und Telefonnummer direkt darunter"
+      ]
+    },
+    {
       "version": "0.7.6",
       "title": "Großer Stabilitäts- & Komfortpatch",
       "released_at": "2026-08-19T02:03:00+02:00",
