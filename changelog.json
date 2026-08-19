@@ -2,6 +2,18 @@
   "schema": 1,
   "releases": [
     {
+      "version": "0.7.9.1",
+      "title": "Admin-Panel segmentiert",
+      "released_at": "2026-08-19T17:48:00+02:00",
+      "items": [
+        "Neuer Haupt-Switch trennt das Admin-Panel in Verwaltung und System & Moderation",
+        "Administration und Papierkorb sind gemeinsam im Segment Verwaltung gebündelt",
+        "Tickets, Kanäle und Hinweise sind gemeinsam im Segment System & Moderation gebündelt",
+        "Die bestehenden Admin-Funktionen bleiben unverändert und werden nur übersichtlicher navigiert",
+        "Erster gezielter Hybrid-Patch, der online und in der Desktop/BAT-Version denselben Patchcode verwendet"
+      ]
+    },
+    {
       "version": "0.7.9",
       "title": "Hybrid Online + Desktop/BAT",
       "released_at": "2026-08-19T16:38:00+02:00",
