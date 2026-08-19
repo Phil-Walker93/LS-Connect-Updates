@@ -1,17 +1,19 @@
 {
   "schema": 2,
   "channel": "stable",
-  "version": "0.7.9.1",
-  "released_at": "2026-08-19T17:48:00+02:00",
+  "version": "0.7.9.5",
+  "released_at": "2026-08-19T18:30:00+02:00",
   "minimum_updater_version": "0.7.5",
   "updater_protocol": 1,
-  "manifest_url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.9.1/manifest.json",
+  "manifest_url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.9.5/manifest.json",
   "mandatory": false,
   "notes": [
-    "Erster gezielter Hybrid-Patch auf Basis von v0.7.9.",
-    "Admin-Panel in die Hauptsegmente Verwaltung und System & Moderation getrennt.",
-    "Administration und Papierkorb liegen gemeinsam im Segment Verwaltung.",
-    "Tickets, Kanäle und Hinweise liegen gemeinsam im Segment System & Moderation.",
-    "Online und Desktop/BAT verwenden denselben v0.7.9.1-Patch."
+    "Schnelle Hybrid-Sammlung vor v0.7.10.",
+    "App-Version in der Hybrid-Statuskarte wird dynamisch aus version.json gelesen.",
+    "Admin-Panel skaliert responsiv bis zur vollflächigen Mobilansicht.",
+    "Ticket-Prioritätsfilter und Charaktertyp-Filter ergänzt.",
+    "Admin-Hinweise folgen Dark- und Light-Mode.",
+    "Mobile Schnellzugriffe neu gruppiert; Stories bleiben unabhängig vom Zahnrad erreichbar.",
+    "Neue Stories erhalten einen einfachen Neu-Indikator ohne Zähler."
   ]
 }
