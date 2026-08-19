@@ -2,6 +2,18 @@
   "schema": 1,
   "releases": [
     {
+      "version": "0.7.10.4",
+      "title": "Tickets und Ticket-Unterhaltungen unterstützen jetzt Bilder bis 8 MB",
+      "released_at": "2026-08-19T20:31:00+02:00",
+      "items": [
+        "Tickets und Ticket-Unterhaltungen unterstützen jetzt Bilder bis 8 MB.",
+        "Der Admin-Ticketfehler column reference id is ambiguous wurde behoben.",
+        "Gelesene Chats verlieren den Ungelesen-Hinweis jetzt sofort ohne F5.",
+        "Status- und Story-Bilder werden auf Handy und Desktop vollständig eingepasst und nicht mehr übermäßig vergrößert.",
+        "Chats können pro RP-Charakter favorisiert werden und erscheinen dann oben in der Chatliste."
+      ]
+    },
+    {
       "version": "0.7.10.3",
       "title": "Rufnummernweiterleitung sichtbar gemacht",
       "released_at": "2026-08-19T19:39:00+02:00",
