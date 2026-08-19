@@ -1,17 +1,17 @@
 {
   "schema": 2,
   "channel": "stable",
-  "version": "0.7.8.1",
-  "released_at": "2026-08-19T16:02:00+02:00",
+  "version": "0.7.9",
+  "released_at": "2026-08-19T16:38:00+02:00",
   "minimum_updater_version": "0.7.5",
   "updater_protocol": 1,
-  "manifest_url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.8.1/manifest.json",
+  "manifest_url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.9/manifest.json",
   "mandatory": false,
   "notes": [
-    "Chat-Schreibfeld wieder dauerhaft sichtbar.",
-    "Werkzeugbuttons, Texteingabe und Senden wieder kompakt in einer stabilen Composer-Struktur.",
-    "Fehlerhaftes Umbrechen des Eingabebereichs auf breiten Ansichten behoben.",
-    "Mehrzeilige Nachrichten wachsen kontrolliert, ohne den Chatbereich unnötig zu vergrößern.",
-    "Mobile Composer-Darstellung zusätzlich stabilisiert."
+    "Hybrid-Architektur: Online/PWA und Desktop/BAT verwenden denselben Supabase-Backendstand.",
+    "Desktop/BAT erhält einen lokalen PowerShell-Server mit kompatiblen Health-, Update- und Runtime-Endpunkten.",
+    "Neuer SHA-256-Desktop-Updater mit Staging, Backup und automatischem Rollback.",
+    "Online- und Desktop-Client erkennen ihren Laufzeitmodus automatisch.",
+    "Neue Client-/Backend-Kompatibilitätsprüfung für kommende Hybrid-Patches und v0.8."
   ]
 }
