@@ -1,17 +1,16 @@
 {
   "schema": 2,
   "channel": "stable",
-  "version": "0.7.10.8",
-  "released_at": "2026-08-19T22:57:00+02:00",
+  "version": "0.7.10.9",
+  "released_at": "2026-08-19T23:09:00+02:00",
   "minimum_updater_version": "0.7.5",
   "updater_protocol": 1,
-  "manifest_url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.10.8/manifest.json",
+  "manifest_url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.10.9/manifest.json",
   "mandatory": false,
   "notes": [
-    "Unternehmenskanäle wurden für Desktop und Mobilgeräte übersichtlicher neu strukturiert.",
-    "Doppelte Scrollbereiche wurden auf eine zentrale Scrollfläche reduziert.",
-    "Der Editor für neue Kanalbeiträge ist standardmäßig einklappbar.",
-    "Beiträge werden als klar getrennte Karten mit echtem Markdown dargestellt.",
-    "Lange Beiträge erhalten Mehr anzeigen und Bilder können groß geöffnet werden."
+    "Hauptüberschriften mit # werden in Unternehmenskanälen jetzt korrekt dargestellt.",
+    "Ältere Kanalbeiträge werden robuster erkannt und erneut mit Markdown formatiert.",
+    "Realtime nachgeladene Beiträge erhalten automatisch denselben Markdown-Renderer.",
+    "Markdown unterstützt Überschriften, Fett, Kursiv, Zitate, Listen, Trennlinien und Inline-Code."
   ]
 }
