@@ -2,6 +2,17 @@
   "schema": 1,
   "releases": [
     {
+      "version": "0.7.7.2",
+      "title": "Robuster Start-Hotfix",
+      "released_at": "2026-08-19T04:30:00+02:00",
+      "items": [
+        "Der erste Supabase-Sessionstart wartet garantiert, bis sämtliche Kompatibilitäts- und v0.7.7-Module geladen sind",
+        "Behebt die Race-Condition, durch die die v0.7.7-Funktionen trotz vorhandener Dateien nicht aktiv wurden",
+        "Zuletzt-online, F5-/Charakterzustand, Bild-Uploads und verpasste Anrufe werden vor dem Online-Start eingebunden",
+        "Direktes Update von v0.7.6.5, v0.7.7 und v0.7.7.1 wird unterstützt"
+      ]
+    },
+    {
       "version": "0.7.7.1",
       "title": "Start-/Lade-Hotfix",
       "released_at": "2026-08-19T04:23:00+02:00",
