@@ -2,6 +2,17 @@
   "schema": 1,
   "releases": [
     {
+      "version": "0.7.10.10",
+      "title": "Kanalbeiträge werden jetzt anhand ihrer tatsächlich gerenderten Höhe platzsparend eingeklappt",
+      "released_at": "2026-08-19T23:26:00+02:00",
+      "items": [
+        "Kanalbeiträge werden jetzt anhand ihrer tatsächlich gerenderten Höhe platzsparend eingeklappt.",
+        "Stark umbrochene Texte werden zuverlässig gekürzt, auch wenn der Quelltext nur wenige Absätze enthält.",
+        "Ältere Beiträge erhalten einen zusätzlichen Reihenfolge-Fallback und werden zuverlässiger mit Markdown formatiert.",
+        "Mehr anzeigen und Weniger anzeigen passen sich sauber an Desktop- und Mobilbreiten an."
+      ]
+    },
+    {
       "version": "0.7.10.9",
       "title": "Hauptüberschriften mit # werden in Unternehmenskanälen jetzt korrekt dargestellt",
       "released_at": "2026-08-19T23:09:00+02:00",
