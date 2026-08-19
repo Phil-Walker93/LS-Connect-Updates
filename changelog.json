@@ -2,6 +2,18 @@
   "schema": 1,
   "releases": [
     {
+      "version": "0.7.10.8",
+      "title": "Unternehmenskanäle wurden für Desktop und Mobilgeräte übersichtlicher neu strukturiert",
+      "released_at": "2026-08-19T22:57:00+02:00",
+      "items": [
+        "Unternehmenskanäle wurden für Desktop und Mobilgeräte übersichtlicher neu strukturiert.",
+        "Doppelte Scrollbereiche wurden auf eine zentrale Scrollfläche reduziert.",
+        "Der Editor für neue Kanalbeiträge ist standardmäßig einklappbar.",
+        "Beiträge werden als klar getrennte Karten mit echtem Markdown dargestellt.",
+        "Lange Beiträge erhalten Mehr anzeigen und Bilder können groß geöffnet werden."
+      ]
+    },
+    {
       "version": "0.7.10.7",
       "title": "Ticket-Antwortfelder sind im Dark-Mode wieder vollständig lesbar",
       "released_at": "2026-08-19T22:31:00+02:00",
