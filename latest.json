@@ -1,16 +1,16 @@
 {
   "schema": 2,
   "channel": "stable",
-  "version": "0.7.7.1",
-  "released_at": "2026-08-19T04:23:00+02:00",
+  "version": "0.7.7.2",
+  "released_at": "2026-08-19T04:30:00+02:00",
   "minimum_updater_version": "0.7.5",
   "updater_protocol": 1,
-  "manifest_url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.7.1/manifest.json",
+  "manifest_url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.7.2/manifest.json",
   "mandatory": false,
   "notes": [
-    "Hotfix für v0.7.7: die neuen Module werden beim normalen Client-Start statisch geladen.",
-    "Zuletzt-online, Charakter-/F5-Zustand, Bild-Uploads und verpasste Anrufe greifen dadurch zuverlässig.",
-    "v0.7.6.5 wird ebenfalls statisch vor den v0.7.7-Modulen eingebunden.",
-    "Service-Worker-Cache wurde auf v0.7.7.1 angehoben und aktiviert sich sofort."
+    "Robuster Hotfix für die v0.7.7-Startreihenfolge.",
+    "Der erste Supabase-Sessionstart wartet jetzt garantiert auf alle Patchmodule.",
+    "Zuletzt-online, F5-/Charakterzustand, Bild-Uploads und verpasste Anrufe werden dadurch vor dem Online-Start aktiviert.",
+    "Update ist direkt von v0.7.6.5, v0.7.7 und v0.7.7.1 kompatibel."
   ]
 }
