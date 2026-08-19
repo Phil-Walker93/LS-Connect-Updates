@@ -2,6 +2,18 @@
   "schema": 1,
   "releases": [
     {
+      "version": "0.7.10.6",
+      "title": "Neue Admin-Nachrichten in Ticket-Unterhaltungen erscheinen als kurzes In-App-Popup",
+      "released_at": "2026-08-19T22:07:00+02:00",
+      "items": [
+        "Neue Admin-Nachrichten in Ticket-Unterhaltungen erscheinen als kurzes In-App-Popup.",
+        "Ein Button im Popup führt direkt in die betroffene Ticket-Unterhaltung.",
+        "Das Admin-Panel markiert Tickets mit neuen Nutzerantworten samt Anzahl.",
+        "Admin-Hinweise werden nur im geöffneten Admin-Panel aktualisiert.",
+        "Der Lesestatus wird pro Nutzer und pro Admin getrennt gespeichert."
+      ]
+    },
+    {
       "version": "0.7.10.5",
       "title": "Notfall-Hotfix für verschwundene Profilbilder",
       "released_at": "2026-08-19T20:45:00+02:00",
