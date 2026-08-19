@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "version": "0.7.7.1",
+  "protocol": 1,
+  "bootstrap": false,
+  "files": [
+    {
+      "path": "index.html",
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.7.1/files/index_html_fixed.b64",
+      "sha256": "3e522aab94b97229701a1c8fb502dd407c6ad48c6e526e9d12e6726d9e5c3362",
+      "size": 9312,
+      "encoding": "base64"
+    },
+    {
+      "path": "v0765.js",
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.6.5/files/v0765_js.b64",
+      "sha256": "6da2706d3b7a71b03b8c18bc0881e2210cf3bce5a9a84f0c8037bbf38d485ccd",
+      "size": 7651,
+      "encoding": "base64"
+    },
+    {
+      "path": "v077-core.js",
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.7/files/v077-core.js",
+      "sha256": "8089458bf988b9895a5586769f0bb7b79619d3bf7256810c635c725a54cf1544",
+      "size": 9606
+    },
+    {
+      "path": "v077-media.js",
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.7/files/v077-media.js",
+      "sha256": "ebedc62a1aec16d7c84444c44c9aa7e546235249b5b492d812f9eec04e909e7c",
+      "size": 12259
+    },
+    {
+      "path": "v077-calls.js",
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.7/files/v077-calls.js",
+      "sha256": "fd5ca53742c020272ec82f3f2edb1b3f06c7e2c1705c20c6eb509819f4240a16",
+      "size": 4372
+    },
+    {
+      "path": "sw.js",
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.7.1/files/sw_js.b64",
+      "sha256": "1aff8921a491709d5df45422fcbc6ab566c5ae22b58129a82ce09610b7b3e203",
+      "size": 2697,
+      "encoding": "base64"
+    },
+    {
+      "path": "version.json",
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.7.1/files/version_json.b64",
+      "sha256": "e4e836b6de6a6d2db5dd14fc19dead87553741e7dc98e8e512dfe3970fad16e7",
+      "size": 75,
+      "encoding": "base64"
+    }
+  ],
+  "remove": [],
+  "notes": "Hotfix: v0.7.7-Module werden statisch und rechtzeitig geladen. Behebt Last-Seen, F5-/Charakterzustand, Bild-Uploads und verpasste Anrufe."
+}
