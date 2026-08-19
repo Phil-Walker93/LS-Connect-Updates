@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "version": "0.7.6.5",
+  "protocol": 1,
+  "bootstrap": false,
+  "files": [
+    {
+      "path": "v076d.js",
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.6.5/files/v076d_js.b64",
+      "sha256": "e436cae1904180bd7a4be5ca7f47452c9a6a203f75a370839071391e2227c3d4",
+      "size": 4258,
+      "encoding": "base64"
+    },
+    {
+      "path": "v0765.js",
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.6.5/files/v0765_js.b64",
+      "sha256": "6da2706d3b7a71b03b8c18bc0881e2210cf3bce5a9a84f0c8037bbf38d485ccd",
+      "size": 7651,
+      "encoding": "base64"
+    },
+    {
+      "path": "sw.js",
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.6.5/files/sw_js.b64",
+      "sha256": "cd48a0a4e5ea659e68357ecca5d3f7840ec6600232a4df1cbb34037590266a23",
+      "size": 2574,
+      "encoding": "base64"
+    },
+    {
+      "path": "version.json",
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.6.5/files/version_json.b64",
+      "sha256": "ea0e3f51dc455efcc0e6c19262382960c2f8a90bb8c9181b4f6703d2c5a24e7d",
+      "size": 75,
+      "encoding": "base64"
+    }
+  ],
+  "remove": [],
+  "notes": "Zwischenpatch mit Dark-Mode-Fix im Admin-Ticketsystem, Löschfunktion für abgeschlossene Tickets und kompakterer Anrufansicht."
+}
