@@ -1,19 +1,15 @@
 {
   "schema": 2,
   "channel": "stable",
-  "version": "0.7.6",
-  "released_at": "2026-08-19T02:03:00+02:00",
+  "version": "0.7.6.5",
+  "released_at": "2026-08-19T03:13:00+02:00",
   "minimum_updater_version": "0.7.5",
   "updater_protocol": 1,
-  "manifest_url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.6/manifest.json",
+  "manifest_url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.6.5/manifest.json",
   "mandatory": false,
   "notes": [
-    "Antwortvorschauen bleiben innerhalb der Nachrichtenbox.",
-    "Eingehende Anrufe werden über Realtime plus Polling-Fallback sichtbar.",
-    "Kanalposts lassen sich wieder löschen.",
-    "Neue-Nachricht-, Online- und Lesebestätigungsanzeige verbessert.",
-    "Chat-Archiv, gelöschte Chats und Ticket-System hinzugefügt.",
-    "Charakterreihenfolge wird zuverlässig gespeichert und verifiziert.",
-    "Was ist neu? zeigt wieder aktuelle Releases."
+    "Admin-Ticketfelder bleiben im Dark- und Light-Mode lesbar.",
+    "Abgeschlossene Tickets können im Admin-Panel endgültig gelöscht werden.",
+    "Die RP-Anrufansicht ist kompakter und stellt Name und Telefonnummer stärker in den Vordergrund."
   ]
 }
