@@ -2,6 +2,21 @@
   "schema": 1,
   "releases": [
     {
+      "version": "0.7.9",
+      "title": "Hybrid Online + Desktop/BAT",
+      "released_at": "2026-08-19T16:38:00+02:00",
+      "items": [
+        "Online/PWA und Desktop/BAT verwenden denselben LS-Connect-Clientstand und dasselbe Supabase-Backend",
+        "Automatische Erkennung, ob LS Connect online oder über den lokalen Desktop-Server läuft",
+        "Neuer gemeinsamer Client-/Backend-Kompatibilitätsvertrag für Online und Desktop",
+        "Desktop/BAT erhält einen lokalen PowerShell-Server mit Health-, Runtime-, Update- und Restart-Endpunkten",
+        "Neuer SHA-256-Desktop-Updater mit Staging, Sicherung und automatischem Rollback",
+        "config.js bleibt bei Desktop-Updates unangetastet",
+        "Online-Updates versuchen nicht mehr, lokale BAT-/Desktop-Dateien zu verändern",
+        "Grundlage geschaffen, um v0.7.9.x-Patches hybrid zu testen und anschließend v0.8 aufzubauen"
+      ]
+    },
+    {
       "version": "0.7.8.1",
       "title": "Chat-Eingabefeld Hotfix",
       "released_at": "2026-08-19T16:02:00+02:00",
