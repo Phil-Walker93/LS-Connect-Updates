@@ -1,18 +1,18 @@
 {
   "schema": 2,
   "channel": "stable",
-  "version": "0.7.10.1",
-  "released_at": "2026-08-19T19:04:00+02:00",
+  "version": "0.7.10.2",
+  "released_at": "2026-08-19T19:13:00+02:00",
   "minimum_updater_version": "0.7.5",
   "updater_protocol": 1,
-  "manifest_url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.10.1/manifest.json",
+  "manifest_url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.10.2/manifest.json",
   "mandatory": false,
   "notes": [
-    "Kompatibilitäts- und Layout-Hotfix für v0.7.10.",
-    "Backend-Prüfung verwendet jetzt die tatsächlich installierte App-Version aus version.json.",
-    "Die falsche Meldung, v0.7.10 sei neuer als der bereits laufende Client, ist behoben.",
-    "Kompatibilitätswarnungen werden nicht mehr als Grid-Element in das Hauptlayout eingefügt.",
-    "Die auseinandergerissene Desktop-Chatansicht wird dadurch wiederhergestellt.",
-    "Online und Desktop/BAT verwenden denselben v0.7.10.1-Hotfix."
+    "Mobile Navigation aufgeräumt.",
+    "Der obere Status-/Stories-Eintrag wird auf Mobilgeräten ausgeblendet, da Status bereits in der unteren Navigation vorhanden ist.",
+    "Das schwebende Zahnrad wird auf Mobilgeräten entfernt.",
+    "Der bisherige Einstellungen-Button in der unteren Navigation heißt jetzt Mehr und öffnet die Schnellzugriffe.",
+    "Konto & Verbindung bleibt weiterhin getrennt über das Drei-Punkte-Menü erreichbar.",
+    "Desktop/BAT behält das bisherige Zahnrad-Verhalten unverändert."
   ]
 }
