@@ -2,6 +2,20 @@
   "schema": 1,
   "releases": [
     {
+      "version": "0.7.7",
+      "title": "Presence, Medien & Anrufverlauf",
+      "released_at": "2026-08-19T04:05:00+02:00",
+      "items": [
+        "Kontakte zeigen zusätzlich an, wie lange sie bereits offline sind bzw. wann sie zuletzt online waren",
+        "Die Charakterreihenfolge bleibt dauerhaft gespeichert und der zuletzt aktive Charakter wird nach F5 wiederhergestellt",
+        "Profilbilder werden über einen abgesicherten Upload- und Commit-Ablauf gespeichert",
+        "Bilder und Dateien in Chats werden nach dem Upload serverseitig validiert und zuverlässig mit der Nachricht verknüpft",
+        "Bilder in Unternehmenskanälen verwenden den verifizierten privaten Storage-Pfad",
+        "Status- und Story-Bilder werden zuverlässig mit dem veröffentlichten Status verknüpft",
+        "Verpasste Anrufe wechseln automatisch auf den Status missed und erscheinen als geschütztes Systemereignis im Chat"
+      ]
+    },
+    {
       "version": "0.7.6.5",
       "title": "Früher v0.7.7-Zwischenpatch",
       "released_at": "2026-08-19T03:13:00+02:00",
