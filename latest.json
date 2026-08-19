@@ -1,19 +1,18 @@
 {
   "schema": 2,
   "channel": "stable",
-  "version": "0.7.10",
-  "released_at": "2026-08-19T18:52:00+02:00",
+  "version": "0.7.10.1",
+  "released_at": "2026-08-19T19:04:00+02:00",
   "minimum_updater_version": "0.7.5",
   "updater_protocol": 1,
-  "manifest_url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.10/manifest.json",
+  "manifest_url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.10.1/manifest.json",
   "mandatory": false,
   "notes": [
-    "Großes Hybrid-Funktionsupdate auf Basis von v0.7.9.5.",
-    "Ticket-Ersteller und Administration können nach Admin-Start direkt im Ticket miteinander schreiben.",
-    "Admin-Hinweise können global gelöscht oder pro Charakter ausgeblendet werden.",
-    "Neuer Charaktertyp Kriminelle Organisation mit versteckter Kontaktsuche und initiativer Kontaktaufnahme.",
-    "Eigene RP-Charaktere desselben Master-Accounts können normal miteinander kommunizieren.",
-    "Neue Rufnummernweiterleitung für eingehende LS-Connect-Anrufe.",
-    "Online und Desktop/BAT verwenden denselben v0.7.10-Clientpatch und Backendstand."
+    "Kompatibilitäts- und Layout-Hotfix für v0.7.10.",
+    "Backend-Prüfung verwendet jetzt die tatsächlich installierte App-Version aus version.json.",
+    "Die falsche Meldung, v0.7.10 sei neuer als der bereits laufende Client, ist behoben.",
+    "Kompatibilitätswarnungen werden nicht mehr als Grid-Element in das Hauptlayout eingefügt.",
+    "Die auseinandergerissene Desktop-Chatansicht wird dadurch wiederhergestellt.",
+    "Online und Desktop/BAT verwenden denselben v0.7.10.1-Hotfix."
   ]
 }
