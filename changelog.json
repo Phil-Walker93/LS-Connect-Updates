@@ -2,6 +2,32 @@
   "schema": 1,
   "releases": [
     {
+      "version": "0.7.8",
+      "title": "Ungelesen, Favoriten & Admin-Hinweise",
+      "released_at": "2026-08-19T07:10:00+02:00",
+      "items": [
+        "Zentrale Ungelesen-Zähler für Chats, Unternehmenskanäle und Charaktere",
+        "Kontakte können als Favoriten markiert werden",
+        "Eigene RP-Charaktere lassen sich direkt als Kontakte hinzufügen",
+        "Neues Admin-Hinweissystem für alle Charaktere, bestimmte Account-Typen oder einzelne Charaktere",
+        "Admin-Hinweise unterstützen die Warnstufen Info, Warnung und Kritisch",
+        "Kritische Hinweise können eine ausdrückliche Bestätigung durch den Empfänger verlangen",
+        "Neue v0.7.8-Datenbankfunktionen, RLS-Policies und Indizes wurden zusätzlich gehärtet"
+      ]
+    },
+    {
+      "version": "0.7.7.5",
+      "title": "UI & Komfort",
+      "released_at": "2026-08-19T06:15:00+02:00",
+      "items": [
+        "Ticketstatus Eingestuft ergänzt",
+        "Einstellungen aufgeräumt und mobile Einstellungen repariert",
+        "Gelöschte Unternehmensbeiträge verschwinden vollständig",
+        "Beim Abbruch eines klingelnden Anrufs entsteht sofort ein Verpasster-Anruf-Eintrag",
+        "Anrufpfeile sind farbig, Charaktertypen getrennt und Emojis können direkt geschrieben werden"
+      ]
+    },
+    {
       "version": "0.7.7.4",
       "title": "Notfallfix – leere Seite",
       "released_at": "2026-08-19T05:24:00+02:00",
