@@ -1,16 +1,16 @@
 {
   "schema": 2,
   "channel": "stable",
-  "version": "0.7.7.3",
-  "released_at": "2026-08-19T05:16:00+02:00",
+  "version": "0.7.7.4",
+  "released_at": "2026-08-19T05:24:00+02:00",
   "minimum_updater_version": "0.7.5",
   "updater_protocol": 1,
-  "manifest_url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.7.3/manifest.json",
+  "manifest_url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.7.4/manifest.json",
   "mandatory": false,
   "notes": [
-    "Eigentümer/Gründer können eigene Unternehmenskanäle endgültig löschen.",
-    "Admins erhalten im Admin-Panel einen eigenen Kanäle-Tab mit Löschfunktion.",
-    "Kanalbilder werden beim Löschen aus dem privaten Storage entfernt.",
-    "Follower und Beiträge des Kanals werden automatisch mit entfernt."
+    "Notfallfix für die leere Seite aus v0.7.7.3.",
+    "Der fehlerhafte document.write-Loader wurde vollständig entfernt.",
+    "v0773.js wird jetzt statisch geladen, bevor der LS-Connect-Start freigegeben wird.",
+    "Das Updatepaket ist kumulativ und zieht benötigte v0.7.6-/v0.7.7-Dateien bei Bedarf nach."
   ]
 }
