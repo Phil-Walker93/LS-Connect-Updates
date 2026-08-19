@@ -1,17 +1,16 @@
 {
   "schema": 2,
   "channel": "stable",
-  "version": "0.7.10.6",
-  "released_at": "2026-08-19T22:07:00+02:00",
+  "version": "0.7.10.7",
+  "released_at": "2026-08-19T22:31:00+02:00",
   "minimum_updater_version": "0.7.5",
   "updater_protocol": 1,
-  "manifest_url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.10.6/manifest.json",
+  "manifest_url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.10.7/manifest.json",
   "mandatory": false,
   "notes": [
-    "Neue Admin-Nachrichten in Ticket-Unterhaltungen erscheinen als kurzes In-App-Popup.",
-    "Ein Button im Popup führt direkt in die betroffene Ticket-Unterhaltung.",
-    "Das Admin-Panel markiert Tickets mit neuen Nutzerantworten samt Anzahl.",
-    "Admin-Hinweise werden nur im geöffneten Admin-Panel aktualisiert.",
-    "Der Lesestatus wird pro Nutzer und pro Admin getrennt gespeichert."
+    "Ticket-Antwortfelder sind im Dark-Mode wieder vollständig lesbar.",
+    "Hintergrund, Schrift, Cursor und Platzhalter folgen dem LS-Connect-Theme.",
+    "Fokusrahmen und Dateiauswahl im Ticket-Antwortbereich wurden ebenfalls an das Theme angepasst.",
+    "Die mobile Eingabe bleibt groß genug und vermeidet unnötiges Browser-Zoomen."
   ]
 }
