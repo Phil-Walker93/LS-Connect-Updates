@@ -1,17 +1,17 @@
 {
   "schema": 2,
   "channel": "stable",
-  "version": "0.7.8",
-  "released_at": "2026-08-19T07:10:00+02:00",
+  "version": "0.7.8.1",
+  "released_at": "2026-08-19T16:02:00+02:00",
   "minimum_updater_version": "0.7.5",
   "updater_protocol": 1,
-  "manifest_url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.8/manifest.json",
+  "manifest_url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.8.1/manifest.json",
   "mandatory": false,
   "notes": [
-    "Zentrale Ungelesen-Zähler für Chats, Unternehmenskanäle und Charaktere ergänzt.",
-    "Kontakte können als Favoriten markiert und eigene RP-Identitäten direkt hinzugefügt werden.",
-    "Neues Admin-Hinweissystem für alle, Account-Typen oder einzelne Charaktere.",
-    "Kritische Admin-Hinweise können eine ausdrückliche Bestätigung verlangen.",
-    "Supabase-Policies und Indizes für die neuen v0.7.8-Funktionen wurden zusätzlich gehärtet."
+    "Chat-Schreibfeld wieder dauerhaft sichtbar.",
+    "Werkzeugbuttons, Texteingabe und Senden wieder kompakt in einer stabilen Composer-Struktur.",
+    "Fehlerhaftes Umbrechen des Eingabebereichs auf breiten Ansichten behoben.",
+    "Mehrzeilige Nachrichten wachsen kontrolliert, ohne den Chatbereich unnötig zu vergrößern.",
+    "Mobile Composer-Darstellung zusätzlich stabilisiert."
   ]
 }
