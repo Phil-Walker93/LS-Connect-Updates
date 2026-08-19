@@ -2,6 +2,42 @@
   "schema": 1,
   "releases": [
     {
+      "version": "0.7.10.3",
+      "title": "Rufnummernweiterleitung sichtbar gemacht",
+      "released_at": "2026-08-19T19:39:00+02:00",
+      "items": [
+        "Rufnummernweiterleitung ist als eigener Punkt unter Mehr erreichbar",
+        "Eigener Dialog zum Aktivieren, Deaktivieren und Ändern der Zielnummer",
+        "Konto & Verbindung erhält zusätzlich einen direkten Telefon-Shortcut",
+        "Die bestehenden abgesicherten v0.7.10-Backendfunktionen werden weiterverwendet",
+        "Online-Version erhält einen cache-unabhängigen Latest-Proxy für schnellere Stable-Aktualisierungen"
+      ]
+    },
+    {
+      "version": "0.7.10.2",
+      "title": "Mobile Navigation aufgeräumt",
+      "released_at": "2026-08-19T19:13:00+02:00",
+      "items": [
+        "Der obere Status-/Stories-Eintrag wird auf Mobilgeräten ausgeblendet, da Status bereits unten vorhanden ist",
+        "Das schwebende Zahnrad wird auf Mobilgeräten entfernt",
+        "Der bisherige Einstellungen-Eintrag heißt auf Mobilgeräten jetzt Mehr und öffnet die Schnellzugriffe",
+        "Konto & Verbindung bleibt getrennt über das Drei-Punkte-Menü erreichbar",
+        "Desktop/BAT behält das bisherige Zahnrad-Verhalten unverändert"
+      ]
+    },
+    {
+      "version": "0.7.10.1",
+      "title": "Kompatibilitäts- & Layout-Hotfix",
+      "released_at": "2026-08-19T19:04:00+02:00",
+      "items": [
+        "Backend-Prüfung verwendet die tatsächlich installierte App-Version aus version.json",
+        "Die falsche Meldung, v0.7.10 sei neuer als der bereits laufende Client, ist behoben",
+        "Kompatibilitätswarnungen werden nicht mehr als Grid-Element in das Hauptlayout eingefügt",
+        "Die auseinandergerissene Desktop-Chatansicht wird dadurch wiederhergestellt",
+        "Online und Desktop/BAT verwenden denselben v0.7.10.1-Hotfix"
+      ]
+    },
+    {
       "version": "0.7.10",
       "title": "Kommunikation & Moderation",
       "released_at": "2026-08-19T18:52:00+02:00",
