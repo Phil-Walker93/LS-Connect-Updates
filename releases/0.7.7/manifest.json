@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "version": "0.7.7",
+  "protocol": 1,
+  "bootstrap": false,
+  "files": [
+    {
+      "path": "v074.js",
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.7/files/v074.js",
+      "sha256": "ecbed1a0fbe6e4dc1d4dfc5ba48df2c5230deeec576e0914e96a98a692a88f13",
+      "size": 2100
+    },
+    {
+      "path": "v077-core.js",
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.7/files/v077-core.js",
+      "sha256": "8089458bf988b9895a5586769f0bb7b79619d3bf7256810c635c725a54cf1544",
+      "size": 9606
+    },
+    {
+      "path": "v077-media.js",
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.7/files/v077-media.js",
+      "sha256": "ebedc62a1aec16d7c84444c44c9aa7e546235249b5b492d812f9eec04e909e7c",
+      "size": 12259
+    },
+    {
+      "path": "v077-calls.js",
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.7/files/v077-calls.js",
+      "sha256": "fd5ca53742c020272ec82f3f2edb1b3f06c7e2c1705c20c6eb509819f4240a16",
+      "size": 4372
+    },
+    {
+      "path": "sw.js",
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.7/files/sw.js",
+      "sha256": "3ef4aef910d9d4975a3cc7bad45496c934cc406e8e787dc188f22abad737f96c",
+      "size": 2632
+    },
+    {
+      "path": "version.json",
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.7/files/version.json",
+      "sha256": "21e476a25af9d017dbbe213bf311f6b23a9964f717520f5e92887c4e9ed5ff0d",
+      "size": 73
+    }
+  ],
+  "remove": [],
+  "notes": "v0.7.7 ergänzt Last-Seen, dauerhaftes Charakter-/F5-Verhalten, robuste Bild-Uploads und verpasste Anrufe im Chat. Enthält weiterhin die v0.7.6.5-UI-Fixes."
+}
