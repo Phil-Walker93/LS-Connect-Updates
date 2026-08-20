@@ -2,6 +2,17 @@
   "schema": 1,
   "releases": [
     {
+      "version": "0.7.10.13",
+      "title": "Design-Presets sind jetzt vollständige Discord-inspirierte Oberflächen-Stile statt reiner Farbpaletten",
+      "released_at": "2026-08-20T02:38:00+02:00",
+      "items": [
+        "Design-Presets sind jetzt vollständige Discord-inspirierte Oberflächen-Stile statt reiner Farbpaletten.",
+        "Neue Preset-Namen: Discord Classic, Blurple Night, Night Slate, Graphite, Deep Forest und Rose Night.",
+        "Die Preset-Auswahl zeigt echte Mini-UI-Vorschauen mit Sidebar, Content-Fläche und Akzentwirkung.",
+        "Sidebar, Panels, Karten, Eingaben, Hover- und Active-Zustände sind pro Design klarer aufeinander abgestimmt."
+      ]
+    },
+    {
       "version": "0.7.10.12",
       "title": "Neue Option Angemeldet bleiben auf der Login-Seite",
       "released_at": "2026-08-20T02:22:00+02:00",
