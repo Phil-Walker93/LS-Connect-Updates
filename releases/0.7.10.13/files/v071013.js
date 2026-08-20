@@ -77,3 +77,5 @@ if(typeof V07_LOCAL_CHANGELOG!=='undefined'&&!V07_LOCAL_CHANGELOG.some(x=>x.vers
   V07_LOCAL_CHANGELOG.unshift({version:LS_CONNECT_V071013_VERSION,title:'Discord-inspirierte Design-Presets',items:['Sechs Presets als vollständige Oberflächen-Stile statt reiner Farbpaletten','Discord Classic, Blurple Night, Night Slate, Graphite, Deep Forest und Rose Night','Neue Mini-UI-Vorschauen mit Sidebar, Content-Fläche und Akzentwirkung','Stärkere Trennung von Sidebar, Panels, Karten, Eingaben und aktiven Elementen']});
 }
 console.info('[LS Connect] v0.7.10.13 Discord-inspired preset refresh active');
+
+/* rollback cache-buster: v0.7.11 online bridge intentionally removed */
