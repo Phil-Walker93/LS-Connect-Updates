@@ -10,8 +10,6 @@ var LS_CONNECT_V0711_R2_VERSION='0.7.11-r2';
     try{return typeof V071012_PRESETS!=='undefined'&&V071012_PRESETS[key]?key:null;}catch{return null;}
   };
 
-  // Repair 1: old v0.7.10.3 account shortcut must only use insertBefore
-  // when its reference node still belongs to the current modal content.
   if(typeof v07103InstallAccountShortcut==='function'){
     v07103InstallAccountShortcut=function v07103InstallAccountShortcutV0711R2(){
       if(typeof els==='undefined'||!els.modalContent||document.getElementById('v07103AccountForwardingShortcut'))return;
@@ -28,16 +26,11 @@ var LS_CONNECT_V0711_R2_VERSION='0.7.11-r2';
     };
   }
 
-  // Repair 2: make the locally selected design authoritative on restart.
-  // The server is synchronized from the local value when one exists;
-  // otherwise the account preset is loaded once and persisted locally.
   if(typeof v071012ApplyPreset==='function'){
     const applyBase=v071012ApplyPreset;
     v071012ApplyPreset=function v071012ApplyPresetV0711R2(value,options={}){
       const preset=applyBase(value,options);
-      if(options?.saveLocal!==false){
-        try{localStorage.setItem(DESIGN_KEY,preset);}catch{}
-      }
+      if(options?.saveLocal!==false){try{localStorage.setItem(DESIGN_KEY,preset);}catch{}}
       return preset;
     };
   }
@@ -68,46 +61,23 @@ var LS_CONNECT_V0711_R2_VERSION='0.7.11-r2';
     };
   }
 
-  // Apply an existing local choice immediately, before delayed account syncs run.
   try{
     const initial=validPreset(localStorage.getItem(DESIGN_KEY));
     if(initial&&typeof v071012ApplyPreset==='function')v071012ApplyPreset(initial);
   }catch{}
 
-  // Repair 3 + 4: visible character hover feedback and consistent layout lines
-  // for chat buttons in the repaired design system.
   if(!document.getElementById('v0711-r2-repair-styles')){
     const style=document.createElement('style');
     style.id='v0711-r2-repair-styles';
     style.textContent=`
       html[data-ls-design] #characterMenu [data-character],
-      html[data-ls-design] .character-menu [data-character]{
-        border:1px solid transparent!important;
-        border-radius:10px!important;
-        transition:background .14s ease,border-color .14s ease,box-shadow .14s ease,transform .14s ease!important;
-      }
+      html[data-ls-design] .character-menu [data-character]{border:1px solid transparent!important;border-radius:10px!important;transition:background .14s ease,border-color .14s ease,box-shadow .14s ease,transform .14s ease!important}
       html[data-ls-design] #characterMenu [data-character]:hover,
-      html[data-ls-design] .character-menu [data-character]:hover{
-        background:var(--ls11-layer-3)!important;
-        border-color:var(--accent)!important;
-        box-shadow:inset 3px 0 0 var(--accent),0 3px 10px rgba(0,0,0,.12)!important;
-        transform:translateX(2px);
-      }
-      html[data-ls-design] .chat-item{
-        border-color:var(--ls11-border-soft)!important;
-        box-shadow:inset 0 -1px 0 var(--ls11-border-soft)!important;
-      }
-      html[data-ls-design] .chat-item:hover{
-        border-color:var(--ls11-border)!important;
-      }
-      html[data-ls-design] .chat-item.active{
-        border-color:var(--accent)!important;
-        box-shadow:inset 3px 0 0 var(--accent),inset 0 -1px 0 var(--ls11-border-soft)!important;
-      }
-      @media(prefers-reduced-motion:reduce){
-        html[data-ls-design] #characterMenu [data-character],
-        html[data-ls-design] .character-menu [data-character]{transform:none!important;}
-      }
+      html[data-ls-design] .character-menu [data-character]:hover{background:var(--ls11-layer-3)!important;border-color:var(--accent)!important;box-shadow:inset 3px 0 0 var(--accent),0 3px 10px rgba(0,0,0,.12)!important;transform:translateX(2px)}
+      html[data-ls-design] .chat-item{border-color:var(--ls11-border-soft)!important;box-shadow:inset 0 -1px 0 var(--ls11-border-soft)!important}
+      html[data-ls-design] .chat-item:hover{border-color:var(--ls11-border)!important}
+      html[data-ls-design] .chat-item.active{border-color:var(--accent)!important;box-shadow:inset 3px 0 0 var(--accent),inset 0 -1px 0 var(--ls11-border-soft)!important}
+      @media(prefers-reduced-motion:reduce){html[data-ls-design] #characterMenu [data-character],html[data-ls-design] .character-menu [data-character]{transform:none!important}}
     `;
     document.head.appendChild(style);
   }
