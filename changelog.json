@@ -2,6 +2,17 @@
   "schema": 1,
   "releases": [
     {
+      "version": "0.7.10.12",
+      "title": "Neue Option Angemeldet bleiben auf der Login-Seite",
+      "released_at": "2026-08-20T02:22:00+02:00",
+      "items": [
+        "Neue Option Angemeldet bleiben auf der Login-Seite.",
+        "Ohne Angemeldet bleiben wird die gespeicherte Sitzung beim nächsten echten Browserstart verworfen.",
+        "Sechs vorgefertigte Designs: Classic, Midnight, Emerald, Violet, Graphite und Sunset.",
+        "Design-Presets funktionieren zusätzlich zum bestehenden Hell-/Dunkel-Modus und werden pro Account gespeichert."
+      ]
+    },
+    {
       "version": "0.7.10.11",
       "title": "Die selbsttriggernde Render-Schleife beim Einklappen von Unternehmenskanal-Beiträgen wurde entfernt",
       "released_at": "2026-08-19T23:35:00+02:00",
