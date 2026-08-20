@@ -1,16 +1,16 @@
 {
   "schema": 2,
   "channel": "stable",
-  "version": "0.7.10.12",
-  "released_at": "2026-08-20T02:22:00+02:00",
+  "version": "0.7.10.13",
+  "released_at": "2026-08-20T02:38:00+02:00",
   "minimum_updater_version": "0.7.5",
   "updater_protocol": 1,
-  "manifest_url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.10.12/manifest.json",
+  "manifest_url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.7.10.13/manifest.json",
   "mandatory": false,
   "notes": [
-    "Neue Option Angemeldet bleiben auf der Login-Seite.",
-    "Ohne Angemeldet bleiben wird die gespeicherte Sitzung beim nächsten echten Browserstart verworfen.",
-    "Sechs vorgefertigte Designs: Classic, Midnight, Emerald, Violet, Graphite und Sunset.",
-    "Design-Presets funktionieren zusätzlich zum bestehenden Hell-/Dunkel-Modus und werden pro Account gespeichert."
+    "Design-Presets sind jetzt vollständige Discord-inspirierte Oberflächen-Stile statt reiner Farbpaletten.",
+    "Neue Preset-Namen: Discord Classic, Blurple Night, Night Slate, Graphite, Deep Forest und Rose Night.",
+    "Die Preset-Auswahl zeigt echte Mini-UI-Vorschauen mit Sidebar, Content-Fläche und Akzentwirkung.",
+    "Sidebar, Panels, Karten, Eingaben, Hover- und Active-Zustände sind pro Design klarer aufeinander abgestimmt."
   ]
 }
