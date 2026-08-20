@@ -5,7 +5,7 @@ const SHELL = [
   './v07.js','./v071.js','./v072.js','./v074.js','./v075.js','./v076a.js','./v076b.js','./v076call.js',
   './v076ticket-user.js','./v076ticket-admin.js','./v076order.js','./v076d.js','./v0765.js',
   './v077-calls.js','./v077-media.js','./v077-core.js','./v0773.js','./v0773-core.js',
-  './v0775.js','./v0775-core.js','./v078.js','./v0781.js','./v079.js','./v0791.js','./v0795.js','./v0710.js','./v07101.js','./v07102.js','./v07103.js','./v07104.js','./v07105.js','./v07106.js','./v07107.js','./v07108.js','./v07109.js','./v071010.js','./v071011.js','./v071012.js','./v071013.js','./v0711.js',
+  './v0775.js','./v0775-core.js','./v078.js','./v0781.js','./v079.js','./v0791.js','./v0795.js','./v0710.js','./v07101.js','./v07102.js','./v07103.js','./v07104.js','./v07105.js','./v07106.js','./v07107.js','./v07108.js','./v07109.js','./v071010.js','./v071011.js','./v071012.js','./v071013.js','./v0711.js','./v0711-init.js',
   './config.js','./manifest.webmanifest','./version.json','./icon.svg','./icon-192.png','./icon-512.png'
 ];
 self.addEventListener('install',event=>{event.waitUntil((async()=>{await caches.open(CACHE).then(cache=>cache.addAll(SHELL));await self.skipWaiting();})());});
