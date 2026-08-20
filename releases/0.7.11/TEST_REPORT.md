@@ -5,13 +5,15 @@ Status: **Candidate / nicht für Stable freigegeben**
 ## Sicherheits- und Regressionstests
 
 - `v0711.js`: Node-Syntaxprüfung bestanden.
+- `v0711-init.js`: Node-Syntaxprüfung bestanden.
 - `v0775.js`: Node-Syntaxprüfung bestanden.
 - `sw.js`: Node-Syntaxprüfung bestanden.
 - Designmodul enthält **keine** `location.reload`-, Service-Worker-, Runtime-Versions- oder Updater-Manipulation.
 - Designmodul enthält **keine** `setInterval`- oder `setTimeout`-Schleifen.
 - Doppelte Initialisierung: Style und delegierter Design-Handler werden nur einmal registriert.
 - 1.000 direkte Theme-Wechsel im VM-Test ohne Rekursion, Hänger oder Timer-Abhängigkeit.
-- 2.000 Theme-Wechsel im Loader-/State-Stresstest vorgesehen; der native Chromium-Prozess der Testumgebung konnte jedoch bereits eine leere Minimal-Seite wegen DBus/Zygote-Problemen nicht beenden. Das ist ein Problem der Testumgebung und wurde **nicht** als Browser-E2E-Pass gewertet.
+- Ein bereits serverseitig gespeichertes `lsclassic` wird über `v0711-init.js` genau einmal erneut eingelesen; der Refresh selbst nutzt keine Timer.
+- Ein nativer Chromium-E2E-Lauf wurde **nicht** als bestanden gewertet, weil der Chromium-Prozess der Testumgebung bereits bei einer leeren Minimal-Seite wegen DBus/Zygote-Problemen nicht terminierte. Das ist von der Patchlogik unabhängig. Vor Stable bleibt deshalb ein echter Preview-/Geräte-Smoke-Test Pflicht.
 
 ## Design-Matrix
 
@@ -49,19 +51,21 @@ Alle geprüften Text-/Hintergrundkombinationen liegen mindestens bei WCAG-AA-Niv
 - Simulierter RPC-Fehler: lokales Design bleibt aktiv und die UI wirft keinen unbehandelten Fehler.
 - Backend-Constraint akzeptiert exakt: `lsclassic`, `classic`, `midnight`, `emerald`, `violet`, `graphite`, `sunset`.
 - `my_design_preset_v071012` und `set_design_preset_v071012(p_preset text)` sind weiterhin vorhanden.
+- Startreihenfolge geprüft: v0.7.10.12 kann die Serverpräferenz bereits nach 50 ms laden; `v0711-init.js` setzt den Lade-Guard einmal zurück und liest die nun vollständige 7-Preset-Registry erneut ein.
 
 ## Loader- und Service-Worker-Tests
 
-- Loader lädt 21 Module strikt nacheinander.
-- `v0711.js` wird als letztes Modul geladen.
+- Loader lädt **22 Module** strikt nacheinander.
+- `v0711.js` und danach `v0711-init.js` werden als letzte Module geladen.
 - Alle Modul-URLs verwenden `v=0.7.11-r1` als Cache-Buster.
 - Keine doppelten Modulpfade.
 - Service Worker registriert nur: `install`, `activate`, `fetch`, `message`, `notificationclick`.
-- Service-Worker-Shell enthält `v0711.js` genau einmal.
+- Service-Worker-Shell enthält `v0711.js` und `v0711-init.js` jeweils genau einmal.
 - Kein automatischer Reload und keine Timer-Schleife im Service Worker.
 
 ## Release-Schutz
 
 - Reparatur liegt ausschließlich auf `v0.7.11-repair-candidate-final`.
+- Draft-PR #1 bleibt offen und ungemerged.
 - `main/latest.json` bleibt auf **v0.7.10.13 stable**.
 - Vor einem erneuten globalen Rollout ist ein echter Browser-/Geräte-Smoke-Test auf einer Preview-/Testinstanz erforderlich.
