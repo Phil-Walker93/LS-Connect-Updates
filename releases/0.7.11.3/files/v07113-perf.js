@@ -11,6 +11,8 @@
   const AVATAR_MAX_CACHE_MS=50*60*1000;
   const AVATAR_SAFETY_MS=5*60*1000;
   const avatarSignedUrlCache=new Map();
+  const rpcReadCache=new Map();
+  const RPC_CACHE_TTLS={story_feed:120000,my_ticket_notifications_v07106:120000};
 
   const online=()=>typeof state!=='undefined'&&state?.mode==='online'&&typeof db!=='undefined'&&!!db&&!!state.activeCharacterId;
   const userKey=()=>String((typeof state!=='undefined'&&state?.user?.id)||'anonymous');
@@ -27,6 +29,35 @@
     for(const [key,value] of avatarSignedUrlCache){
       if(!value||value.expiresAt<=now)avatarSignedUrlCache.delete(key);
     }
+  }
+
+  function clearRpcCacheFor(name){
+    for(const key of rpcReadCache.keys()){
+      if(key.includes(`|${name}|`))rpcReadCache.delete(key);
+    }
+  }
+
+  function installRpcReadCache(){
+    if(typeof db==='undefined'||typeof db?.rpc!=='function'||db.__lsConnectRpcEgressPatched)return false;
+    const originalRpc=db.rpc.bind(db);
+    db.rpc=function lsConnectCachedRpc(name,args,options){
+      const rpcName=String(name||'');
+      if(rpcName!=='story_feed'&&rpcName.includes('story'))clearRpcCacheFor('story_feed');
+      if(rpcName!=='my_ticket_notifications_v07106'&&rpcName.includes('ticket'))clearRpcCacheFor('my_ticket_notifications_v07106');
+      const ttl=RPC_CACHE_TTLS[rpcName];
+      if(!ttl)return originalRpc(name,args,options);
+      const now=Date.now();
+      const key=`${userKey()}|${rpcName}|${optionKey(args)}|${optionKey(options)}`;
+      const cached=rpcReadCache.get(key);
+      if(cached&&(document.hidden||cached.expiresAt>now))return cached.promise;
+      const promise=Promise.resolve(originalRpc(name,args,options))
+        .then(result=>{if(result?.error)rpcReadCache.delete(key);return result;})
+        .catch(error=>{rpcReadCache.delete(key);throw error;});
+      rpcReadCache.set(key,{expiresAt:now+ttl,promise});
+      return promise;
+    };
+    db.__lsConnectRpcEgressPatched=true;
+    return true;
   }
 
   function installAvatarCache(){
@@ -131,12 +162,14 @@
 
   function applyOptimizer({refresh=false}={}){
     installAvatarCache();
+    installRpcReadCache();
     patchKnownSchedulers();
     scheduleUnreadAndNotices({refresh});
     schedulePresence({refresh});
   }
 
   document.addEventListener('visibilitychange',()=>{
+    if(!document.hidden){clearRpcCacheFor('story_feed');clearRpcCacheFor('my_ticket_notifications_v07106');}
     applyOptimizer({refresh:!document.hidden});
     if(!document.hidden&&typeof v076PollIncomingCall==='function'){
       Promise.resolve(v076PollIncomingCall()).catch(()=>{});
