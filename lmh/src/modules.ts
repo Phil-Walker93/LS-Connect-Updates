@@ -16,7 +16,7 @@ export const hubModules: HubModule[] = [
     shortName: 'Connect',
     description: 'Soziales Netzwerk und Bürgerplattform',
     icon: '💬',
-    status: 'prepared',
+    status: 'available',
   },
   {
     id: 'pcad',
@@ -24,7 +24,7 @@ export const hubModules: HubModule[] = [
     shortName: 'PCAD',
     description: 'Polizei- und Einsatzsystem',
     icon: '🛡️',
-    status: 'planned',
+    status: 'available',
   },
   {
     id: 'banking',
