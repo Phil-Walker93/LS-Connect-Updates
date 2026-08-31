@@ -1,15 +1,15 @@
 {
   "schema": 2,
   "channel": "redesign",
-  "version": "0.8.5",
-  "released_at": "2026-08-31T19:15:00+02:00",
+  "version": "0.8.6",
+  "released_at": "2026-08-31T19:30:00+02:00",
   "mandatory": false,
-  "entry_file": "v0805.js",
+  "entry_file": "v0806.js",
   "status": "preview",
   "notes": [
-    "Smartphone-Ansicht wird auf 100dvh, Safe Areas und größere Touch-Ziele optimiert.",
-    "Nachrichten-Composer, Bottom-Navigation, Chats, Profile, Stories und Modals erhalten gezielten Mobile Polish.",
-    "Die Desktop-Darstellung bleibt unangetastet, Mobile-Regeln greifen nur bis 700px.",
+    "Performance- und Accessibility-Politur für die vollständige Redesign-Linie.",
+    "Der redundante v0.8.0-Struktur-Observer wird nach dem Start der neueren Navigation deaktiviert.",
+    "CSS-Containment, inkrementelle Accessibility-Prüfung, Tastaturnavigation und bessere ARIA-Zustände reduzieren Arbeit und verbessern Bedienbarkeit.",
     "Keine Backend-, Auth-, Supabase-, PCAD-, Banking- oder LMH-Handoff-Änderungen.",
     "Der produktive Stable-Kanal und Vercel-Hauptloader bleiben unverändert."
   ]

@@ -65,8 +65,16 @@
   };
   const observer=new MutationObserver(schedule);
   observer.observe(document.documentElement,{childList:true,subtree:true});
+  window.__LS_CONNECT_V080_STRUCTURE_OBSERVER__=observer;
+  window.__LS_CONNECT_V080_STRUCTURE_STOP__=()=>{
+    clearTimeout(timer);
+    observer.disconnect();
+    document.documentElement.dataset.v080LegacyObserver='stopped';
+  };
   refresh();
-  [250,700,1500,3000].forEach(ms=>setTimeout(refresh,ms));
+  [250,700,1500,3000].forEach(ms=>setTimeout(()=>{
+    if(document.documentElement.dataset.v080LegacyObserver!=='stopped') refresh();
+  },ms));
 
   console.info('[LS Connect] v0.8.0 structure layer active');
 })();
