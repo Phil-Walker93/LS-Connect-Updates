@@ -10,7 +10,7 @@
     await load('/api/script?version=0.7.10.13&file=v071013-core.js&v=0.7.10.13-core1','v071013-core');
     await load('/api/script?version=0.7.10.14&file=v071014.js&v=0.7.10.14-r1','v071014-release-center');
     await load('/api/script?version=0.7.10.14&file=v071014-meta.js&v=0.7.10.14-meta1','v071014-release-meta');
-    await load('/api/script?version=0.7.10.14&file=lmh-return.js&v=0.7.10.14-lmh1','lmh-return');
+    await load('/api/script?version=0.7.10.14&file=v071014-lmh.js&v=0.7.10.14-lmh2','lmh-return');
     console.info('[LS Connect] Online Release Center bootstrap active');
   }catch(error){console.error('[LS Connect] Release Center bootstrap failed',error);}
 })();
