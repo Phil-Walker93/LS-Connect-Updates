@@ -1,0 +1,10 @@
+{
+  "version": "0.9.1",
+  "channel": "stable",
+  "status": "promoted",
+  "revision": "live-r1",
+  "entry_file": "v091.js",
+  "script_files": ["v091.js"],
+  "previous_version": "0.7.11.1",
+  "notes": "LS Connect Redesign Release Candidate als neue Live-Oberfläche freigegeben. Vollständige Kette v0.8.0 bis v0.9.1; keine neue Supabase-/Auth-/RPC-/RLS-Struktur durch das Redesign selbst. Rollback-Ziel: v0.7.11.1."
+}
