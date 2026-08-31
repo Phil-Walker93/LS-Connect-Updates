@@ -104,7 +104,11 @@
         max-width:420px;margin:auto;padding:24px;border:1px solid rgba(148,163,184,.10);border-radius:20px;
         background:rgba(15,23,42,.38);text-align:center;color:#91a0b7;
       }
-      html[data-ls-connect-redesign='080'][data-v0802-workspace='1'] ${ACTION_CONTAINER_SELECTOR}{
+      html[data-ls-connect-redesign='080'][data-v0802-workspace='1'] .chat-header-actions,
+      html[data-ls-connect-redesign='080'][data-v0802-workspace='1'] .conversation-header-actions,
+      html[data-ls-connect-redesign='080'][data-v0802-workspace='1'] .header-actions,
+      html[data-ls-connect-redesign='080'][data-v0802-workspace='1'] .chat-actions,
+      html[data-ls-connect-redesign='080'][data-v0802-workspace='1'] .conversation-actions{
         position:relative;display:flex;align-items:center;gap:6px;
       }
       html[data-ls-connect-redesign='080'][data-v0802-workspace='1'] .${SOURCE_CLASS}{display:none!important}
