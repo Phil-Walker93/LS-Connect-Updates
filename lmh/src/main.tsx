@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { createRoot } from 'react-dom/client'
+import { getModuleTarget, type ExternalModuleId } from './integrations'
 import { hubModules, type HubModule } from './modules'
 import './styles.css'
 import './animations.css'
@@ -9,6 +10,10 @@ const statusLabels = {
   prepared: 'Vorbereitet',
   planned: 'Geplant',
 } as const
+
+function isExternalModuleId(id: string): id is ExternalModuleId {
+  return id === 'ls-connect' || id === 'pcad' || id === 'banking'
+}
 
 function App() {
   const [activeModule, setActiveModule] = useState<HubModule | null>(null)
@@ -23,6 +28,18 @@ function App() {
     () => now.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' }),
     [now],
   )
+
+  function openModule(module: HubModule) {
+    if (isExternalModuleId(module.id)) {
+      const target = getModuleTarget(module.id)
+      if (target.url) {
+        window.location.assign(target.url)
+        return
+      }
+    }
+
+    setActiveModule(module)
+  }
 
   return (
     <main className="stage">
@@ -41,16 +58,16 @@ function App() {
               </button>
               <div className="module-card-large">
                 <div className="module-icon-large">{activeModule.icon}</div>
-                <p className="eyebrow">LS MOBILE HUB · v0.2.0</p>
+                <p className="eyebrow">LS MOBILE HUB · v0.3.0</p>
                 <h1>{activeModule.name}</h1>
                 <p>{activeModule.description}</p>
                 <span className={`status-pill status-${activeModule.status}`}>
                   {statusLabels[activeModule.status]}
                 </span>
                 <div className="placeholder-panel">
-                  <strong>App-Seite bereit</strong>
+                  <strong>Modul noch nicht angebunden</strong>
                   <span>
-                    Die Oberfläche ist responsiv, touchfähig und für die kontrollierte Modul-Verlinkung vorbereitet.
+                    Für dieses Modul ist in der aktuellen Umgebung noch keine Zieladresse konfiguriert.
                   </span>
                 </div>
               </div>
@@ -68,7 +85,7 @@ function App() {
                   <button
                     className="app-tile"
                     key={module.id}
-                    onClick={() => setActiveModule(module)}
+                    onClick={() => openModule(module)}
                     aria-label={`${module.name} öffnen`}
                   >
                     <span className="app-icon">{module.icon}</span>
@@ -80,7 +97,7 @@ function App() {
 
               <div className="home-footer">
                 <span>LMH</span>
-                <span>v0.2.0 · Nutzbare UI</span>
+                <span>v0.3.0 · Modul-Verlinkungen</span>
               </div>
             </section>
           )}
