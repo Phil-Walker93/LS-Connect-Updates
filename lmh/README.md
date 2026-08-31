@@ -1,22 +1,58 @@
 # LS Mobile Hub
 
-Aktueller Entwicklungsstand: **v0.1.0 – Grundgerüst**
+Aktueller Entwicklungsstand: **v0.5.0 – LS-Connect-Integration**
 
-Der LS Mobile Hub ist die zentrale Smartphone-Oberfläche des Los-Santos-RP-Systems. Die einzelnen Fachsysteme bleiben als eigenständige Module konzipiert.
+Der LS Mobile Hub ist die zentrale Smartphone-Oberfläche des Los-Santos-RP-Systems. LS Connect, PCAD, Banking und zukünftige Fachsysteme bleiben eigenständige Module und werden über klar definierte Schnittstellen angebunden.
 
-## v0.1.0 umgesetzt
+## Roadmap-Status
 
+### v0.1.0 – Grundgerüst ✅
 - Smartphone-Rahmen und Homescreen
 - App-Launcher
-- statische App-Kacheln für LS Connect, PCAD, Banking, Mitteilungen und Einstellungen
-- Basisnavigation zwischen Homescreen und Modulansicht
-- responsive Grundlage für Desktop und mobile Endgeräte
-- zentrale Modul-Registry in `src/modules.ts`
-- keine produktive Kopplung an LS Connect oder PCAD
+- statische App-Kacheln
+- Basisnavigation
+- modulare App-Registry
+
+### v0.1.1 – Projektabgrenzung & Struktur-Hotfix ✅
+- getrennte Modul-Zieladressen über Umgebungsvariablen
+- zentrale Integrationsverträge
+- keine hart verdrahteten LS-Connect-/PCAD-URLs im UI-Code
+
+### v0.2.0 – Erste nutzbare Benutzeroberfläche ✅
+- responsive Darstellung
+- Desktop- und Mobile-Grundlage
+- Touch-Verhalten
+- App-Öffnungsanimationen
+- reduzierte Animationen bei entsprechender Systemeinstellung
+
+### v0.3.0 – Modul-Verlinkungen ✅
+- LS Connect über konfigurierbare Produktions-URL
+- PCAD über konfigurierbare Produktions-URL
+- Banking-Ziel vorbereitet
+
+### v0.3.1 – Zurück-zum-Handy-Standard ⏸
+Vorbereitet, aber noch nicht produktiv aktiviert. Dafür wird zuerst eine stabile LMH-Produktions-URL benötigt. Anschließend muss LS Connect kontrolliert um den Rückweg ergänzt werden. Bis dahin wird das bestehende LS-Connect-Produktionssystem nicht verändert.
+
+### v0.4.0 – Rollen- und Berechtigungssystem ✅
+- gemeinsame Supabase-Authentifizierung
+- LMH-Rollen: Bürger, Unternehmen, LSPD, Staatsdienst, Administrator, Systemadministrator
+- rollenbasierte App-Sichtbarkeit
+- individuelle App-Overrides
+- Row Level Security
+
+### v0.5.0 – LS-Connect-Anbindung ✅
+- bestehender LS-Connect-Account als LMH-Identitätsquelle
+- Übernahme von Accountinformationen
+- LMH-Rollen und App-Freigaben
+- aktiver zugänglicher LS-Connect-Charakter
+- Profilinformationen wie Name, Handle, Account-Typ und Profilfarbe
+- gemeinsame Auth-Grundlage für spätere Session-Übergaben
 
 ## Sicherheits- und Architekturprinzip
 
-Der Hub darf LS Connect oder PCAD nicht zu internen, untrennbaren Bestandteilen machen. Module werden über definierte Schnittstellen und konfigurierbare Zieladressen angebunden. Bestehende Produktionssysteme bleiben während der Migration lauffähig.
+Der Hub macht LS Connect oder PCAD nicht zu untrennbaren internen Bestandteilen. Bestehende Produktionssysteme bleiben während der Migration lauffähig. Browserseitig wird ausschließlich ein Supabase-Publishable-Key genutzt; privilegierte Server-Schlüssel gehören nicht in das Frontend. Rechte werden serverseitig über RLS und kontrollierte RPCs geprüft.
+
+Ein echtes Single-Sign-on zwischen unterschiedlichen Vercel-Domains wird nicht durch das Weiterreichen von Access-Tokens in URLs umgesetzt. Dafür folgt ein sicherer Session-Handoff, sobald der Hub eine feste Produktionsadresse besitzt.
 
 ## Entwicklung
 
@@ -31,8 +67,8 @@ Produktionsbuild:
 npm run build
 ```
 
-## Nächster Schritt
+## Nächster regulärer Roadmap-Schritt
 
-**v0.1.1 – Projektabgrenzung & Struktur-Hotfix**
+**v0.6.0 – Banking-App Vorbereitung**
 
-Dort folgen getrennte Umgebungsvariablen, gemeinsame Schnittstellen und die technische Vorbereitung der externen Module.
+Vor einer produktiven Weiterentwicklung werden außerdem die noch offenen Integrationspunkte aus v0.3.1 abgeschlossen, sobald die feste LMH-Produktions-URL verfügbar ist.
