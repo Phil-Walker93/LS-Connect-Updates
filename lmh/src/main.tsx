@@ -2,11 +2,13 @@ import { type FormEvent, useEffect, useMemo, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import type { Session } from '@supabase/supabase-js'
 import { getModuleTarget, type ExternalModuleId } from './integrations'
+import { loadCurrentIdentity, type HubIdentity } from './identity'
 import { hubModules, type HubModule } from './modules'
 import { hasSupabaseConfig, supabase } from './supabase'
 import './styles.css'
 import './animations.css'
 import './auth.css'
+import './identity.css'
 
 const statusLabels = {
   available: 'Verfügbar',
@@ -18,15 +20,24 @@ function isExternalModuleId(id: string): id is ExternalModuleId {
   return id === 'ls-connect' || id === 'pcad' || id === 'banking'
 }
 
+function initials(value: string) {
+  return value
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0]?.toUpperCase())
+    .join('') || 'LS'
+}
+
 function App() {
   const [activeModule, setActiveModule] = useState<HubModule | null>(null)
   const [now, setNow] = useState(new Date())
   const [session, setSession] = useState<Session | null | undefined>(undefined)
-  const [visibleAppIds, setVisibleAppIds] = useState<Set<string> | null>(null)
+  const [identity, setIdentity] = useState<HubIdentity | null>(null)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [authError, setAuthError] = useState('')
-  const [permissionError, setPermissionError] = useState('')
+  const [identityError, setIdentityError] = useState('')
   const [authBusy, setAuthBusy] = useState(false)
 
   useEffect(() => {
@@ -43,6 +54,7 @@ function App() {
     void supabase.auth.getSession().then(({ data }) => setSession(data.session))
     const { data: listener } = supabase.auth.onAuthStateChange((_event, nextSession) => {
       setSession(nextSession)
+      setIdentity(null)
       setActiveModule(null)
     })
 
@@ -51,25 +63,23 @@ function App() {
 
   useEffect(() => {
     if (!session) {
-      setVisibleAppIds(null)
+      setIdentity(null)
+      setIdentityError('')
       return
     }
 
     let cancelled = false
-    setPermissionError('')
+    setIdentityError('')
 
-    void supabase.rpc('hub_visible_apps').then(({ data, error }) => {
-      if (cancelled) return
-      if (error) {
-        setVisibleAppIds(new Set<string>())
-        setPermissionError(error.message)
-        return
-      }
-
-      const rows = (data ?? []) as Array<{ app_id: string }>
-      const ids = new Set<string>(rows.map((row) => row.app_id))
-      setVisibleAppIds(ids)
-    })
+    void loadCurrentIdentity()
+      .then((nextIdentity) => {
+        if (!cancelled) setIdentity(nextIdentity)
+      })
+      .catch((error: unknown) => {
+        if (cancelled) return
+        setIdentity(null)
+        setIdentityError(error instanceof Error ? error.message : 'Identität konnte nicht geladen werden.')
+      })
 
     return () => {
       cancelled = true
@@ -81,10 +91,11 @@ function App() {
     [now],
   )
 
-  const authorizedModules = useMemo(
-    () => (visibleAppIds ? hubModules.filter((module) => visibleAppIds.has(module.id)) : []),
-    [visibleAppIds],
-  )
+  const authorizedModules = useMemo(() => {
+    if (!identity) return []
+    const visibleApps = new Set<string>(identity.visible_apps)
+    return hubModules.filter((module) => visibleApps.has(module.id))
+  }, [identity])
 
   async function signIn(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -112,6 +123,13 @@ function App() {
     setActiveModule(module)
   }
 
+  const displayName = identity?.character?.name || identity?.account.email || 'LS-Connect Account'
+  const identityMeta = identity?.character
+    ? `${identity.character.handle} · ${identity.character.account_type}`
+    : identity?.account.collaboration_code
+      ? `Code ${identity.account.collaboration_code}`
+      : 'Noch kein aktiver Charakter'
+
   return (
     <main className="stage">
       <section className="phone" aria-label="LS Mobile Hub Smartphone">
@@ -127,7 +145,7 @@ function App() {
           ) : !session ? (
             <section className="auth-view">
               <div className="auth-card">
-                <p className="eyebrow">LS MOBILE HUB · v0.4.0</p>
+                <p className="eyebrow">LS MOBILE HUB · v0.5.0</p>
                 <h1>Anmelden</h1>
                 <p>Nutze deinen bestehenden LS-Connect-Account. Der Hub besitzt kein separates Benutzerkonto.</p>
                 <form className="auth-form" onSubmit={signIn}>
@@ -144,7 +162,7 @@ function App() {
                   </button>
                 </form>
                 {authError ? <div className="auth-error">{authError}</div> : null}
-                <div className="auth-note">Zugriffe werden serverseitig über LMH-Rollen und Supabase RLS geprüft.</div>
+                <div className="auth-note">Identität und Freigaben stammen direkt aus dem gemeinsamen LS-Connect-/LMH-Backend.</div>
               </div>
             </section>
           ) : activeModule ? (
@@ -154,7 +172,7 @@ function App() {
               </button>
               <div className="module-card-large">
                 <div className="module-icon-large">{activeModule.icon}</div>
-                <p className="eyebrow">LS MOBILE HUB · v0.4.0</p>
+                <p className="eyebrow">LS MOBILE HUB · v0.5.0</p>
                 <h1>{activeModule.name}</h1>
                 <p>{activeModule.description}</p>
                 <span className={`status-pill status-${activeModule.status}`}>
@@ -172,15 +190,29 @@ function App() {
                 <span>{session.user.email ?? 'Angemeldeter Nutzer'}</span>
                 <button onClick={signOut}>Abmelden</button>
               </div>
+
+              {identity ? (
+                <div className="identity-card">
+                  <div className="identity-avatar">{initials(displayName)}</div>
+                  <div className="identity-copy">
+                    <div className="identity-name">{displayName}</div>
+                    <div className="identity-meta">{identityMeta}</div>
+                    <div className="identity-roles">
+                      {identity.roles.map((role) => <span className="identity-role" key={role}>{role}</span>)}
+                    </div>
+                  </div>
+                </div>
+              ) : null}
+
               <div className="home-header">
                 <p className="eyebrow">LOS SANTOS · MOBILE SYSTEM</p>
                 <h1>LS Mobile Hub</h1>
-                <p>Nur für dich freigegebene Apps werden angezeigt.</p>
+                <p>LS-Connect-Identität und Hub-Berechtigungen sind zentral verbunden.</p>
               </div>
 
-              {visibleAppIds === null ? (
-                <div className="placeholder-panel"><strong>Berechtigungen werden geladen …</strong></div>
-              ) : (
+              {!identity && !identityError ? (
+                <div className="placeholder-panel"><strong>LS-Connect-Identität wird geladen …</strong></div>
+              ) : identity ? (
                 <div className="launcher" aria-label="App Launcher">
                   {authorizedModules.map((module) => (
                     <button
@@ -195,13 +227,13 @@ function App() {
                     </button>
                   ))}
                 </div>
-              )}
+              ) : null}
 
-              {permissionError ? <div className="auth-error">Berechtigungen konnten nicht geladen werden: {permissionError}</div> : null}
+              {identityError ? <div className="auth-error">LS-Connect-Identität konnte nicht geladen werden: {identityError}</div> : null}
 
               <div className="home-footer">
                 <span>LMH</span>
-                <span>v0.4.0 · Rollen & Rechte</span>
+                <span>v0.5.0 · LS-Connect-Integration</span>
               </div>
             </section>
           )}
