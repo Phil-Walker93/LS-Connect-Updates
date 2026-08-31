@@ -25,8 +25,8 @@
   function structureSidebar(){
     const sidebar=document.querySelector('.sidebar');
     if(!sidebar) return;
-    const candidates=[...sidebar.querySelectorAll('button,a,[role="button"],.chat-item,.channel-item')]
-      .filter(el=>norm(el)&&!el.closest('.v080-nav-section-label'));
+    const candidates=[...sidebar.querySelectorAll('button,a,[role="button"]')]
+      .filter(el=>norm(el)&&!el.closest('.chat-item,.channel-item,.character-switcher'));
     const signature=candidates.map(el=>`${groupFor(norm(el))}:${norm(el).slice(0,45)}`).join('|');
     if(sidebar.dataset.v080StructureSignature===signature) return;
     sidebar.dataset.v080StructureSignature=signature;
