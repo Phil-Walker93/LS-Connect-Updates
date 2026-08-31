@@ -40,16 +40,16 @@ function App() {
               </button>
               <div className="module-card-large">
                 <div className="module-icon-large">{activeModule.icon}</div>
-                <p className="eyebrow">LS MOBILE HUB · v0.1.0</p>
+                <p className="eyebrow">LS MOBILE HUB · v0.1.1</p>
                 <h1>{activeModule.name}</h1>
                 <p>{activeModule.description}</p>
                 <span className={`status-pill status-${activeModule.status}`}>
                   {statusLabels[activeModule.status]}
                 </span>
                 <div className="placeholder-panel">
-                  <strong>Modulplatz vorbereitet</strong>
+                  <strong>Modul sauber abgegrenzt</strong>
                   <span>
-                    Die echte Modul-Anbindung folgt kontrolliert in den vorgesehenen Roadmap-Versionen.
+                    Zieladressen und Schnittstellen liegen außerhalb der Oberfläche und können je Umgebung getrennt konfiguriert werden.
                   </span>
                 </div>
               </div>
@@ -79,7 +79,7 @@ function App() {
 
               <div className="home-footer">
                 <span>LMH</span>
-                <span>v0.1.0 · Grundgerüst</span>
+                <span>v0.1.1 · Struktur-Hotfix</span>
               </div>
             </section>
           )}
