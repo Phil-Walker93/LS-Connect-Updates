@@ -1,0 +1,15 @@
+{
+  "schema": 2,
+  "channel": "redesign",
+  "version": "0.8.0",
+  "released_at": "2026-08-31T18:10:00+02:00",
+  "mandatory": false,
+  "entry_file": "v080.js",
+  "status": "preview",
+  "notes": [
+    "Neue Hub-inspirierte visuelle Oberfläche ohne Backend-, Auth- oder Supabase-Änderungen.",
+    "Navigation wird visuell in Kommunikation, Community, Konto und Verwaltung gegliedert.",
+    "Chats, Modals, Karten und mobile Navigation erhalten ein einheitliches modernes Design.",
+    "Der produktive Stable-Kanal bleibt unverändert."
+  ]
+}
