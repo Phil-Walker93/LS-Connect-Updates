@@ -1,0 +1,273 @@
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #f8fafc;
+  background: #05070b;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root { min-height: 100%; margin: 0; }
+button { font: inherit; }
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.stage {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 28px 14px;
+  background:
+    radial-gradient(circle at 20% 15%, rgba(59, 130, 246, .18), transparent 32%),
+    radial-gradient(circle at 80% 80%, rgba(124, 58, 237, .16), transparent 34%),
+    linear-gradient(145deg, #05070b, #0c1220 55%, #080a10);
+}
+
+.phone {
+  position: relative;
+  width: min(390px, calc(100vw - 28px));
+  height: min(820px, calc(100vh - 56px));
+  min-height: 620px;
+  padding: 10px;
+  border-radius: 48px;
+  background: linear-gradient(145deg, #3f4652, #11151c 22%, #080a0f 76%, #4b5563);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, .58), inset 0 0 0 1px rgba(255,255,255,.16);
+}
+
+.speaker {
+  position: absolute;
+  z-index: 4;
+  top: 20px;
+  left: 50%;
+  width: 88px;
+  height: 25px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: #050608;
+  box-shadow: inset 0 -1px 0 rgba(255,255,255,.08);
+}
+
+.screen {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 39px;
+  background:
+    linear-gradient(rgba(7, 12, 22, .42), rgba(7, 12, 22, .78)),
+    radial-gradient(circle at 60% 20%, #273c68, #10182b 46%, #090d16 78%);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.06);
+}
+
+.statusbar {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 22px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+
+.status-icons { font-size: 9px; letter-spacing: 4px; opacity: .85; }
+
+.home-view,
+.module-view {
+  min-height: calc(100% - 48px);
+  padding: 34px 24px 62px;
+}
+
+.home-view {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-header { margin: 5px 0 36px; }
+.home-header h1,
+.module-card-large h1 {
+  margin: 4px 0 7px;
+  font-size: clamp(28px, 7vw, 38px);
+  line-height: 1.05;
+  letter-spacing: -.035em;
+}
+
+.home-header > p:last-child,
+.module-card-large > p {
+  margin: 0;
+  color: #bac5d8;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.eyebrow {
+  margin: 0;
+  color: #7dd3fc !important;
+  font-size: 10px !important;
+  font-weight: 800;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.launcher {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px 15px;
+}
+
+.app-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  padding: 0;
+  color: #f8fafc;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.app-icon {
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  font-size: 30px;
+  background: linear-gradient(145deg, rgba(255,255,255,.18), rgba(255,255,255,.05));
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 12px 28px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.18);
+  transition: transform .16s ease, border-color .16s ease;
+}
+
+.app-tile:hover .app-icon,
+.app-tile:focus-visible .app-icon {
+  transform: translateY(-3px) scale(1.03);
+  border-color: rgba(125,211,252,.55);
+}
+
+.app-name {
+  max-width: 92px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.app-state {
+  position: absolute;
+  top: 1px;
+  right: calc(50% - 34px);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 2px solid #141d30;
+}
+.app-state-available { background: #4ade80; }
+.app-state-prepared { background: #38bdf8; }
+.app-state-planned { background: #64748b; }
+
+.home-footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 30px;
+  color: #7f8da5;
+  font-size: 10px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.module-view { padding-top: 12px; }
+
+.back-button {
+  margin-bottom: 22px;
+  padding: 8px 0;
+  color: #7dd3fc;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font-weight: 750;
+}
+
+.module-card-large {
+  padding: 26px;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 28px;
+  background: rgba(10, 17, 30, .72);
+  box-shadow: 0 20px 50px rgba(0,0,0,.28);
+  backdrop-filter: blur(18px);
+}
+
+.module-icon-large {
+  width: 78px;
+  height: 78px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 24px;
+  border-radius: 23px;
+  font-size: 38px;
+  background: linear-gradient(145deg, rgba(125,211,252,.22), rgba(99,102,241,.12));
+  border: 1px solid rgba(125,211,252,.2);
+}
+
+.status-pill {
+  display: inline-flex;
+  margin-top: 18px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+.status-available { color: #86efac; background: rgba(34,197,94,.12); }
+.status-prepared { color: #7dd3fc; background: rgba(14,165,233,.12); }
+.status-planned { color: #cbd5e1; background: rgba(100,116,139,.16); }
+
+.placeholder-panel {
+  display: grid;
+  gap: 6px;
+  margin-top: 24px;
+  padding: 16px;
+  border-radius: 17px;
+  background: rgba(255,255,255,.045);
+  color: #d9e2ef;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.placeholder-panel span { color: #8fa0ba; }
+
+.home-indicator {
+  position: absolute;
+  left: 50%;
+  bottom: 11px;
+  width: 112px;
+  height: 4px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: rgba(255,255,255,.76);
+}
+
+@media (max-height: 690px) {
+  .phone { min-height: 570px; }
+  .home-view { padding-top: 18px; }
+  .home-header { margin-bottom: 22px; }
+  .launcher { gap: 16px 12px; }
+  .app-icon { width: 56px; height: 56px; border-radius: 16px; font-size: 27px; }
+}
+
+@media (max-width: 380px) {
+  .stage { padding: 0; }
+  .phone { width: 100vw; height: 100vh; min-height: 100vh; padding: 0; border-radius: 0; }
+  .screen { border-radius: 0; }
+  .speaker { top: 10px; }
+}
