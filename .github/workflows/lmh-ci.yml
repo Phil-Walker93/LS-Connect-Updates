@@ -1,0 +1,32 @@
+name: LMH CI
+
+on:
+  push:
+    branches:
+      - lmh-development
+    paths:
+      - 'lmh/**'
+      - '.github/workflows/lmh-ci.yml'
+  pull_request:
+    paths:
+      - 'lmh/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: lmh
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: lmh/package.json
+      - name: Install
+        run: npm install
+      - name: Build
+        run: npm run build
