@@ -1,15 +1,16 @@
 {
   "schema": 2,
   "channel": "redesign-rc",
-  "version": "0.9.0",
-  "released_at": "2026-08-31T19:45:00+02:00",
+  "version": "0.9.1",
+  "released_at": "2026-08-31T20:00:00+02:00",
   "mandatory": false,
-  "entry_file": "v090.js",
-  "status": "release-candidate",
+  "entry_file": "v091.js",
+  "status": "release-candidate-qa",
   "notes": [
-    "Bündelt die vollständige Redesign-Kette v0.8.0 bis v0.8.6 als separaten Release Candidate.",
-    "Verifiziert die geladenen UI-Module und zentrale Browser-Voraussetzungen nach dem Start.",
-    "Der bestehende redesign-Preview-Kanal bleibt auf v0.8.6; Stable bleibt vollständig unverändert.",
-    "Keine Backend-, Auth-, Supabase-, PCAD-, Banking- oder LMH-Handoff-Änderungen."
+    "Erweitert den Redesign-RC um Asset-, Loader-, Runtime- und DOM-Grundprüfungen.",
+    "22 abhängige Script-Assets und die vollständige Redesign-Modulkette werden automatisch verifiziert.",
+    "Laufzeit- und Promise-Fehler werden bereits vor dem RC-Start gesammelt und als Blocker gewertet.",
+    "Login-gebundene UI-Bereiche werden als aufgeschobener Funktionstest erkannt statt fälschlich als Fehler gewertet.",
+    "Stable und produktiver Vercel-Hauptloader bleiben unverändert; keine Backend-, Auth-, Supabase-, PCAD-, Banking- oder LMH-Handoff-Änderungen."
   ]
 }
