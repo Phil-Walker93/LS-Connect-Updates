@@ -6,6 +6,10 @@
   const VERSION='0.8.6';
   const STYLE_ID='v0806-performance-a11y-style';
   const KEYBOARD_ROOTS='.v0801-nav-deck,.v0804-settings-nav,.admin-tabs,.mobile-nav';
+  const SYMBOL_NAMES=new Map([
+    ['×','Schließen'],['✕','Schließen'],['✖','Schließen'],['…','Weitere Aktionen'],['⋯','Weitere Aktionen'],['•••','Weitere Aktionen'],
+    ['←','Zurück'],['‹','Zurück'],['+','Hinzufügen'],['⚙','Einstellungen'],['⌂','Startseite']
+  ]);
 
   function installStyles(){
     if(document.getElementById(STYLE_ID)) return;
@@ -17,9 +21,7 @@
         outline-offset:2px!important;
         box-shadow:0 0 0 4px rgba(56,189,248,.14)!important;
       }
-      html[data-ls-connect-redesign='080'][data-v0806-a11y='1'] :where(.chat-item,.channel-item,.settings-block,.profile-card,.info-card,.request-card,.admin-channel-row){
-        scroll-margin-block:72px;
-      }
+      html[data-ls-connect-redesign='080'][data-v0806-a11y='1'] :where(.chat-item,.channel-item,.settings-block,.profile-card,.info-card,.request-card,.admin-channel-row){scroll-margin-block:72px}
       html[data-ls-connect-redesign='080'][data-v0806-a11y='1'] :where(.settings-block,.profile-card,.info-card,.request-card,.admin-channel-row,.feed-card,.feed-item,.channel-post,.channel-post-card,[class*='community-card']){
         contain:layout paint style;
       }
@@ -31,8 +33,6 @@
       }
       html[data-ls-connect-redesign='080'][data-v0806-a11y='1'] [aria-disabled='true'],
       html[data-ls-connect-redesign='080'][data-v0806-a11y='1'] :disabled{cursor:not-allowed!important;opacity:.58!important}
-      html[data-ls-connect-redesign='080'][data-v0806-a11y='1'] [aria-current='page'],
-      html[data-ls-connect-redesign='080'][data-v0806-a11y='1'] [aria-selected='true']{position:relative}
       @media(prefers-reduced-motion:reduce){
         html[data-ls-connect-redesign='080'][data-v0806-a11y='1'] *,
         html[data-ls-connect-redesign='080'][data-v0806-a11y='1'] *::before,
@@ -54,13 +54,14 @@
   }
 
   function text(value){return String(value||'').replace(/\s+/g,' ').trim();}
+  function cssEscape(value){return globalThis.CSS?.escape?CSS.escape(value):String(value).replace(/[^a-zA-Z0-9_-]/g,'\\$&');}
 
   function accessibleName(el){
-    return text(el.getAttribute?.('aria-label')) ||
-      text(el.getAttribute?.('title')) ||
-      text(el.getAttribute?.('data-label')) ||
-      text(el.getAttribute?.('data-action')) ||
-      text(el.textContent);
+    const explicit=text(el.getAttribute?.('aria-label')) || text(el.getAttribute?.('title')) || text(el.getAttribute?.('data-label')) || text(el.getAttribute?.('data-action'));
+    if(explicit) return explicit;
+    const visible=text(el.textContent);
+    if(/[\p{L}\p{N}]/u.test(visible)) return visible;
+    return SYMBOL_NAMES.get(visible) || '';
   }
 
   function labelButtons(root){
@@ -68,7 +69,9 @@
     if(root instanceof Element && root.matches('button,[role="button"]')) buttons.push(root);
     root.querySelectorAll?.('button,[role="button"]').forEach(el=>buttons.push(el));
     for(const button of buttons){
-      if(text(button.getAttribute('aria-label')) || text(button.textContent)) continue;
+      if(text(button.getAttribute('aria-label'))) continue;
+      const visible=text(button.textContent);
+      if(/[\p{L}\p{N}]/u.test(visible)) continue;
       const name=accessibleName(button);
       if(name) button.setAttribute('aria-label',name);
     }
@@ -79,7 +82,7 @@
     if(root instanceof Element && root.matches('input,textarea,select')) inputs.push(root);
     root.querySelectorAll?.('input,textarea,select').forEach(el=>inputs.push(el));
     for(const input of inputs){
-      if(input.id && document.querySelector(`label[for="${CSS.escape(input.id)}"]`)) continue;
+      if(input.id && document.querySelector(`label[for="${cssEscape(input.id)}"]`)) continue;
       if(input.closest('label')) continue;
       if(text(input.getAttribute('aria-label')) || text(input.getAttribute('aria-labelledby'))) continue;
       const name=text(input.getAttribute('placeholder')) || text(input.getAttribute('name')) || text(input.getAttribute('title'));
@@ -119,6 +122,10 @@
     if(root instanceof Element && root.matches(KEYBOARD_ROOTS)) navs.push(root);
     root.querySelectorAll?.(KEYBOARD_ROOTS).forEach(el=>navs.push(el));
     for(const nav of navs){
+      if(nav.classList.contains('admin-tabs')){
+        nav.setAttribute('role','tablist');
+        nav.querySelectorAll('.admin-tab').forEach(tab=>tab.setAttribute('role','tab'));
+      }
       if(nav.dataset.v0806Keyboard==='1') continue;
       nav.dataset.v0806Keyboard='1';
       nav.addEventListener('keydown',event=>{
@@ -174,6 +181,10 @@
   process(document);
   syncStates();
 
+  // v0.8.1 replaced the original structural sidebar labels. Stop the now redundant
+  // v0.8.0 full-document observer once the newer layers have finished booting.
+  if(typeof window.__LS_CONNECT_V080_STRUCTURE_STOP__==='function') window.__LS_CONNECT_V080_STRUCTURE_STOP__();
+
   const observer=new MutationObserver(mutations=>{
     for(const mutation of mutations){
       for(const node of mutation.addedNodes){
@@ -189,8 +200,9 @@
     const open=document.querySelector('.v0802-header-overflow.open');
     if(!open) return;
     open.classList.remove('open');
-    open.querySelector('.v0802-overflow-toggle')?.setAttribute('aria-expanded','false');
-    open.querySelector('.v0802-overflow-toggle')?.focus();
+    const toggle=open.querySelector('.v0802-overflow-toggle');
+    toggle?.setAttribute('aria-expanded','false');
+    toggle?.focus();
   },true);
 
   document.documentElement.dataset.lsVersion=VERSION;
