@@ -1,15 +1,16 @@
 {
   "schema": 2,
   "channel": "redesign",
-  "version": "0.8.0",
-  "released_at": "2026-08-31T18:10:00+02:00",
+  "version": "0.8.1",
+  "released_at": "2026-08-31T18:20:00+02:00",
   "mandatory": false,
-  "entry_file": "v080.js",
+  "entry_file": "v0801.js",
   "status": "preview",
   "notes": [
-    "Neue Hub-inspirierte visuelle Oberfläche ohne Backend-, Auth- oder Supabase-Änderungen.",
-    "Navigation wird visuell in Kommunikation, Community, Konto und Verwaltung gegliedert.",
-    "Chats, Modals, Karten und mobile Navigation erhalten ein einheitliches modernes Design.",
-    "Der produktive Stable-Kanal bleibt unverändert."
+    "Neue kompakte Bereichsnavigation für Alle, Chats, Community, Konto und Verwaltung.",
+    "Navigation wird ausschließlich clientseitig gefiltert; Daten und bestehende Funktionen bleiben unverändert.",
+    "Hub-inspiriertes v0.8.0-Design bleibt die visuelle Grundlage.",
+    "Keine Backend-, Auth-, Supabase- oder LMH-ModuleAdapter-Änderungen.",
+    "Der produktive Stable-Kanal und Vercel-Hauptloader bleiben unverändert."
   ]
 }
