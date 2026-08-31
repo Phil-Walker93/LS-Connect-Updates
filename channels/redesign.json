@@ -1,16 +1,16 @@
 {
   "schema": 2,
   "channel": "redesign",
-  "version": "0.8.1",
-  "released_at": "2026-08-31T18:20:00+02:00",
+  "version": "0.8.2",
+  "released_at": "2026-08-31T18:35:00+02:00",
   "mandatory": false,
-  "entry_file": "v0801.js",
+  "entry_file": "v0802.js",
   "status": "preview",
   "notes": [
-    "Neue kompakte Bereichsnavigation für Alle, Chats, Community, Konto und Verwaltung.",
-    "Navigation wird ausschließlich clientseitig gefiltert; Daten und bestehende Funktionen bleiben unverändert.",
-    "Hub-inspiriertes v0.8.0-Design bleibt die visuelle Grundlage.",
-    "Keine Backend-, Auth-, Supabase- oder LMH-ModuleAdapter-Änderungen.",
+    "Messenger-Workspace mit klarerer Chatliste, ruhigerem Nachrichtenbereich und modernisiertem Composer.",
+    "Desktop-, Tablet- und Smartphone-Darstellung werden auf eine gemeinsame Hub-inspirierte Struktur gebracht.",
+    "Header-Aktionen werden nur in eindeutig erkannten Aktionscontainern defensiv verdichtet.",
+    "Keine Nachrichten-, Anruf-, Backend-, Auth-, Supabase- oder LMH-ModuleAdapter-Änderungen.",
     "Der produktive Stable-Kanal und Vercel-Hauptloader bleiben unverändert."
   ]
 }
