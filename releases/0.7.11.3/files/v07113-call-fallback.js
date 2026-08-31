@@ -22,7 +22,7 @@
         const channels=db.getChannels()||[];
         if(channels.length){
           return channels.some(channel=>{
-            const status=String(channel?.state||channel?.joinedOnce?'joined':'').toLowerCase();
+            const status=String(channel?.state||'').toLowerCase();
             return status==='joined'||status==='subscribed';
           });
         }
