@@ -135,7 +135,8 @@
   window.__LS_CONNECT_EGRESS_OPTIMIZER_BOOTSTRAP__=true;
   const modules=[
     {key:'v07113-perf',file:'v07113-perf.js',revision:'0.7.11.3-perf2'},
-    {key:'v07113-call-fallback',file:'v07113-call-fallback.js',revision:'0.7.11.3-call1'}
+    {key:'v07113-call-fallback',file:'v07113-call-fallback.js',revision:'0.7.11.3-call1'},
+    {key:'v07113-design-sync',file:'v07113-design-sync.js',revision:'0.7.11.3-design1'}
   ];
   try{
     for(const module of modules){
