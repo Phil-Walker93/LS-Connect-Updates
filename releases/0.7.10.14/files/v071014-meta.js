@@ -129,3 +129,22 @@
 
   console.info('[LS Connect] promoted release metadata bridge active');
 })();
+
+(async function v071014LoadEgressOptimizer(){
+  if(window.__LS_CONNECT_EGRESS_OPTIMIZER_BOOTSTRAP__)return;
+  window.__LS_CONNECT_EGRESS_OPTIMIZER_BOOTSTRAP__=true;
+  try{
+    if([...document.scripts].some(script=>script.dataset?.lsBootstrapKey==='v07113-perf'))return;
+    const script=document.createElement('script');
+    script.dataset.lsBootstrapKey='v07113-perf';
+    script.src='/api/script?version=0.7.11.3&file=v07113-perf.js&v=0.7.11.3-perf1';
+    script.async=false;
+    await new Promise((resolve,reject)=>{
+      script.onload=resolve;
+      script.onerror=()=>reject(new Error('LS Connect Egress-Optimierung konnte nicht geladen werden.'));
+      document.head.appendChild(script);
+    });
+  }catch(error){
+    console.warn('[LS Connect] Egress-Optimierung konnte nicht geladen werden.',error);
+  }
+})();
