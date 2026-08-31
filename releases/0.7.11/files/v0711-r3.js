@@ -6,6 +6,13 @@ var LS_CONNECT_V0711_R3_VERSION='0.7.11-r3';
 
   const BASE_KEY='ls-connect:design-preset:v1';
   const CANDIDATE_KEY='ls-connect:design-preset:v0711-candidate';
+  const RETRY_DELAY_MS=30000;
+  const syncState=window.__LS_CONNECT_V0711_R3_SYNC_STATE__||{
+    inFlight:null,
+    retryAfter:0,
+    syncedPreset:null
+  };
+  window.__LS_CONNECT_V0711_R3_SYNC_STATE__=syncState;
 
   const valid=value=>{
     const key=String(value||'').toLowerCase();
@@ -41,28 +48,48 @@ var LS_CONNECT_V0711_R3_VERSION='0.7.11-r3';
   if(typeof v071012LoadServerPreset==='function'){
     v071012LoadServerPreset=async function v071012LoadServerPresetV0711R3(){
       if(typeof db==='undefined'||!db||typeof state==='undefined'||state?.mode!=='online')return false;
-      try{
-        const candidate=read(CANDIDATE_KEY);
-        if(candidate){
-          v071012ApplyPreset(candidate,{saveLocal:true});
-          const {error}=await db.rpc('set_design_preset_v071012',{p_preset:candidate});
+      try{if(v071012ServerPresetLoaded)return true;}catch{}
+      if(syncState.inFlight)return syncState.inFlight;
+      if(Date.now()<Number(syncState.retryAfter||0))return false;
+
+      const task=(async()=>{
+        try{
+          const candidate=read(CANDIDATE_KEY);
+          if(candidate)v071012ApplyPreset(candidate,{saveLocal:true});
+
+          // Use the stable v0.7.11 RPCs directly. This avoids the short startup race where
+          // the legacy v071012 names have not yet been remapped by r4.
+          const {data,error}=await db.rpc('my_design_preset_v0711');
           if(error)throw error;
+          const serverPreset=valid(data);
+
+          if(candidate){
+            if(serverPreset!==candidate){
+              const {error:setError}=await db.rpc('set_design_preset_v0711',{p_preset:candidate});
+              if(setError)throw setError;
+            }
+            syncState.syncedPreset=candidate;
+          }else{
+            const preset=serverPreset||'classic';
+            remember(preset);
+            v071012ApplyPreset(preset,{saveLocal:true});
+            syncState.syncedPreset=preset;
+          }
+
+          syncState.retryAfter=0;
           try{v071012ServerPresetLoaded=true;}catch{}
           return true;
+        }catch(error){
+          syncState.retryAfter=Date.now()+RETRY_DELAY_MS;
+          console.warn('[LS Connect] v0.7.11 r3 Design-Persistenz konnte nicht synchronisiert werden.',error);
+          restoreCandidatePreset();
+          return false;
+        }finally{
+          syncState.inFlight=null;
         }
-
-        const {data,error}=await db.rpc('my_design_preset_v071012');
-        if(error)throw error;
-        const preset=valid(data)||'classic';
-        remember(preset);
-        v071012ApplyPreset(preset,{saveLocal:true});
-        try{v071012ServerPresetLoaded=true;}catch{}
-        return true;
-      }catch(error){
-        console.warn('[LS Connect] v0.7.11 r3 Design-Persistenz konnte nicht synchronisiert werden.',error);
-        restoreCandidatePreset();
-        return false;
-      }
+      })();
+      syncState.inFlight=task;
+      return task;
     };
   }
 
