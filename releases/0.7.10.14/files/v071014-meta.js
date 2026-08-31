@@ -134,10 +134,10 @@
   if(window.__LS_CONNECT_EGRESS_OPTIMIZER_BOOTSTRAP__)return;
   window.__LS_CONNECT_EGRESS_OPTIMIZER_BOOTSTRAP__=true;
   try{
-    if([...document.scripts].some(script=>script.dataset?.lsBootstrapKey==='v071015-perf'))return;
+    if([...document.scripts].some(script=>script.dataset?.lsBootstrapKey==='v07113-perf'))return;
     const script=document.createElement('script');
-    script.dataset.lsBootstrapKey='v071015-perf';
-    script.src='/api/script?version=0.7.10.15&file=v071015-perf.js&v=0.7.10.15-perf1';
+    script.dataset.lsBootstrapKey='v07113-perf';
+    script.src='/api/script?version=0.7.11.3&file=v07113-perf.js&v=0.7.11.3-perf1';
     script.async=false;
     await new Promise((resolve,reject)=>{
       script.onload=resolve;
