@@ -1,16 +1,16 @@
 {
   "schema": 2,
   "channel": "redesign",
-  "version": "0.8.3",
-  "released_at": "2026-08-31T18:50:00+02:00",
+  "version": "0.8.4",
+  "released_at": "2026-08-31T19:05:00+02:00",
   "mandatory": false,
-  "entry_file": "v0803.js",
+  "entry_file": "v0804.js",
   "status": "preview",
   "notes": [
-    "Community-, Story-, Kanal-, Organisations- und Profilbereiche erhalten eine einheitliche Hub-inspirierte Hierarchie.",
-    "Profile werden visuell gegliedert, ohne Inhalte oder Reihenfolgen zu verändern.",
-    "Feed-, Post- und Story-Flächen werden ruhiger, kompakter und touchfreundlicher dargestellt.",
-    "Keine Daten-, Backend-, Auth-, Supabase-, PCAD-, Banking- oder LMH-Handoff-Änderungen.",
+    "Lange Einstellungsdialoge erhalten eine kompakte Bereichsnavigation ohne Datenänderungen.",
+    "Admin-Tabs, Verwaltungszeilen und Tabellen werden auf eine ruhigere Hub-inspirierte Struktur verdichtet.",
+    "Bestehende Buttons, Handler und Berechtigungslogik bleiben unverändert.",
+    "Keine Backend-, Auth-, Supabase-, PCAD-, Banking- oder LMH-Handoff-Änderungen.",
     "Der produktive Stable-Kanal und Vercel-Hauptloader bleiben unverändert."
   ]
 }
