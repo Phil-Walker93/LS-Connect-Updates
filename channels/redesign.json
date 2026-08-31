@@ -1,15 +1,15 @@
 {
   "schema": 2,
   "channel": "redesign",
-  "version": "0.8.4",
-  "released_at": "2026-08-31T19:05:00+02:00",
+  "version": "0.8.5",
+  "released_at": "2026-08-31T19:15:00+02:00",
   "mandatory": false,
-  "entry_file": "v0804.js",
+  "entry_file": "v0805.js",
   "status": "preview",
   "notes": [
-    "Lange Einstellungsdialoge erhalten eine kompakte Bereichsnavigation ohne Datenänderungen.",
-    "Admin-Tabs, Verwaltungszeilen und Tabellen werden auf eine ruhigere Hub-inspirierte Struktur verdichtet.",
-    "Bestehende Buttons, Handler und Berechtigungslogik bleiben unverändert.",
+    "Smartphone-Ansicht wird auf 100dvh, Safe Areas und größere Touch-Ziele optimiert.",
+    "Nachrichten-Composer, Bottom-Navigation, Chats, Profile, Stories und Modals erhalten gezielten Mobile Polish.",
+    "Die Desktop-Darstellung bleibt unangetastet, Mobile-Regeln greifen nur bis 700px.",
     "Keine Backend-, Auth-, Supabase-, PCAD-, Banking- oder LMH-Handoff-Änderungen.",
     "Der produktive Stable-Kanal und Vercel-Hauptloader bleiben unverändert."
   ]
