@@ -61,12 +61,13 @@ function App() {
     void supabase.rpc('hub_visible_apps').then(({ data, error }) => {
       if (cancelled) return
       if (error) {
-        setVisibleAppIds(new Set())
+        setVisibleAppIds(new Set<string>())
         setPermissionError(error.message)
         return
       }
 
-      const ids = new Set((data ?? []).map((row: { app_id: string }) => row.app_id))
+      const rows = (data ?? []) as Array<{ app_id: string }>
+      const ids = new Set<string>(rows.map((row) => row.app_id))
       setVisibleAppIds(ids)
     })
 
