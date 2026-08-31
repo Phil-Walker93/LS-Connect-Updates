@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import { hubModules, type HubModule } from './modules'
 import './styles.css'
+import './animations.css'
 
 const statusLabels = {
   available: 'Verfügbar',
@@ -40,16 +41,16 @@ function App() {
               </button>
               <div className="module-card-large">
                 <div className="module-icon-large">{activeModule.icon}</div>
-                <p className="eyebrow">LS MOBILE HUB · v0.1.1</p>
+                <p className="eyebrow">LS MOBILE HUB · v0.2.0</p>
                 <h1>{activeModule.name}</h1>
                 <p>{activeModule.description}</p>
                 <span className={`status-pill status-${activeModule.status}`}>
                   {statusLabels[activeModule.status]}
                 </span>
                 <div className="placeholder-panel">
-                  <strong>Modul sauber abgegrenzt</strong>
+                  <strong>App-Seite bereit</strong>
                   <span>
-                    Zieladressen und Schnittstellen liegen außerhalb der Oberfläche und können je Umgebung getrennt konfiguriert werden.
+                    Die Oberfläche ist responsiv, touchfähig und für die kontrollierte Modul-Verlinkung vorbereitet.
                   </span>
                 </div>
               </div>
@@ -79,7 +80,7 @@ function App() {
 
               <div className="home-footer">
                 <span>LMH</span>
-                <span>v0.1.1 · Struktur-Hotfix</span>
+                <span>v0.2.0 · Nutzbare UI</span>
               </div>
             </section>
           )}
