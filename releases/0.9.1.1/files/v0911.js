@@ -1,17 +1,17 @@
-/* LS Connect v0.9.1.1 – stabilized live bootloader */
+/* LS Connect v0.9.1.1 – stabilized live bootloader r3 */
 var LS_CONNECT_V0911_VERSION='0.9.1.1';
 (async function v0911Boot(){
   if(window.__LS_CONNECT_V0911_BOOT__) return;
   window.__LS_CONNECT_V0911_BOOT__=true;
 
   /*
-   * These layers are known to cause main-thread churn or layout regressions in
-   * the live app. Guard them before the v0.9.1 dependency chain starts. The
-   * navigation/community layers remain enabled; the safe visual repair below
-   * replaces only the problematic workspace/mobile/performance DOM patches.
+   * Guard legacy layers before the v0.9.1 dependency chain starts. These
+   * modules are known to cause main-thread churn, overlapping navigation,
+   * fixed-composer regressions or unstable layout containment.
    */
   window.__LS_CONNECT_V07112_R3__=true;
   window.__LS_CONNECT_V07112_R4__=true;
+  window.__LS_CONNECT_V080_STRUCTURE__=true;
   window.__LS_CONNECT_V0802_WORKSPACE__=true;
   window.__LS_CONNECT_V0804_SETTINGS_ADMIN__=true;
   window.__LS_CONNECT_V0805_MOBILE__=true;
@@ -21,7 +21,8 @@ var LS_CONNECT_V0911_VERSION='0.9.1.1';
 
   const chain=[
     ['0.9.1','v091.js'],
-    ['0.9.1.1','v0911-repair-ui.js']
+    ['0.9.1.1','v0911-repair-ui.js'],
+    ['0.9.1.1','v0911-scroll-r3.js']
   ];
 
   for(const [version,file] of chain){
@@ -31,7 +32,7 @@ var LS_CONNECT_V0911_VERSION='0.9.1.1';
     await new Promise((resolve,reject)=>{
       const script=document.createElement('script');
       script.dataset.lsReleaseFile=marker;
-      script.src=`/api/script?version=${encodeURIComponent(version)}&file=${encodeURIComponent(file)}&v=0911-stable-repair-r2`;
+      script.src=`/api/script?version=${encodeURIComponent(version)}&file=${encodeURIComponent(file)}&v=0911-stable-repair-r3`;
       script.async=false;
       script.onload=resolve;
       script.onerror=()=>reject(new Error(`LS Connect v0.9.1.1 Modul konnte nicht geladen werden: ${file}`));
@@ -42,5 +43,5 @@ var LS_CONNECT_V0911_VERSION='0.9.1.1';
   document.documentElement.dataset.lsVersion=LS_CONNECT_V0911_VERSION;
   window.__LS_CONNECT_RUNTIME_VERSION__=LS_CONNECT_V0911_VERSION;
   window.__LS_CONNECT_DYNAMIC_RELEASE__=LS_CONNECT_V0911_VERSION;
-  console.info('[LS Connect] v0.9.1.1 stabilized live boot complete');
+  console.info('[LS Connect] v0.9.1.1 stabilized live boot r3 complete');
 })().catch(error=>console.error('[LS Connect] v0.9.1.1 stabilized startup failed',error));
