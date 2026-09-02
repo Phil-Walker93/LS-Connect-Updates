@@ -9,7 +9,7 @@
   window.__LS_CONNECT_V0911_BASELINE__=true;
 
   const VERSION='0.9.1.1';
-  const REVISION='baseline-r12';
+  const REVISION='baseline-r13';
   const root=document.documentElement;
   root.dataset.lsBaseline='0911';
   root.dataset.lsConnectRedesign='080';
@@ -26,7 +26,8 @@
     __LS_CONNECT_V0911_LIVE_LAYOUT__:true,
     __LS_CONNECT_V0911_TABS_R4__:true,
     __LS_CONNECT_V0911_SETTINGS_R9__:true,
-    __LS_CONNECT_V0911_SETTINGS_R10__:true
+    __LS_CONNECT_V0911_SETTINGS_R10__:true,
+    __LS_CONNECT_V0911_MESSAGE_FLOW_R12__:true
   });
 
   Object.assign(window,{
@@ -62,7 +63,7 @@
     ['0.9.1.1','v0911-layout-r6.js'],
     ['0.9.1.1','v0911-bubbles-r7.js'],
     ['0.9.1.1','v0911-settings-chat-r11.js'],
-    ['0.9.1.1','v0911-message-flow-r12.js']
+    ['0.9.1.1','v0911-message-flow-r13.js']
   ];
 
   const signature=(version,file)=>`${version}:${file}`;
