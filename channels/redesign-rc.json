@@ -5,13 +5,13 @@
   "released_at": "2026-09-02T21:15:00+02:00",
   "mandatory": false,
   "entry_file": "v0912.js",
-  "status": "recovery-candidate",
+  "status": "recovery-candidate-r2",
   "notes": [
-    "Recovery-Candidate nach Regressionen der Generalüberholung.",
-    "Blockiert den selbsttriggernden v0.7.11.2-r3-Observer und die r4-Versionsüberschreibung vor dem Laden der Redesign-Kette.",
-    "Deaktiviert den fehleranfälligen v0.8.1-Sidebar-Filter im Candidate, damit alle ursprünglichen Sidebar-Aktionen erreichbar bleiben.",
-    "Lädt den v0.9.1-Unterbau ohne den v0.9.1.1-Hide-Hotfix und bereinigt bekannte Regression-Artefakte.",
-    "Eigene QA prüft Asset-Integrität, Modul-Kette, Runtime-Fehler, Kern-DOM, Sidebar-Erreichbarkeit, Versionsdrift und Regression-Artefakte.",
+    "Recovery-Candidate r2 nach Regressionen der Generalüberholung.",
+    "Blockiert r3/r4 sowie die DOM-lastigen Navigation-, Workspace-, Settings/Admin-, Mobile-, Performance- und v0.9.1.1-Hide-Schichten.",
+    "Stellt versteckte Sidebar-, Header- und Settings-Elemente wieder her und hält die Runtime-Version auf v0.9.1.2.",
+    "v0.8.0 Theme/Grundstruktur und v0.8.3 Community/Profil bleiben aktiv.",
+    "Eigene QA prüft Asset-Integrität, essentielle Module, Runtime-Fehler, Kern-DOM, Versionsdrift und bekannte Regression-Artefakte.",
     "Stable, Backend, Auth, Supabase-Schema, PCAD, Banking und LMH-Handoff bleiben unverändert."
   ]
 }
