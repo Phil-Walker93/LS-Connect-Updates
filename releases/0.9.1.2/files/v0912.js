@@ -4,18 +4,27 @@ var LS_CONNECT_V0912_VERSION='0.9.1.2';
   if(window.__LS_CONNECT_V0912_BOOT__) return;
   window.__LS_CONNECT_V0912_BOOT__=true;
 
-  // Recovery guard: these legacy enhancers are known regression sources in the
-  // redesign chain. Mark them as already handled before the legacy chain loads,
-  // so their IIFEs return without installing observers / destructive filtering.
+  // Recovery mode deliberately disables the DOM-heavy redesign layers that can
+  // hide/replace controls or install conflicting observers. The visual rebuild
+  // can be reintroduced later module-by-module after functional verification.
   window.__LS_CONNECT_V0912_RECOVERY_GUARDS__={
     multilineReleaseUiR3:true,
     multilineReleaseUiR4:true,
     navigationFilterV0801:true,
+    workspaceOverflowV0802:true,
+    settingsAdminFilterV0804:true,
+    mobileLayoutV0805:true,
+    performanceContainmentV0806:true,
     liveLayoutV0911:true
   };
+
   window.__LS_CONNECT_V07112_R3__=true;
   window.__LS_CONNECT_V07112_R4__=true;
   window.__LS_CONNECT_V0801_NAVIGATION__=true;
+  window.__LS_CONNECT_V0802_WORKSPACE__=true;
+  window.__LS_CONNECT_V0804_SETTINGS_ADMIN__=true;
+  window.__LS_CONNECT_V0805_MOBILE__=true;
+  window.__LS_CONNECT_V0806_PERF_A11Y__=true;
   window.__LS_CONNECT_V0911_LIVE_LAYOUT__=true;
 
   const runtimeErrors=window.__LS_CONNECT_RC_RUNTIME_ERRORS__=Array.isArray(window.__LS_CONNECT_RC_RUNTIME_ERRORS__)?window.__LS_CONNECT_RC_RUNTIME_ERRORS__:[];
@@ -42,7 +51,7 @@ var LS_CONNECT_V0912_VERSION='0.9.1.2';
     await new Promise((resolve,reject)=>{
       const script=document.createElement('script');
       script.dataset.lsReleaseFile=marker;
-      script.src=`/api/script?version=${encodeURIComponent(version)}&file=${encodeURIComponent(file)}&v=0912-recovery`;
+      script.src=`/api/script?version=${encodeURIComponent(version)}&file=${encodeURIComponent(file)}&v=0912-recovery-r2`;
       script.async=false;
       script.onload=resolve;
       script.onerror=()=>reject(new Error(`LS Connect v0.9.1.2 Modul konnte nicht geladen werden: ${file}`));
@@ -51,9 +60,10 @@ var LS_CONNECT_V0912_VERSION='0.9.1.2';
   }
 
   document.documentElement.dataset.lsVersion=LS_CONNECT_V0912_VERSION;
+  document.documentElement.dataset.lsRecoveryMode='1';
   window.__LS_CONNECT_RUNTIME_VERSION__=LS_CONNECT_V0912_VERSION;
   window.__LS_CONNECT_DYNAMIC_RELEASE__=LS_CONNECT_V0912_VERSION;
-  console.info('[LS Connect] v0.9.1.2 recovery candidate boot complete');
+  console.info('[LS Connect] v0.9.1.2 recovery candidate r2 boot complete');
 })().catch(error=>{
   window.__LS_CONNECT_RC_RUNTIME_ERRORS__?.push({type:'boot',message:String(error?.message||error),source:'v0912.js',line:0,column:0,at:new Date().toISOString()});
   console.error('[LS Connect] v0.9.1.2 recovery candidate startup failed',error);
