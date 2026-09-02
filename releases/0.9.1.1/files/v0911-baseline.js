@@ -9,7 +9,7 @@
   window.__LS_CONNECT_V0911_BASELINE__=true;
 
   const VERSION='0.9.1.1';
-  const REVISION='baseline-r9';
+  const REVISION='baseline-r10';
   const root=document.documentElement;
   root.dataset.lsBaseline='0911';
   root.dataset.lsConnectRedesign='080';
@@ -28,7 +28,8 @@
     __LS_CONNECT_V0805_MOBILE__:true,
     __LS_CONNECT_V0806_PERF_A11Y__:true,
     __LS_CONNECT_V0911_LIVE_LAYOUT__:true,
-    __LS_CONNECT_V0911_TABS_R4__:true
+    __LS_CONNECT_V0911_TABS_R4__:true,
+    __LS_CONNECT_V0911_SETTINGS_R9__:true
   });
 
   /* Mark obsolete bootloaders as already handled. The baseline below loads the
@@ -73,7 +74,7 @@
     ['0.9.1.1','v0911-tabs-layout-r5.js'],
     ['0.9.1.1','v0911-layout-r6.js'],
     ['0.9.1.1','v0911-bubbles-r7.js'],
-    ['0.9.1.1','v0911-settings-r9.js']
+    ['0.9.1.1','v0911-settings-r10.js']
   ];
 
   const signature=(version,file)=>`${version}:${file}`;
