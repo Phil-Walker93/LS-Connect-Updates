@@ -6,14 +6,14 @@
   "base_version": "0.9.1",
   "channel": "candidate",
   "status": "recovery-candidate",
-  "revision": "recovery-r1",
+  "revision": "recovery-r2",
   "entry_file": "v0912.js",
   "script_files": ["v0912.js"],
   "files": [
-    {"path":"v0912.js","url":"https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/v0.9.1.2-recovery-stabilization-candidate/releases/0.9.1.2/files/v0912.js"},
-    {"path":"v0912-stabilize.js","url":"https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/v0.9.1.2-recovery-stabilization-candidate/releases/0.9.1.2/files/v0912-stabilize.js"},
-    {"path":"v0912-qa.js","url":"https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/v0.9.1.2-recovery-stabilization-candidate/releases/0.9.1.2/files/v0912-qa.js"}
+    {"path":"v0912.js","url":"https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.9.1.2/files/v0912.js"},
+    {"path":"v0912-stabilize.js","url":"https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.9.1.2/files/v0912-stabilize.js"},
+    {"path":"v0912-qa.js","url":"https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.9.1.2/files/v0912-qa.js"}
   ],
   "remove": [],
-  "notes": "Recovery & Stabilization Candidate. Verhindert die bekannten r3/r4-Observer- und Versionsregressionen, deaktiviert den fehleranfälligen v0.8.1-Sidebar-Filter im Candidate, lädt den v0.9.1-Unterbau ohne den v0.9.1.1-Hide-Hotfix und führt eine eigene Regression-QA aus. Stable, Backend, Auth, Supabase-Schema, PCAD, Banking und LMH-Handoff bleiben unverändert."
+  "notes": "Recovery & Stabilization Candidate r2. Funktion vor Redesign-Politur; bekannte DOM-, Observer-, Filter-, Mobile- und Layout-Regressionsschichten werden im Candidate neutralisiert. Stable und Backend bleiben unverändert."
 }
