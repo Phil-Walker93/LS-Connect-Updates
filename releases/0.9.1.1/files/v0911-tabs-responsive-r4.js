@@ -81,6 +81,7 @@
   };
 
   function tagSidebarBlocks(sidebar){
+    sidebar.querySelectorAll('.ls-r4-tab-hidden').forEach(el=>el.classList.remove('ls-r4-tab-hidden'));
     sidebar.querySelectorAll('[data-ls-r4-group]').forEach(el=>delete el.dataset.lsR4Group);
 
     sidebar.querySelectorAll('.chat-item').forEach(el=>markBlock(el,sidebar,'chat'));
