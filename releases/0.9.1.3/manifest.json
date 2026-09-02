@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "version": "0.9.1.3",
+  "protocol": 1,
+  "bootstrap": false,
+  "base_version": "0.9.1.1",
+  "revision": "lmh-identity-r1",
+  "entry_file": "v0913.js",
+  "script_files": ["v0913.js"],
+  "files": [
+    {"path":"v0913.js","url":"https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.9.1.3/files/v0913.js"},
+    {"path":"v0913-lmh-identity.js","url":"https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.9.1.3/files/v0913-lmh-identity.js"}
+  ],
+  "remove": [],
+  "notes": "LMH Identity Handoff r1. Der aktuelle LS Connect Stable-Baseline-Stack bleibt erhalten; Charaktererstellung, -auswahl und Organisationsprofilverwaltung werden anschließend ausschließlich an den LS Mobile Hub übergeben."
+}
