@@ -9,7 +9,7 @@
   window.__LS_CONNECT_V0911_BASELINE__=true;
 
   const VERSION='0.9.1.1';
-  const REVISION='baseline-r8';
+  const REVISION='baseline-r9';
   const root=document.documentElement;
   root.dataset.lsBaseline='0911';
   root.dataset.lsConnectRedesign='080';
@@ -72,7 +72,8 @@
     ['0.9.1.1','v0911-scroll-r3.js'],
     ['0.9.1.1','v0911-tabs-layout-r5.js'],
     ['0.9.1.1','v0911-layout-r6.js'],
-    ['0.9.1.1','v0911-bubbles-r7.js']
+    ['0.9.1.1','v0911-bubbles-r7.js'],
+    ['0.9.1.1','v0911-settings-r9.js']
   ];
 
   const signature=(version,file)=>`${version}:${file}`;
