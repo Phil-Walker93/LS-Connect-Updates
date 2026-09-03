@@ -71,6 +71,7 @@
     await load('/api/script?version=0.7.10.14&file=v071014-meta.js&v=0.7.10.14-meta1','v071014-release-meta');
     await load('/api/script?version=0.7.10.14&file=v071014-lmh.js&v=0.7.10.14-lmh2','lmh-return');
     await load('/api/script?version=0.9.1.3&file=v0913-layout-r3.js&v=online-gear-r3','v0913-layout-r3');
+    await load('/api/script?version=0.9.1.4&file=v0914.js&v=online-org-context-r1','v0914-org-context');
     console.info('[LS Connect] Online Release Center bootstrap active');
   }catch(error){
     console.error('[LS Connect] Release Center bootstrap failed',error);
