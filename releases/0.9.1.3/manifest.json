@@ -4,7 +4,7 @@
   "protocol": 1,
   "bootstrap": false,
   "base_version": "0.9.1.1",
-  "revision": "lmh-identity-layout-r2",
+  "revision": "lmh-identity-layout-r3",
   "entry_file": "v0913.js",
   "script_files": [
     "v0913.js"
@@ -21,8 +21,12 @@
     {
       "path": "v0913-layout-r2.js",
       "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.9.1.3/files/v0913-layout-r2.js"
+    },
+    {
+      "path": "v0913-layout-r3.js",
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.9.1.3/files/v0913-layout-r3.js"
     }
   ],
   "remove": [],
-  "notes": "Layout-Hotfix r2: Nachrichtenblasen wachsen wieder nur mit ihrem Inhalt; die vollständige Fünfer-Navigation einschließlich Verwaltung/Zahnrad bleibt innerhalb der Sidebar. LMH-Identitätsübergabe bleibt unverändert."
+  "notes": "Layout-Hotfix r3: Das Verwaltung-Zahnrad ist mit reserviertem Platz fest innerhalb der Sidebar verankert und wird nach dem Rendern geometrisch geprüft. Die kompakten Nachrichtenblasen und die LMH-Identitätsübergabe bleiben erhalten."
 }
