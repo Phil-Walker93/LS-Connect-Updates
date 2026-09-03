@@ -14,7 +14,7 @@ var LS_CONNECT_V0913_VERSION='0.9.1.3';
     if(already){resolve();return;}
     const script=document.createElement('script');
     script.dataset.lsReleaseFile=marker;
-    script.src=`/api/script?version=${encodeURIComponent(version)}&file=${encodeURIComponent(file)}&v=0913-lmh-identity`;
+    script.src=`/api/script?version=${encodeURIComponent(version)}&file=${encodeURIComponent(file)}&v=0913-layout-r2`;
     script.async=false;
     script.onload=resolve;
     script.onerror=()=>reject(new Error(`LS Connect v0.9.1.3 Modul konnte nicht geladen werden: ${version}/${file}`));
@@ -44,13 +44,14 @@ var LS_CONNECT_V0913_VERSION='0.9.1.3';
   }
 
   await load('0.9.1.3','v0913-lmh-identity.js');
+  await load('0.9.1.3','v0913-layout-r2.js');
 
   root.dataset.lsVersion=LS_CONNECT_V0913_VERSION;
   root.dataset.lsIdentityOwner='lmh';
   window.__LS_CONNECT_RUNTIME_VERSION__=LS_CONNECT_V0913_VERSION;
   window.__LS_CONNECT_DYNAMIC_RELEASE__=LS_CONNECT_V0913_VERSION;
-  window.dispatchEvent(new CustomEvent('ls-connect-release-ready',{detail:{version:LS_CONNECT_V0913_VERSION,feature:'lmh-identity'}}));
-  console.info('[LS Connect] v0.9.1.3 LMH identity handoff live');
+  window.dispatchEvent(new CustomEvent('ls-connect-release-ready',{detail:{version:LS_CONNECT_V0913_VERSION,feature:'lmh-identity-layout-r2'}}));
+  console.info('[LS Connect] v0.9.1.3 LMH identity + layout r2 live');
 })().catch(error=>{
   console.error('[LS Connect] v0.9.1.3 startup failed',error);
   window.dispatchEvent(new CustomEvent('ls-connect-release-error',{detail:{version:LS_CONNECT_V0913_VERSION,message:String(error?.message||error)}}));
