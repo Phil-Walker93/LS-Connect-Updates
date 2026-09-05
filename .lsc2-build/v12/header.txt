@@ -1,0 +1,5 @@
+<div className="conversation-identity">
+                <Avatar name={activeThread.display_title} src={activeThread.display_avatar_url} presence={activeThread.kind==='direct'?activeThread.presence_state:null}/>
+                <span><strong>{activeThread.display_title}</strong><small>{activeThread.kind==='direct'?(activeThread.peer_deleted?'Charakter nicht mehr verfügbar':activeThread.presence_state==='online'?'Online':activeThread.presence_state==='away'?'Abwesend':relativePresence(activeThread.last_seen_at)):activeThread.kind==='group'?activeThread.member_count+' Mitglieder':activeThread.organization_name}</small></span>
+              </div>
+              
