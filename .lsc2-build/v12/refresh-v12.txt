@@ -14,4 +14,3 @@
       setError(friendlyMessengerError(reason,'Chats konnten nicht geladen werden.'))
     }
   }, [])
-  const refreshMessages = useCallback
