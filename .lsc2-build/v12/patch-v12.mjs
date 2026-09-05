@@ -21,8 +21,8 @@ rep(c,'  async function savePostEdit(postId: string) {',readFileSync('toggle-sav
 rep(c,'<span className="eyebrow">COMMUNITY · v0.8.0</span>','<span className="eyebrow">COMMUNITY · v1.2.0</span>','community version');
 rep(c,"{([['all','Alle'],['following','Folge ich'],['saved','Gespeichert']] as Array<[FeedMode,string]>).map(([id,label]) => (","{([['all','Alle'],['following','Folge ich'],['saved','🔖 Gespeichert']] as Array<[FeedMode,string]>).map(([id,label]) => (",'saved tab');
 rep(c,'<div className="feed-list">',readFileSync('gallery-insert.txt','utf8')+'          <div className="feed-list">','saved gallery');
-rep(c,'          {!loading && posts.length===0 ? <div className="empty-community">Noch keine Beiträge in diesem Feed.</div> : null}','          {!loading&&posts.length===0?<div className="empty-community">{mode===\'saved\'?\'Noch keine gespeicherten Beiträge. Speichere einen Post mit dem Lesezeichen-Symbol.\':\'Noch keine Beiträge in diesem Feed.\'}</div>:null}','saved empty');
-rep(c,'          <div className="feed-list">','          <div className={mode===\'saved\'?\'feed-list saved-feed-list\':\'feed-list\'}>','saved gallery grid');
+rep(c,'{!loading && posts.length===0 ? <div className="empty-community">Noch keine Beiträge in diesem Feed.</div> : null}','          {!loading&&posts.length===0?<div className="empty-community">{mode===\'saved\'?\'Noch keine gespeicherten Beiträge. Speichere einen Post mit dem Lesezeichen-Symbol.\':\'Noch keine Beiträge in diesem Feed.\'}</div>:null}','saved empty');
+rep(c,'<div className="feed-list">','<div className={mode===\'saved\'?\'feed-list saved-feed-list\':\'feed-list\'}>','saved gallery grid');
 rep(c,readFileSync('save-old.txt','utf8'),readFileSync('save-new.txt','utf8'),'save button');
 
 writeFileSync('src/styles/app.css',readFileSync('src/styles/app.css','utf8')+'\n'+readFileSync('v12.css','utf8')+'\n');
