@@ -1,0 +1,21 @@
+  async function changeArchive(thread:ConversationSummaryV11,archived:boolean){
+    try{
+      await setConversationArchivedV12(thread.conversation_id,archived)
+      setActiveId(null)
+      await refreshThreads()
+    }catch(reason){
+      setError(friendlyMessengerError(reason,archived?'Chat konnte nicht archiviert werden.':'Chat konnte nicht wiederhergestellt werden.'))
+    }
+  }
+  async function deleteChatPermanently(thread:ConversationSummaryV11){
+    const confirmed=window.confirm('Chat endgültig löschen? Die bisherige Historie wird für diesen Charakter entfernt und kann nicht wiederhergestellt werden. Andere Teilnehmer behalten ihre Unterhaltung.')
+    if(!confirmed)return
+    try{
+      await deleteConversationForMeV12(thread.conversation_id)
+      setActiveId(null)
+      await refreshThreads()
+    }catch(reason){
+      setError(friendlyMessengerError(reason,'Chat konnte nicht endgültig gelöscht werden.'))
+    }
+  }
+  function updateDraft(value: string) {
