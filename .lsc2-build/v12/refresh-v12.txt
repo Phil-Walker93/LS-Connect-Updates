@@ -1,0 +1,17 @@
+  const refreshThreads = useCallback(async (preferredId?: string | null) => {
+    try {
+      setError('')
+      const [next,nextArchived]=await Promise.all([listMyConversationsV11(),listArchivedConversationsV12()])
+      setThreads(next)
+      setArchivedThreads(nextArchived)
+      const all=[...next,...nextArchived]
+      setActiveId((current) => {
+        if (preferredId && all.some((item) => item.conversation_id === preferredId)) return preferredId
+        if (current && all.some((item) => item.conversation_id === current)) return current
+        return next.find((item)=>item.kind!=='organization')?.conversation_id ?? null
+      })
+    } catch (reason) {
+      setError(friendlyMessengerError(reason,'Chats konnten nicht geladen werden.'))
+    }
+  }, [])
+  const refreshMessages = useCallback
