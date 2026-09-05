@@ -1,1 +1,1 @@
-                  <button type="button" className={post.saved ? 'is-active' : ''} onClick={() => void mutate(() => toggleSavePost(post.post_id))}>⌑ Speichern</button>
+<button type="button" className={post.saved ? 'is-active' : ''} onClick={() => void mutate(() => toggleSavePost(post.post_id))}>⌑ Speichern</button>
