@@ -1,0 +1,5 @@
+              {!showArchived?<span className={thread.is_favorite?'thread-favorite is-active':'thread-favorite'} role="button" tabIndex={0} onClick={e=>{e.stopPropagation();void toggleThreadFavorite(thread)}}>{thread.is_favorite?'★':'☆'}</span>:null}
+              <span className="thread-manage">
+                <span role="button" tabIndex={0} title={showArchived?'Wiederherstellen':'Archivieren'} onClick={e=>{e.stopPropagation();void changeArchive(thread,!showArchived)}}>{showArchived?'↩':'⌄'}</span>
+                <span className="thread-delete" role="button" tabIndex={0} title="Endgültig löschen" onClick={e=>{e.stopPropagation();void deleteChatPermanently(thread)}}>🗑</span>
+              </span>
