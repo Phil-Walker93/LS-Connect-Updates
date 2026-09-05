@@ -16,7 +16,7 @@ rep(m,readFileSync('row-old.txt','utf8'),readFileSync('row-new.txt','utf8'),'row
 rep(m,'>Medien</button>','>Medien</button>\n                  <button className="secondary-action" type="button" onClick={()=>void changeArchive(activeThread,true)}>Archivieren</button>\n                  <button className="secondary-action conversation-danger" type="button" onClick={()=>void deleteChatPermanently(activeThread)}>Löschen</button>','header chat management');
 
 const c='src/features/community/CommunityHome.tsx';
-rep(c,"  const [error, setError] = useState('')","  const [error, setError] = useState('')\n  const [saveNotice,setSaveNotice]=useState('')\n  const saveNoticeTimer=useRef<number|null>(null)",'save state');
+rep(c,"  const [busy, setBusy] = useState(false)\n  const [loading, setLoading] = useState(true)\n  const [error, setError] = useState('')","  const [busy, setBusy] = useState(false)\n  const [loading, setLoading] = useState(true)\n  const [error, setError] = useState('')\n  const [saveNotice,setSaveNotice]=useState('')\n  const saveNoticeTimer=useRef<number|null>(null)",'save state');
 rep(c,'  async function savePostEdit(postId: string) {',readFileSync('toggle-saved-v12.txt','utf8'),'toggle saved');
 rep(c,'<span className="eyebrow">COMMUNITY · v0.8.0</span>','<span className="eyebrow">COMMUNITY · v1.2.0</span>','community version');
 rep(c,"{([['all','Alle'],['following','Folge ich'],['saved','Gespeichert']] as Array<[FeedMode,string]>).map(([id,label]) => (","{([['all','Alle'],['following','Folge ich'],['saved','🔖 Gespeichert']] as Array<[FeedMode,string]>).map(([id,label]) => (",'saved tab');
