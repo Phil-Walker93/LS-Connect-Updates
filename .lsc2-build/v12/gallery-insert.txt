@@ -1,0 +1,2 @@
+          {mode==='saved'?<div className="saved-gallery-head"><div><strong>🔖 Gespeicherte Beiträge</strong><span>Deine persönliche Post-Galerie – nur für diesen Charakter sichtbar.</span></div><span className="saved-count">{posts.length}</span></div>:null}
+          {saveNotice?<div className="save-toast"><span>{saveNotice}</span>{saveNotice.startsWith('Post gespeichert')?<button type="button" onClick={()=>setMode('saved')}>Galerie öffnen</button>:null}</div>:null}
