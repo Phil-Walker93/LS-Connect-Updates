@@ -1,0 +1,20 @@
+  async function toggleSaved(post:FeedPost){
+    if(busy)return
+    setBusy(true)
+    try{
+      const nextSaved=await toggleSavePost(post.post_id)
+      setPosts(current=>{
+        const updated=current.map(item=>item.post_id===post.post_id?{...item,saved:nextSaved}:item)
+        return mode==='saved'&&!nextSaved?updated.filter(item=>item.post_id!==post.post_id):updated
+      })
+      setSaveNotice(nextSaved?'Post gespeichert – in deiner Galerie abgelegt.':'Post aus deiner Galerie entfernt.')
+      if(saveNoticeTimer.current)window.clearTimeout(saveNoticeTimer.current)
+      saveNoticeTimer.current=window.setTimeout(()=>setSaveNotice(''),3200)
+      setError('')
+    }catch(reason){
+      setError(reason instanceof Error?reason.message:'Speicherstatus konnte nicht geändert werden.')
+    }finally{
+      setBusy(false)
+    }
+  }
+  async function savePostEdit(postId: string) {
