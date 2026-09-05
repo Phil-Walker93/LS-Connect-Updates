@@ -1,0 +1,1 @@
+                  <button type="button" className={post.saved?'save-action is-active':'save-action'} onClick={()=>void toggleSaved(post)}>{post.saved?'🔖 Gespeichert':'🔖 Speichern'}</button>
