@@ -1,0 +1,12 @@
+{chatThreads.map((thread)=>(
+            <button className={activeId===thread.conversation_id?'thread-row is-active':'thread-row'} type="button" key={thread.conversation_id} onClick={()=>setActiveId(thread.conversation_id)}>
+              <Avatar name={thread.display_title} src={thread.display_avatar_url} presence={thread.kind==='direct'?thread.presence_state:null}/>
+              <span className="thread-copy"><strong>{thread.display_title}</strong><small>{thread.last_message_preview||'Noch keine Nachricht'}</small></span>
+              <span className={thread.is_favorite?'thread-favorite is-active':'thread-favorite'} role="button" tabIndex={0} onClick={e=>{e.stopPropagation();void toggleThreadFavorite(thread)}}>{thread.is_favorite?'★':'☆'}</span>
+              {thread.unread_count>0?<span className="badge">{Math.min(thread.unread_count,99)}</span>:null}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div className="conversation-pane">
