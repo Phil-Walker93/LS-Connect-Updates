@@ -8,7 +8,7 @@ rep(m,"  const chatThreads=useMemo(()=>threads.filter(t=>t.kind!=='organization'
 block(m,'  const refreshThreads = useCallback(async (preferredId?: string | null) => {','  const refreshMessages = useCallback',readFileSync('refresh-v12.txt','utf8'),'refresh');
 rep(m,'  function updateDraft(value: string) {',readFileSync('handlers-v12.txt','utf8'),'chat handlers');
 rep(m,'COMMUNICATION · API v1.1.0','COMMUNICATION · API v1.2.0','version');
-rep(m,'          <div className="thread-list">','          <div className="archive-switch"><button type="button" className={showArchived?\'archive-toggle is-active\':\'archive-toggle\'} onClick={()=>{setShowArchived(v=>!v);setActiveId(null)}}>Archiviert{archivedThreads.length?\' (\'+archivedThreads.length+\')\':\'\'}</button></div>\n          <div className="thread-list">','archive switch');
+rep(m,'<div className="thread-list">','<div className="archive-switch"><button type="button" className={showArchived?\'archive-toggle is-active\':\'archive-toggle\'} onClick={()=>{setShowArchived(v=>!v);setActiveId(null)}}>Archiviert{archivedThreads.length?\' (\'+archivedThreads.length+\')\':\'\'}</button></div>\n          <div className="thread-list">','archive switch');
 rep(m,'{chatThreads.length === 0 ? <div className="empty-state">Noch keine Direkt- oder Gruppenchats.</div> : null}','{visibleThreads.length===0?<div className="empty-state">{showArchived?\'Keine archivierten Chats.\':\'Noch keine Direkt- oder Gruppenchats.\'}</div>:null}','archive empty');
 rep(m,'{chatThreads.map((thread)=>(','{visibleThreads.map((thread)=>(','visible rows');
 rep(m,'onClick={()=>setActiveId(thread.conversation_id)}','onClick={()=>{if(!showArchived)setActiveId(thread.conversation_id)}}','archived row click');
