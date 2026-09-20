@@ -1,0 +1,13 @@
+{
+  "version": "0.9.5",
+  "channel": "redesign-rc",
+  "status": "identity-v2-rc",
+  "revision": "actor-v2-r1",
+  "entry_file": "v095.js",
+  "script_files": [
+    "v095.js",
+    "v095-identity-v2.js"
+  ],
+  "previous_version": "0.9.1.2",
+  "notes": "Identity v2 RC: genau eine aktive RP-Identität. Organization-Identity nutzt eigene Channel-/Community-RPCs; private Chats, Kontakte und Calls bleiben Character-only."
+}
