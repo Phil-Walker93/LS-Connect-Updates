@@ -1,17 +1,17 @@
 {
   "schema": 2,
   "channel": "redesign-rc",
-  "version": "0.9.1.2",
-  "released_at": "2026-09-02T21:15:00+02:00",
+  "version": "0.9.5",
+  "released_at": "2026-09-20T23:43:00+02:00",
   "mandatory": false,
-  "entry_file": "v0912.js",
-  "status": "recovery-candidate-r2",
+  "entry_file": "v095.js",
+  "status": "identity-v2-rc",
   "notes": [
-    "Recovery-Candidate r2 nach Regressionen der Generalüberholung.",
-    "Blockiert r3/r4 sowie die DOM-lastigen Navigation-, Workspace-, Settings/Admin-, Mobile-, Performance- und v0.9.1.1-Hide-Schichten.",
-    "Stellt versteckte Sidebar-, Header- und Settings-Elemente wieder her und hält die Runtime-Version auf v0.9.1.2.",
-    "v0.8.0 Theme/Grundstruktur und v0.8.3 Community/Profil bleiben aktiv.",
-    "Eigene QA prüft Asset-Integrität, essentielle Module, Runtime-Fehler, Kern-DOM, Versionsdrift und bekannte Regression-Artefakte.",
-    "Stable, Backend, Auth, Supabase-Schema, PCAD, Banking und LMH-Handoff bleiben unverändert."
+    "Identity-v2 Release Candidate: Im LS Mobile Hub existiert genau eine aktive RP-Identität – Charakter oder Organisation.",
+    "Organisationen handeln in Unternehmenskanälen und Community-Funktionen als eigenständige Identität; es gibt keinen versteckten Character-Actor mehr.",
+    "Kanalnachrichten, Posts, Kommentare, Likes, Saves, Follows und Storys verwenden die aktive Identity-v2 Actor-Schicht.",
+    "Private Chats, Kontaktfunktionen, Gruppen-Privatchats und Anrufe bleiben bewusst Character-only und werden im Organisationsmodus gesperrt.",
+    "Identity-Revision und Identitätstyp werden beim Fokuswechsel sowie regelmäßig erneut geprüft; ein Wechsel lädt den Client sauber neu.",
+    "Stable bleibt unverändert, bis der RC funktional abgenommen wurde."
   ]
 }
