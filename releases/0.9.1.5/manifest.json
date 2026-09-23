@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "version": "0.9.1.5",
+  "protocol": 1,
+  "bootstrap": false,
+  "base_version": "0.9.1.3",
+  "revision": "whats-new-time-r1",
+  "entry_file": "v0915-whats-new-time.js",
+  "script_files": [
+    "v0915-whats-new-time.js"
+  ],
+  "files": [
+    {
+      "path": "v0915-whats-new-time.js",
+      "url": "https://raw.githubusercontent.com/Phil-Walker93/LS-Connect-Updates/main/releases/0.9.1.5/files/v0915-whats-new-time.js"
+    }
+  ],
+  "remove": [],
+  "notes": "Was ist neu zeigt für Releases jetzt Datum und Uhrzeit. Bestehende released_at-Werte werden verwendet; für neuere Release-Center-Versionen greift ein Stable-Freigabezeit-Fallback."
+}
