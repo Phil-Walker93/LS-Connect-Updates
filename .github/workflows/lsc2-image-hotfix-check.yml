@@ -1,0 +1,29 @@
+name: Check LS Connect image hotfix
+
+on:
+  push:
+    branches: [fix/lsc2-image-rendering-20260925]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Syntax check bundle
+        run: node --check .lsc2-prod-snapshot/assets/index-CysQ1sFK.js
+      - name: Validate image fix markers
+        shell: bash
+        run: |
+          set -euo pipefail
+          JS=.lsc2-prod-snapshot/assets/index-CysQ1sFK.js
+          CSS=.lsc2-prod-snapshot/assets/index-LSC2HeaderFix-896d2ec.css
+          grep -Fq 'function LscAvatarContent' "$JS"
+          grep -Fq 'LscAvatarContent(u.display_name,u.avatar_url)' "$JS"
+          grep -Fq 'LscAvatarContent(w.name,w.avatar_url)' "$JS"
+          grep -Fq 'LscAvatarContent(f.subject_name,f.subject_avatar_url)' "$JS"
+          grep -Fq '.conversation-identity>span:not(.avatar){flex:1;min-width:0}' "$CSS"
+          grep -Fq '.conversation-identity>.avatar{flex:0 0 38px!important' "$CSS"
+          if grep -Fq '.conversation-identity>span{flex:1;min-width:0}' "$CSS"; then
+            echo 'Old unsafe selector still present' >&2
+            exit 1
+          fi
