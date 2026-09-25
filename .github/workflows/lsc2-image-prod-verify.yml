@@ -1,0 +1,35 @@
+name: Verify LS Connect image hotfix production
+
+on:
+  push:
+    branches: [fix/lsc2-image-rendering-20260925]
+
+jobs:
+  verify-production:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch production
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fsSL https://ls-connect-2.vercel.app/ -o /tmp/index.html
+          grep -Fq '/assets/index-LSC2ImageFix-b7cf73e.js' /tmp/index.html
+          grep -Fq '/assets/index-LSC2ImageFix-b7cf73e.css' /tmp/index.html
+          curl -fsSL https://ls-connect-2.vercel.app/assets/index-LSC2ImageFix-b7cf73e.js -o /tmp/app.js
+          curl -fsSL https://ls-connect-2.vercel.app/assets/index-LSC2ImageFix-b7cf73e.css -o /tmp/app.css
+      - name: Validate production JavaScript
+        run: |
+          node --check /tmp/app.js
+          grep -Fq 'function LscAvatarContent' /tmp/app.js
+          grep -Fq 'LscAvatarContent(u.display_name,u.avatar_url)' /tmp/app.js
+          grep -Fq 'LscAvatarContent(w.name,w.avatar_url)' /tmp/app.js
+          grep -Fq 'LscAvatarContent(f.subject_name,f.subject_avatar_url)' /tmp/app.js
+      - name: Validate production CSS
+        run: |
+          grep -Fq '.conversation-identity>span:not(.avatar){flex:1;min-width:0}' /tmp/app.css
+          grep -Fq '.conversation-identity>.avatar{flex:0 0 38px!important' /tmp/app.css
+          grep -Fq '.avatar>img+.avatar-fallback{visibility:hidden}' /tmp/app.css
+          if grep -Fq '.conversation-identity>span{flex:1;min-width:0}' /tmp/app.css; then
+            echo 'Unsafe selector is still live' >&2
+            exit 1
+          fi
