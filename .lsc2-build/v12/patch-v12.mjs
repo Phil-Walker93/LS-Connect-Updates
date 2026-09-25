@@ -25,6 +25,25 @@ rep(c,'{!loading && posts.length===0 ? <div className="empty-community">Noch kei
 rep(c,'<div className="feed-list">','<div className={mode===\'saved\'?\'feed-list saved-feed-list\':\'feed-list\'}>','saved gallery grid');
 rep(c,readFileSync('save-old.txt','utf8'),readFileSync('save-new.txt','utf8'),'save button');
 
+
+const social='src/features/social/SocialHome.tsx';
+rep(social,'function relativeTime(value: string | null) {',readFileSync('social-avatar-v12.txt','utf8')+'\nfunction relativeTime(value: string | null) {','social avatar helper');
+rep(social,'<button className="avatar avatar-button" onClick={() => void openProfile(contact.character_id)}>{initials(contact.display_name)}</button>','<button className="avatar avatar-button" onClick={() => void openProfile(contact.character_id)}><SocialAvatarContent name={contact.display_name} src={contact.avatar_url}/></button>','contact avatar');
+rep(social,'<span className="avatar">{initials(request.other_name)}</span>','<span className="avatar"><SocialAvatarContent name={request.other_name} src={request.other_avatar_url}/></span>','request avatar');
+rep(social,'<button className="avatar avatar-button" onClick={() => void openProfile(person.character_id)}>{initials(person.name)}</button>','<button className="avatar avatar-button" onClick={() => void openProfile(person.character_id)}><SocialAvatarContent name={person.name} src={person.avatar_url}/></button>','discover avatar');
+rep(social,'<span className="avatar">{initials(item.name)}</span>','<span className="avatar"><SocialAvatarContent name={item.name} src={item.avatar_url}/></span>','blocked avatar');
+rep(social,'<span className="avatar profile-avatar">{initials(selectedProfile.name)}</span>','<span className="avatar profile-avatar"><SocialAvatarContent name={selectedProfile.name} src={selectedProfile.avatar_url}/></span>','profile modal avatar');
+rep(social,'<span className="avatar profile-avatar">{profile.name.slice(0, 1).toUpperCase()}</span>','<span className="avatar profile-avatar"><SocialAvatarContent name={profile.name} src={profile.avatar_url}/></span>','profile editor avatar');
+
+rep(c,'function SecureMedia({ path, mime, className = \'\' }: { path: string; mime: string; className?: string }) {',readFileSync('community-avatar-v12.txt','utf8')+'\nfunction SecureMedia({ path, mime, className = \'\' }: { path: string; mime: string; className?: string }) {','community avatar helper');
+rep(c,'<span className="avatar compact">{comment.subject_name.slice(0, 1).toUpperCase()}</span>','<span className="avatar compact"><CommunityAvatarContent name={comment.subject_name} src={comment.subject_avatar_url}/></span>','comment avatar');
+rep(c,'<span className="avatar">{story.subject_name.slice(0, 1).toUpperCase()}</span>','<span className="avatar"><CommunityAvatarContent name={story.subject_name} src={story.subject_avatar_url}/></span>','story viewer avatar');
+rep(c,'<span className="story-ring"><span className="avatar">{story.subject_name.slice(0,1).toUpperCase()}</span></span>','<span className="story-ring"><span className="avatar"><CommunityAvatarContent name={story.subject_name} src={story.subject_avatar_url}/></span></span>','story list avatar');
+rep(c,'<span className="avatar">{post.subject_name.slice(0,1).toUpperCase()}</span>','<span className="avatar"><CommunityAvatarContent name={post.subject_name} src={post.subject_avatar_url}/></span>','post avatar');
+
+const app='src/app/App.tsx';
+rep(app,'<span className="avatar">{contextName.slice(0, 1).toUpperCase()}</span>','<span className="avatar">{identity.activeCharacter.avatarUrl?<img src={identity.activeCharacter.avatarUrl} alt="" onError={event=>event.currentTarget.remove()}/>:null}<span className="avatar-fallback">{contextName.slice(0,1).toUpperCase()}</span></span>','topbar avatar');
+
 writeFileSync('src/styles/app.css',readFileSync('src/styles/app.css','utf8')+'\n'+readFileSync('v12.css','utf8')+'\n');
 if(existsSync('src/config/runtime.ts')){let s=readFileSync('src/config/runtime.ts','utf8');s=s.replace(/1\.1\.0/g,'1.2.0').replace(/1\.0\.0/g,'1.2.0');writeFileSync('src/config/runtime.ts',s)}
 const pkg=JSON.parse(readFileSync('package.json','utf8'));pkg.version='1.2.0';writeFileSync('package.json',JSON.stringify(pkg,null,2)+'\n');
