@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "philtech:repair_table",
+    "philtech:generator",
+    "philtech:energy_cell",
+    "philtech:copper_cable",
+    "philtech:crusher"
+  ]
+}

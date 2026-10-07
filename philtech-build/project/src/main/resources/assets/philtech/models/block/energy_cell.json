@@ -1,0 +1,14 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "frame": "minecraft:block/iron_block",
+    "core": "minecraft:block/copper_block",
+    "energy": "minecraft:block/diamond_block",
+    "particle": "minecraft:block/copper_block"
+  },
+  "elements": [
+    {"from":[1,0,1],"to":[15,3,15],"faces":{"down":{"texture":"#frame"},"up":{"texture":"#core"},"north":{"texture":"#frame"},"south":{"texture":"#frame"},"west":{"texture":"#frame"},"east":{"texture":"#frame"}}},
+    {"from":[3,3,3],"to":[13,13,13],"faces":{"down":{"texture":"#core"},"up":{"texture":"#energy"},"north":{"texture":"#energy"},"south":{"texture":"#energy"},"west":{"texture":"#energy"},"east":{"texture":"#energy"}}},
+    {"from":[1,13,1],"to":[15,16,15],"faces":{"down":{"texture":"#core"},"up":{"texture":"#frame"},"north":{"texture":"#frame"},"south":{"texture":"#frame"},"west":{"texture":"#frame"},"east":{"texture":"#frame"}}}
+  ]
+}

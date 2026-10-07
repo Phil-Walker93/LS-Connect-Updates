@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "philtech",
+  "version": "${version}",
+  "name": "PhilTech",
+  "description": "Vanilla-friendly technology and automation for Fabric.",
+  "authors": ["Phil"],
+  "license": "CC0-1.0",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["de.phil.techmod.TechMod"],
+    "client": ["de.phil.techmod.client.TechModClient"]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "minecraft:block/deepslate_tiles",
+    "up": "minecraft:block/copper_block",
+    "north": "minecraft:block/blast_furnace_front_on",
+    "south": "minecraft:block/iron_block",
+    "west": "minecraft:block/iron_block",
+    "east": "minecraft:block/iron_block",
+    "particle": "minecraft:block/iron_block"
+  }
+}

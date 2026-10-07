@@ -1,0 +1,7 @@
+{
+  "type":"minecraft:smelting",
+  "cookingtime":160,
+  "experience":0.7,
+  "ingredient":"philtech:iron_dust",
+  "result":{"id":"minecraft:iron_ingot"}
+}

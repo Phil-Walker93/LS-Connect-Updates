@@ -1,0 +1,7 @@
+{
+  "type":"minecraft:smelting",
+  "cookingtime":160,
+  "experience":1.0,
+  "ingredient":"philtech:gold_dust",
+  "result":{"id":"minecraft:gold_ingot"}
+}

@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "active=false": { "model": "philtech:block/generator" },
+    "active=true": { "model": "philtech:block/generator_active" }
+  }
+}

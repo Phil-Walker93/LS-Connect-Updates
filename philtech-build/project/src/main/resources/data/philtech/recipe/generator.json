@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": ["IRI","CFC","IRI"],
+  "key": {"I":"minecraft:iron_ingot","R":"minecraft:redstone","C":"minecraft:copper_ingot","F":"minecraft:furnace"},
+  "result": {"id":"philtech:generator","count":1}
+}

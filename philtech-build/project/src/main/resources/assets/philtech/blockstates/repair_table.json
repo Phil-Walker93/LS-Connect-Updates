@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "active=false": { "model": "philtech:block/repair_table" },
+    "active=true": { "model": "philtech:block/repair_table_active" }
+  }
+}

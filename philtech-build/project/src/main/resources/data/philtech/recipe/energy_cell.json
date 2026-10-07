@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": ["IRI","CDC","IRI"],
+  "key": {"I":"minecraft:iron_ingot","R":"minecraft:redstone","C":"minecraft:copper_ingot","D":"minecraft:diamond"},
+  "result": {"id":"philtech:energy_cell","count":1}
+}

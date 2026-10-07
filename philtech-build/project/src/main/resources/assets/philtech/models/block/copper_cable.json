@@ -1,0 +1,17 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "cable": "minecraft:block/copper_block",
+    "core": "minecraft:block/redstone_block",
+    "particle": "minecraft:block/copper_block"
+  },
+  "elements": [
+    {"from":[6,6,6],"to":[10,10,10],"faces":{"down":{"texture":"#core"},"up":{"texture":"#core"},"north":{"texture":"#core"},"south":{"texture":"#core"},"west":{"texture":"#core"},"east":{"texture":"#core"}}},
+    {"from":[6,0,6],"to":[10,6,10],"faces":{"down":{"texture":"#cable"},"up":{"texture":"#cable"},"north":{"texture":"#cable"},"south":{"texture":"#cable"},"west":{"texture":"#cable"},"east":{"texture":"#cable"}}},
+    {"from":[6,10,6],"to":[10,16,10],"faces":{"down":{"texture":"#cable"},"up":{"texture":"#cable"},"north":{"texture":"#cable"},"south":{"texture":"#cable"},"west":{"texture":"#cable"},"east":{"texture":"#cable"}}},
+    {"from":[6,6,0],"to":[10,10,6],"faces":{"down":{"texture":"#cable"},"up":{"texture":"#cable"},"north":{"texture":"#cable"},"south":{"texture":"#cable"},"west":{"texture":"#cable"},"east":{"texture":"#cable"}}},
+    {"from":[6,6,10],"to":[10,10,16],"faces":{"down":{"texture":"#cable"},"up":{"texture":"#cable"},"north":{"texture":"#cable"},"south":{"texture":"#cable"},"west":{"texture":"#cable"},"east":{"texture":"#cable"}}},
+    {"from":[0,6,6],"to":[6,10,10],"faces":{"down":{"texture":"#cable"},"up":{"texture":"#cable"},"north":{"texture":"#cable"},"south":{"texture":"#cable"},"west":{"texture":"#cable"},"east":{"texture":"#cable"}}},
+    {"from":[10,6,6],"to":[16,10,10],"faces":{"down":{"texture":"#cable"},"up":{"texture":"#cable"},"north":{"texture":"#cable"},"south":{"texture":"#cable"},"west":{"texture":"#cable"},"east":{"texture":"#cable"}}}
+  ]
+}

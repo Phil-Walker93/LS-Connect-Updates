@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "active=false": { "model": "philtech:block/crusher" },
+    "active=true": { "model": "philtech:block/crusher_active" }
+  }
+}
