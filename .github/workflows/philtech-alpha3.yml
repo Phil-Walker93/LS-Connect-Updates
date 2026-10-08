@@ -1,7 +1,7 @@
-name: Build PhilTech Alpha 5.1
+name: Build PhilTech Alpha 5.2
 on:
   push:
-    branches: [philtech-alpha5-1-build]
+    branches: [philtech-alpha5-2-build]
   workflow_dispatch:
 jobs:
   build:
@@ -29,15 +29,25 @@ jobs:
           base64 -d ../alpha5_1_patch.rebuilt.b64 > ../alpha5_1_patch.tar.gz
           echo "aa708c4dc4c95cc05f8a71e6d00fe7541abe22f412059b1418c08f8216b83e30  ../alpha5_1_patch.tar.gz" | sha256sum -c -
           tar -xzf ../alpha5_1_patch.tar.gz
-      - name: Validate models
+      - name: Apply Alpha 5.2 32x32 and UI patch
+        shell: bash
+        run: |
+          cat ../a52part*.txt > ../alpha5_2_patch.rebuilt.b64
+          echo "a877b393567b3bd8e9e670323c0d0d413cd46212b4de82a1b5f9892637cb1c44  ../alpha5_2_patch.rebuilt.b64" | sha256sum -c -
+          base64 -d ../alpha5_2_patch.rebuilt.b64 > ../alpha5_2_patch.tar.gz
+          echo "75c30a0e1f60d1988f5090feb0a875c0c139c82dc2c3712713fadf858ac1efc1  ../alpha5_2_patch.tar.gz" | sha256sum -c -
+          tar -xzf ../alpha5_2_patch.tar.gz
+      - name: Validate models and 32x32 assets
         shell: bash
         run: |
           python3 - <<'PY'
           import json
           from pathlib import Path
+          from PIL import Image
           root=Path("src/main/resources/assets/philtech")
           bad=[]
           missing=[]
+          used=set()
           for p in (root/"models/block").glob("*.json"):
               d=json.loads(p.read_text())
               for i,e in enumerate(d.get("elements",[])):
@@ -46,11 +56,19 @@ jobs:
                       bad.append((p.name,i,f,t))
               for v in d.get("textures",{}).values():
                   if isinstance(v,str) and v.startswith("philtech:block/"):
-                      q=root/"textures/block"/(v.split("/")[-1]+".png")
+                      name=v.split("/")[-1]
+                      used.add(name)
+                      q=root/"textures/block"/(name+".png")
                       if not q.exists(): missing.append((p.name,str(q)))
-          if bad or missing:
-              raise SystemExit(f"bad={bad} missing={missing}")
-          print("Model validation OK")
+          wrong=[]
+          for name in sorted(used):
+              p=root/"textures/block"/(name+".png")
+              if Image.open(p).size != (32,32): wrong.append((name,Image.open(p).size))
+          for p in (root/"textures/item").glob("*.png"):
+              if Image.open(p).size != (32,32): wrong.append((p.name,Image.open(p).size))
+          if bad or missing or wrong:
+              raise SystemExit(f"bad={bad} missing={missing} wrong_sizes={wrong}")
+          print("Model + 32x32 validation OK")
           PY
       - uses: actions/setup-java@v4
         with:
@@ -63,6 +81,6 @@ jobs:
         run: gradle build --stacktrace
       - uses: actions/upload-artifact@v4
         with:
-          name: philtech-0.1.0-alpha.5.1
-          path: philtech-build/project/build/libs/philtech-0.1.0-alpha.5.1.jar
+          name: philtech-0.1.0-alpha.5.2
+          path: philtech-build/project/build/libs/philtech-0.1.0-alpha.5.2.jar
           if-no-files-found: error
