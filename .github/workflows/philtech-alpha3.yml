@@ -24,8 +24,9 @@ jobs:
       - name: Apply Alpha 5.1 visual fidelity patch
         shell: bash
         run: |
-          echo "92e5e20208944e7c227911c7049a0f3f13f040835a74033b7927630fe16c460e  ../alpha5_1_patch.b64" | sha256sum -c -
-          base64 -d ../alpha5_1_patch.b64 > ../alpha5_1_patch.tar.gz
+          cat ../a51part*.txt > ../alpha5_1_patch.rebuilt.b64
+          echo "92e5e20208944e7c227911c7049a0f3f13f040835a74033b7927630fe16c460e  ../alpha5_1_patch.rebuilt.b64" | sha256sum -c -
+          base64 -d ../alpha5_1_patch.rebuilt.b64 > ../alpha5_1_patch.tar.gz
           echo "aa708c4dc4c95cc05f8a71e6d00fe7541abe22f412059b1418c08f8216b83e30  ../alpha5_1_patch.tar.gz" | sha256sum -c -
           tar -xzf ../alpha5_1_patch.tar.gz
       - name: Validate models
