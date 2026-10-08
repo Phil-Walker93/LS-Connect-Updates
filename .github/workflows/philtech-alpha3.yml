@@ -43,7 +43,6 @@ jobs:
           python3 - <<'PY'
           import json
           from pathlib import Path
-          from PIL import Image
           root=Path("src/main/resources/assets/philtech")
           bad=[]
           missing=[]
@@ -60,12 +59,18 @@ jobs:
                       used.add(name)
                       q=root/"textures/block"/(name+".png")
                       if not q.exists(): missing.append((p.name,str(q)))
+          import struct
+          def png_size(p):
+              b=p.read_bytes()
+              if b[:8] != b"\x89PNG\r\n\x1a\n":
+                  return None
+              return struct.unpack(">II", b[16:24])
           wrong=[]
           for name in sorted(used):
               p=root/"textures/block"/(name+".png")
-              if Image.open(p).size != (32,32): wrong.append((name,Image.open(p).size))
+              if png_size(p) != (32,32): wrong.append((name,png_size(p)))
           for p in (root/"textures/item").glob("*.png"):
-              if Image.open(p).size != (32,32): wrong.append((p.name,Image.open(p).size))
+              if png_size(p) != (32,32): wrong.append((p.name,png_size(p)))
           if bad or missing or wrong:
               raise SystemExit(f"bad={bad} missing={missing} wrong_sizes={wrong}")
           print("Model + 32x32 validation OK")
