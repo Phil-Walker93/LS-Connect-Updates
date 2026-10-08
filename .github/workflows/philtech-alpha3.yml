@@ -1,7 +1,7 @@
-name: Build PhilTech Alpha 4
+name: Build PhilTech Alpha 5
 on:
   push:
-    branches: [philtech-alpha4-build]
+    branches: [philtech-alpha5-build]
   workflow_dispatch:
 jobs:
   build:
@@ -11,8 +11,20 @@ jobs:
         working-directory: philtech-build/project
     steps:
       - uses: actions/checkout@v4
-      - name: Apply Alpha 4 patch
+      - name: Apply Alpha 4 base patch
         run: base64 -d ../alpha4_patch.b64 | tar -xzf -
+      - name: Rebuild Alpha 5 patch
+        shell: bash
+        run: |
+          cat ../a5part*.txt > ../alpha5_patch.rebuilt.b64
+          echo "175268e0299ffa3fc184daeab115fdcb790f41232627d4916fbeeb9d3b6febf3  ../alpha5_patch.rebuilt.b64" | sha256sum -c -
+          base64 -d ../alpha5_patch.rebuilt.b64 > ../alpha5_patch.tar.gz
+          echo "d6ec4ca97bff511f409d2c542921ae3054d62cfb11a6885fe1fe6ee873921781  ../alpha5_patch.tar.gz" | sha256sum -c -
+          tar -xzf ../alpha5_patch.tar.gz
+      - name: Remove Alpha 4 textures replaced by Alpha 5
+        shell: bash
+        run: |
+          rm -f src/main/resources/assets/philtech/textures/block/{repair_side.png,energy_core.png,generator_front.png,machine_top.png,cable_core.png,crusher_front.png,generator_front_on.png,cable.png,machine_casing.png,crusher_front_on.png,repair_top_on.png,repair_top.png}
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
@@ -24,6 +36,6 @@ jobs:
         run: gradle build --stacktrace
       - uses: actions/upload-artifact@v4
         with:
-          name: philtech-0.1.0-alpha.4
-          path: philtech-build/project/build/libs/philtech-0.1.0-alpha.4.jar
+          name: philtech-0.1.0-alpha.5
+          path: philtech-build/project/build/libs/philtech-0.1.0-alpha.5.jar
           if-no-files-found: error
