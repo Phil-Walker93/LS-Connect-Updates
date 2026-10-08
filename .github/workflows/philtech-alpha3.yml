@@ -37,6 +37,12 @@ jobs:
           base64 -d ../alpha5_2_patch.rebuilt.b64 > ../alpha5_2_patch.tar.gz
           echo "75c30a0e1f60d1988f5090feb0a875c0c139c82dc2c3712713fadf858ac1efc1  ../alpha5_2_patch.tar.gz" | sha256sum -c -
           tar -xzf ../alpha5_2_patch.tar.gz
+      - name: Apply Alpha 5.2 screen constructor fix
+        shell: bash
+        run: |
+          base64 -d ../a52screenfix.b64 > ../a52screenfix.tar.gz
+          echo "6329319480e1364aa7fc501bcb63c3d94ed2f5e69dcfc5c0e5f4c174915e7468  ../a52screenfix.tar.gz" | sha256sum -c -
+          tar -xzf ../a52screenfix.tar.gz
       - name: Validate models and 32x32 assets
         shell: bash
         run: |
