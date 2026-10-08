@@ -40,7 +40,9 @@ jobs:
       - name: Apply Alpha 5.2 screen constructor fix
         shell: bash
         run: |
-          base64 -d ../a52screenfix.b64 > ../a52screenfix.tar.gz
+          cat ../a52screenfix*.txt > ../a52screenfix.rebuilt.b64
+          echo "4a7f846954f22898f4614c0c34f83e50afceb0c7107f90d47e8e0ec4d25e15f9  ../a52screenfix.rebuilt.b64" | sha256sum -c -
+          base64 -d ../a52screenfix.rebuilt.b64 > ../a52screenfix.tar.gz
           echo "6329319480e1364aa7fc501bcb63c3d94ed2f5e69dcfc5c0e5f4c174915e7468  ../a52screenfix.tar.gz" | sha256sum -c -
           tar -xzf ../a52screenfix.tar.gz
       - name: Validate models and 32x32 assets
