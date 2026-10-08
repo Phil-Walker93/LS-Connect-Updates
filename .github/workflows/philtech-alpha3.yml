@@ -1,7 +1,7 @@
-name: Build PhilTech Alpha 3
+name: Build PhilTech Alpha 4
 on:
   push:
-    branches: [philtech-alpha3-build]
+    branches: [philtech-alpha4-build]
   workflow_dispatch:
 jobs:
   build:
@@ -11,6 +11,8 @@ jobs:
         working-directory: philtech-build/project
     steps:
       - uses: actions/checkout@v4
+      - name: Apply Alpha 4 patch
+        run: base64 -d ../alpha4_patch.b64 | tar -xzf -
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
@@ -22,6 +24,6 @@ jobs:
         run: gradle build --stacktrace
       - uses: actions/upload-artifact@v4
         with:
-          name: philtech-0.1.0-alpha.3
-          path: philtech-build/project/build/libs/philtech-0.1.0-alpha.3.jar
+          name: philtech-0.1.0-alpha.4
+          path: philtech-build/project/build/libs/philtech-0.1.0-alpha.4.jar
           if-no-files-found: error
